@@ -8,9 +8,7 @@ const Header = () => {
         <div className="logo w-40 sm:w-60 lg:w-72 mix-blend-luminosity ">
           <img src={Logo} />
         </div>
-        <div className="hidden sm:flex  nav-item">
-          <button className="px-4 py-2 text-white font-semibold bg-red-500 rounded-md">Account</button>
-        </div>
+        
       </div>
     </nav>
   );
