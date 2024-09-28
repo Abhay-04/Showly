@@ -9,9 +9,9 @@ const SignIn = () => {
   };
 
   return (
-    <div>
-      <div className=" h-screen flex justify-start sm:justify-center items-start sm:items-center pt-24 bg-no-repeat bg-cover bg-black sm:bg-[url('https://assets.nflxext.com/ffe/siteui/vlv3/bfc0fc46-24f6-4d70-85b3-7799315c01dd/web/IN-en-20240923-TRIFECTA-perspective_74e21c19-980e-45ef-bd6c-78c1a6ce9381_large.jpg')]">
-        <div className="flex flex-col gap-4 w-full   sm:min-w-[500px]  min-h-[70vh] sm:w-[80vw] md:w-[50vw] lg:w-[40vw] xl:w-[20vw]  bg-black opacity-90 p-4 sm:py-16  sm:px-14  ">
+    <form>
+      <div className=" h-screen flex justify-center sm:justify-center items-center sm:items-center  bg-no-repeat bg-cover bg-black sm:bg-[url('https://assets.nflxext.com/ffe/siteui/vlv3/bfc0fc46-24f6-4d70-85b3-7799315c01dd/web/IN-en-20240923-TRIFECTA-perspective_74e21c19-980e-45ef-bd6c-78c1a6ce9381_large.jpg')]">
+        <div className="flex flex-col gap-3 w-full   sm:min-w-[400px] h-auto lg:min-h-[70vh]   sm:w-[80vw] md:w-[50vw] lg:w-[40vw] xl:w-[24vw]  bg-black opacity-95 p-4 sm:py-12  sm:px-14 rounded-md  ">
           <h1 className="text-white text-4xl font-bold mb-4">
             {isSignForm ? "Sign In" : "Sign Up"}
           </h1>
@@ -44,8 +44,6 @@ const SignIn = () => {
             ></i>
           </div>
 
-          
-
           {!isSignForm && (
             <input
               type="password"
@@ -56,12 +54,16 @@ const SignIn = () => {
 
           <button
             className="bg-red-600 px-6 py-2 text-white rounded-sm font-bold "
-            type="button"
+            type="submit"
           >
             {isSignForm ? "Sign In" : "Sign Up"}
           </button>
+         {isSignForm && <p className="text-white text-lg self-center my-1">OR</p>}
+
+         {isSignForm && <button  className="bg-[#a19e9ef6] px-6 py-2 text-white rounded-sm font-bold ">Continue as a Guest</button>}
+
           {isSignForm && (
-            <h5 className="text-white text-lg self-center my-2">
+            <h5 className="text-white text-md font-semibold self-center my-2">
               Forgot password?
             </h5>
           )}
@@ -76,7 +78,7 @@ const SignIn = () => {
           </h5>
         </div>
       </div>
-    </div>
+    </form>
   );
 };
 

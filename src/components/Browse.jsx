@@ -1,11 +1,11 @@
 import { Link, Outlet } from "react-router-dom";
-import Header from "./Header";
+
 
 const Browse = () => {
   return (
     <>
       <div className="main">
-        <Header />
+      
         <div className="flex justify-around">
           <div>
             <ul>
