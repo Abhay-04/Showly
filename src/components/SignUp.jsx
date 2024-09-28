@@ -2,7 +2,7 @@ const SignUp = () => {
   return (
     <div>
       <div className=" h-screen flex justify-start sm:justify-center items-start sm:items-center pt-24 bg-no-repeat bg-cover bg-black sm:bg-[url('https://assets.nflxext.com/ffe/siteui/vlv3/bfc0fc46-24f6-4d70-85b3-7799315c01dd/web/IN-en-20240923-TRIFECTA-perspective_74e21c19-980e-45ef-bd6c-78c1a6ce9381_large.jpg')]">
-        <div className="flex flex-col gap-4 w-full sm:w-auto h-[70vh] bg-black opacity-90 p-4 sm:py-16 sm:px-14  ">
+        <div className="flex flex-col gap-4 w-full sm:w-auto  bg-black opacity-90 p-4 sm:py-16  sm:px-14  ">
           <h1 className="text-white text-4xl font-bold mb-4">Sign In</h1>
           <input 
             type="text"
