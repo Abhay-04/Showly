@@ -4,6 +4,7 @@ import { validate } from "../utils/validate";
 const SignIn = () => {
   const [isSignForm, setIsSignForm] = useState(true);
   const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [errorMessage, setErrorMessage] = useState(null);
 
   const email = useRef(null);
@@ -17,14 +18,15 @@ const SignIn = () => {
 
   const handleButtonClick = () => {
     // validate the form data
+
     const errorMessage = validate(
       email.current.value,
       password.current.value,
-      fullName.current.value,
-      confirmPassword.current.value
+      !isSignForm && fullName.current.value,
+      !isSignForm && confirmPassword.current.value
     );
+
     setErrorMessage(errorMessage);
-    console.log(errorMessage);
   };
 
   return (
@@ -67,12 +69,21 @@ const SignIn = () => {
           </div>
 
           {!isSignForm && (
-            <input
-              ref={confirmPassword}
-              type="password"
-              className="py-4 pl-4 pr-24 items-start text-md font-semibold mb-1 rounded-sm bg-black border border-gray-500 text-white"
-              placeholder="Confirm Password"
-            />
+            <div className="relative items-start text-md font-semibold mb-1 rounded-sm bg-black border border-gray-500 text-white">
+             
+              <input
+                ref={confirmPassword}
+                type={showConfirmPassword ? "text" : "password"}
+                className="py-4 pl-4 pr-10 text-md font-semibold bg-black w-full"
+                placeholder="Confirm Password"
+              />
+              <i
+              onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+              className={`absolute right-3 top-1/2 transform -translate-y-1/2 cursor-pointer ${
+                showConfirmPassword ? "ri-eye-line" : "ri-eye-close-line"
+              } text-white`}
+            ></i>
+            </div>
           )}
 
           <p className="text-red-600 text-md font-bold p-2 ">{errorMessage}</p>
