@@ -31,7 +31,7 @@ const SignIn = () => {
 
   return (
     <form onSubmit={(e) => e.preventDefault()}>
-      <div className=" h-screen flex justify-center sm:justify-center items-center sm:items-center  bg-no-repeat bg-cover bg-black sm:bg-[url('https://assets.nflxext.com/ffe/siteui/vlv3/bfc0fc46-24f6-4d70-85b3-7799315c01dd/web/IN-en-20240923-TRIFECTA-perspective_74e21c19-980e-45ef-bd6c-78c1a6ce9381_large.jpg')]">
+      <div className=" h-screen flex justify-center sm:justify-center items-center sm:items-center  bg-no-repeat bg-cover bg-black sm:bg-[url('https://analyticsindiamag.com/wp-content/uploads/2019/05/apps.55787.9007199266246365.687a10a8-4c4a-4a47-8ec5-a95f70d8852d.jpg')]">
         <div className="flex flex-col gap-3 w-full   sm:min-w-[400px] h-auto lg:min-h-[70vh]   sm:w-[80vw] md:w-[50vw] lg:w-[40vw] xl:w-[24vw]  bg-black opacity-95 p-4 sm:py-12  sm:px-14 rounded-md  ">
           <h1 className="text-white text-4xl font-bold mb-4">
             {isSignForm ? "Sign In" : "Sign Up"}
@@ -111,7 +111,7 @@ const SignIn = () => {
             </h5>
           )}
           <h5 className="text-white text-md  my-2">
-            {isSignForm ? "New to Trailermate?" : "Already User? "}{" "}
+            {isSignForm ? "New to Showly?" : "Already User? "}{" "}
             <span
               onClick={handleSignUp}
               className="font-extrabold cursor-pointer"
