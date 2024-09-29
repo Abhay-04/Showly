@@ -17,7 +17,7 @@ export const validate = (email, password, fullName, confirmPassword) => {
   if (!isEmailValid) return "Email is not valid";
 
   if (!isPasswordValid)
-    return "Password must have 8+ characters, 1 uppercase, 1 special character, and 1 number";
+    return "Password must be 8+ characters with a letter, a special character, and a number.";
 
   if (confirmPassword !== false && password !== confirmPassword)
     return "Password not matched";

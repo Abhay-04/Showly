@@ -4,7 +4,7 @@ import { validate } from "../utils/validate";
 const SignIn = () => {
   const [isSignForm, setIsSignForm] = useState(true);
   const [showPassword, setShowPassword] = useState(false);
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
 
   const email = useRef(null);
@@ -62,7 +62,7 @@ const SignIn = () => {
             />
             <i
               onClick={() => setShowPassword(!showPassword)}
-              className={`absolute right-3 top-1/2 transform -translate-y-1/2 cursor-pointer ${
+              className={` text-xl absolute right-3 top-1/2 transform -translate-y-1/2 cursor-pointer pr-1 ${
                 showPassword ? "ri-eye-line" : "ri-eye-close-line"
               } text-white`}
             ></i>
@@ -79,7 +79,7 @@ const SignIn = () => {
               />
               <i
               onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-              className={`absolute right-3 top-1/2 transform -translate-y-1/2 cursor-pointer ${
+              className={`text-xl absolute right-3 top-1/2 transform -translate-y-1/2 cursor-pointer pr-1 ${
                 showConfirmPassword ? "ri-eye-line" : "ri-eye-close-line"
               } text-white`}
             ></i>
