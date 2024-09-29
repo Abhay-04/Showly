@@ -1,5 +1,10 @@
 import { useState, useRef } from "react";
 import { validate } from "../utils/validate";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
+import { auth } from "../utils/firebase";
 
 const SignIn = () => {
   const [isSignForm, setIsSignForm] = useState(true);
@@ -27,6 +32,44 @@ const SignIn = () => {
     );
 
     setErrorMessage(errorMessage);
+
+    if (errorMessage !== null) return "done validation";
+
+    if (!isSignForm) {
+      //signup logic
+      createUserWithEmailAndPassword(
+        auth,
+        email.current.value,
+        password.current.value
+      )
+        .then((userCredential) => {
+          // Signed up
+          const user = userCredential.user;
+          console.log(user);
+          // ...
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          setErrorMessage(errorCode + errorMessage);
+          // ..
+        });
+    } else {
+      //signin logic
+
+      signInWithEmailAndPassword(auth, email.current.value, password.current.value)
+        .then((userCredential) => {
+          // Signed in
+          const user = userCredential.user;
+          console.log(user);
+          // ...
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          setErrorMessage(errorCode + errorMessage);
+        });
+    }
   };
 
   return (
@@ -70,7 +113,6 @@ const SignIn = () => {
 
           {!isSignForm && (
             <div className="relative items-start text-md font-semibold mb-1 rounded-sm bg-black border border-gray-500 text-white">
-             
               <input
                 ref={confirmPassword}
                 type={showConfirmPassword ? "text" : "password"}
@@ -78,11 +120,11 @@ const SignIn = () => {
                 placeholder="Confirm Password"
               />
               <i
-              onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-              className={`text-xl absolute right-3 top-1/2 transform -translate-y-1/2 cursor-pointer pr-1 ${
-                showConfirmPassword ? "ri-eye-line" : "ri-eye-close-line"
-              } text-white`}
-            ></i>
+                onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                className={`text-xl absolute right-3 top-1/2 transform -translate-y-1/2 cursor-pointer pr-1 ${
+                  showConfirmPassword ? "ri-eye-line" : "ri-eye-close-line"
+                } text-white`}
+              ></i>
             </div>
           )}
 
