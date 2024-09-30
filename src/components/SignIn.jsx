@@ -4,7 +4,12 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
 } from "firebase/auth";
-import { auth, provider , signInWithPopup , signInAnonymously   } from "../utils/firebase";
+import {
+  auth,
+  provider,
+  signInWithPopup,
+  signInAnonymously,
+} from "../utils/firebase";
 
 const SignIn = () => {
   const [isSignForm, setIsSignForm] = useState(true);
@@ -99,7 +104,7 @@ const SignIn = () => {
 
   return (
     <form onSubmit={(e) => e.preventDefault()}>
-      <div className=" h-screen flex justify-center sm:justify-center items-center sm:items-center  bg-no-repeat bg-cover bg-black sm:bg-[url('https://analyticsindiamag.com/wp-content/uploads/2019/05/apps.55787.9007199266246365.687a10a8-4c4a-4a47-8ec5-a95f70d8852d.jpg')]">
+      <div className=" h-screen pt-20  flex justify-center sm:justify-center items-center sm:items-center  bg-no-repeat bg-cover bg-black sm:bg-[url('https://analyticsindiamag.com/wp-content/uploads/2019/05/apps.55787.9007199266246365.687a10a8-4c4a-4a47-8ec5-a95f70d8852d.jpg')]">
         <div className="flex flex-col gap-3 w-full   sm:min-w-[400px] h-auto lg:min-h-[70vh]   sm:w-[80vw] md:w-[50vw] lg:w-[40vw] xl:w-[24vw]  bg-black opacity-95 p-4 sm:py-12  sm:px-14 rounded-md  ">
           <h1 className="text-white text-4xl font-bold mb-4">
             {isSignForm ? "Sign In" : "Sign Up"}
@@ -163,16 +168,25 @@ const SignIn = () => {
           >
             {isSignForm ? "Sign In" : "Sign Up"}
           </button>
+
+          {isSignForm && (
+            <h5 className="text-white text-md font-semibold mt-4 cursor-pointer  ">
+              Forgot password?
+            </h5>
+          )}
+
           {isSignForm && (
             <p className="text-white text-lg self-center my-1">OR</p>
           )}
 
-          {isSignForm && <button
-            onClick={handleGoogleLogin}
-            className="bg-[#a19e9ef6] px-6 py-2 text-white rounded-sm font-bold "
-          >
-            Login with google
-          </button>}
+          {isSignForm && (
+            <button
+              onClick={handleGoogleLogin}
+              className="bg-[#a19e9ef6] px-6 py-2 text-white rounded-sm font-bold "
+            >
+              Login with google
+            </button>
+          )}
 
           {isSignForm && (
             <button
@@ -183,14 +197,7 @@ const SignIn = () => {
             </button>
           )}
 
-         
-
-          {isSignForm && (
-            <h5 className="text-white text-md font-semibold self-center my-2">
-              Forgot password?
-            </h5>
-          )}
-          <h5 className="text-white text-md  my-2">
+          <h5 className="text-white text-md pt-4 ">
             {isSignForm ? "New to Showly?" : "Already User? "}{" "}
             <span
               onClick={handleSignUp}

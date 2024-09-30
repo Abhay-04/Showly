@@ -10,6 +10,8 @@ import Popular from "./components/Popular.jsx";
 import Movies from "./components/Movies.jsx";
 import Tvshows from "./components/Tvshows.jsx";
 import Peoples from "./components/Peoples.jsx";
+import { Provider } from "react-redux";
+import appStore from "./store/appStore.jsx";
 
 const router = createBrowserRouter([
   {
@@ -36,10 +38,11 @@ const router = createBrowserRouter([
       {
         path: "/browse/tvshows",
         element: <Tvshows />,
-      },{
+      },
+      {
         path: "/browse/peoples",
         element: <Peoples />,
-      }
+      },
     ],
     errorElement: <Error />,
   },
@@ -47,6 +50,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <Provider store={appStore}>
+      <RouterProvider router={router} />
+    </Provider>
   </StrictMode>
 );
