@@ -4,7 +4,7 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
 } from "firebase/auth";
-import { auth } from "../utils/firebase";
+import { auth, provider , signInWithPopup , signInAnonymously   } from "../utils/firebase";
 
 const SignIn = () => {
   const [isSignForm, setIsSignForm] = useState(true);
@@ -76,22 +76,24 @@ const SignIn = () => {
     }
   };
 
-  const handleGuestLogin = () => {
-    signInWithEmailAndPassword(
-      auth,
-      (email.current.value = "Guest@guest.com"),
-      (password.current.value = "guest@guest123")
-    )
-      .then((userCredential) => {
-        // Signed in
-        const user = userCredential.user;
-        console.log(user);
-        // ...
+  const handleSignInAnonymously = () => {
+    signInAnonymously(auth)
+      .then((result) => {
+        // Successfully signed in anonymously
+        console.log("Signed in anonymously as:", result.user);
       })
       .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        setErrorMessage(errorCode + errorMessage);
+        console.error("Error during anonymous sign-in", error);
+      });
+  };
+  const handleGoogleLogin = () => {
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        // Successfully logged in
+        console.log(result.user);
+      })
+      .catch((error) => {
+        console.error("Error during login", error);
       });
   };
 
@@ -142,9 +144,10 @@ const SignIn = () => {
                 className="py-4 pl-4 pr-10 text-md font-semibold bg-black w-full"
                 placeholder="Confirm Password"
               />
+
               <i
                 onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                className={`text-xl absolute right-3 top-1/2 transform -translate-y-1/2 cursor-pointer pr-1 ${
+                className={` text-xl absolute right-3 top-1/2 transform -translate-y-1/2 cursor-pointer pr-1 ${
                   showConfirmPassword ? "ri-eye-line" : "ri-eye-close-line"
                 } text-white`}
               ></i>
@@ -164,14 +167,23 @@ const SignIn = () => {
             <p className="text-white text-lg self-center my-1">OR</p>
           )}
 
+          {isSignForm && <button
+            onClick={handleGoogleLogin}
+            className="bg-[#a19e9ef6] px-6 py-2 text-white rounded-sm font-bold "
+          >
+            Login with google
+          </button>}
+
           {isSignForm && (
             <button
-              onClick={handleGuestLogin}
+              onClick={handleSignInAnonymously}
               className="bg-[#a19e9ef6] px-6 py-2 text-white rounded-sm font-bold "
             >
               Continue as a Guest
             </button>
           )}
+
+         
 
           {isSignForm && (
             <h5 className="text-white text-md font-semibold self-center my-2">
