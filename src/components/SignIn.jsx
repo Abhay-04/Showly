@@ -57,7 +57,11 @@ const SignIn = () => {
     } else {
       //signin logic
 
-      signInWithEmailAndPassword(auth, email.current.value, password.current.value)
+      signInWithEmailAndPassword(
+        auth,
+        email.current.value,
+        password.current.value
+      )
         .then((userCredential) => {
           // Signed in
           const user = userCredential.user;
@@ -70,6 +74,25 @@ const SignIn = () => {
           setErrorMessage(errorCode + errorMessage);
         });
     }
+  };
+
+  const handleGuestLogin = () => {
+    signInWithEmailAndPassword(
+      auth,
+      (email.current.value = "Guest@guest.com"),
+      (password.current.value = "guest@guest123")
+    )
+      .then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
+        console.log(user);
+        // ...
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        setErrorMessage(errorCode + errorMessage);
+      });
   };
 
   return (
@@ -142,7 +165,10 @@ const SignIn = () => {
           )}
 
           {isSignForm && (
-            <button className="bg-[#a19e9ef6] px-6 py-2 text-white rounded-sm font-bold ">
+            <button
+              onClick={handleGuestLogin}
+              className="bg-[#a19e9ef6] px-6 py-2 text-white rounded-sm font-bold "
+            >
               Continue as a Guest
             </button>
           )}
