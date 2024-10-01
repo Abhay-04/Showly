@@ -54,12 +54,18 @@ const Browse = () => {
                   className="size-8 rounded-full mx-3"
                   src={
                     user?.photoURL
-                       
+                      ? user?.photoURL
+                      : "https://icons.veryicon.com/png/o/miscellaneous/youyinzhibo/guest.png"
                   }
                 />
                 <p>{user?.displayName ? user?.displayName : "Guest"}</p>
               </div>
-              <div className="bg-red-500 text-center mt-2  px-6 py-2 rounded-md w-full text-white cursor-pointer " onClick={handleSignOut}>Logout</div>
+              <div
+                className="bg-red-500 text-center mt-2  px-6 py-2 rounded-md w-full text-white cursor-pointer "
+                onClick={handleSignOut}
+              >
+                Logout
+              </div>
             </div>
           </div>
           <div className="right w-full bg-red-300">
