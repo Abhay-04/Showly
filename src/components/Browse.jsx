@@ -5,6 +5,7 @@ import { auth } from "../utils/firebase";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { addUser, removeUser } from "../store/userSlice";
+import { USER_AVATAR } from "../utils/constants";
 
 const Browse = () => {
 
@@ -81,7 +82,7 @@ const Browse = () => {
                   src={
                     user?.photoURL
                       ? user?.photoURL
-                      : "https://icons.veryicon.com/png/o/miscellaneous/youyinzhibo/guest.png"
+                      : USER_AVATAR
                   }
                 />
                 <p>{user?.displayName ? user?.displayName : "Guest"}</p>

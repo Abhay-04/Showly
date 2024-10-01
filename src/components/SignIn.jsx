@@ -14,6 +14,7 @@ import {
 
 import { useDispatch } from "react-redux";
 import { addUser } from "../store/userSlice";
+import { USER_AVATAR } from "../utils/constants";
 
 const SignIn = () => {
   const [isSignForm, setIsSignForm] = useState(true);
@@ -58,8 +59,7 @@ const SignIn = () => {
           const user = userCredential.user;
           updateProfile(user, {
             displayName: fullName.current.value,
-            photoURL:
-              "https://icons.veryicon.com/png/o/miscellaneous/youyinzhibo/guest.png",
+            photoURL: USER_AVATAR,
           })
             .then(() => {
               const { uid, email, displayName, photoURL } = auth.currentUser;
@@ -114,20 +114,18 @@ const SignIn = () => {
         console.log("Signed in anonymously as:", result.user);
         updateProfile(result.user, {
           displayName: "Guest",
-          photoURL:
-            "https://icons.veryicon.com/png/o/miscellaneous/youyinzhibo/guest.png",
-        })
-          .then(() => {
-            const { uid, email, displayName, photoURL } = auth.currentUser;
-            dispatch(
-              addUser({
-                uid: uid,
-                email: email,
-                displayName: displayName,
-                photoURL: photoURL,
-              })
-            );
-          })
+          photoURL: USER_AVATAR,
+        }).then(() => {
+          const { uid, email, displayName, photoURL } = auth.currentUser;
+          dispatch(
+            addUser({
+              uid: uid,
+              email: email,
+              displayName: displayName,
+              photoURL: photoURL,
+            })
+          );
+        });
       })
       .catch((error) => {
         console.error("Error during anonymous sign-in", error);
