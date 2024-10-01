@@ -11,7 +11,7 @@ import {
   signInWithPopup,
   signInAnonymously,
 } from "../utils/firebase";
-import { useNavigate } from "react-router-dom";
+
 import { useDispatch } from "react-redux";
 import { addUser } from "../store/userSlice";
 

@@ -1,11 +1,36 @@
 import { Link, Outlet, useNavigate } from "react-router-dom";
 import Logo from "../../src/logo.jpg";
-import { signOut } from "firebase/auth";
+import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "../utils/firebase";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { addUser, removeUser } from "../store/userSlice";
 
 const Browse = () => {
+
+  const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        // User is signed in, see docs for a list of available properties
+        // https://firebase.google.com/docs/reference/js/auth.user
+        const { uid, email, displayName , photoURL } = user;
+        dispatch(addUser({ uid: uid, email: email, displayName: displayName , photoURL: photoURL }));
+        navigate("/browse");
+
+        // ...
+      } else {
+        // User is signed out
+        dispatch(removeUser());
+        navigate("/");
+        
+        // ...
+      }
+    });
+  }, []);
+  
 
   const user = useSelector((store) => store.user);
 
@@ -13,10 +38,11 @@ const Browse = () => {
     signOut(auth)
       .then(() => {
         // Sign-out successful.
-        navigate("/");
+       
       })
       .catch((error) => {
         // An error happened.
+        console.log(error)
       });
   };
 
