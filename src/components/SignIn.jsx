@@ -3,6 +3,7 @@ import { validate } from "../utils/validate";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  updateProfile,
 } from "firebase/auth";
 import {
   auth,
@@ -10,6 +11,9 @@ import {
   signInWithPopup,
   signInAnonymously,
 } from "../utils/firebase";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addUser } from "../store/userSlice";
 
 const SignIn = () => {
   const [isSignForm, setIsSignForm] = useState(true);
@@ -21,6 +25,8 @@ const SignIn = () => {
   const password = useRef(null);
   const fullName = useRef(null);
   const confirmPassword = useRef(null);
+
+  const dispatch = useDispatch();
 
   const handleSignUp = () => {
     setIsSignForm(!isSignForm);
@@ -50,6 +56,25 @@ const SignIn = () => {
         .then((userCredential) => {
           // Signed up
           const user = userCredential.user;
+          updateProfile(user, {
+            displayName: fullName.current.value,
+            photoURL:
+              "https://icons.veryicon.com/png/o/miscellaneous/youyinzhibo/guest.png",
+          })
+            .then(() => {
+              const { uid, email, displayName, photoURL } = auth.currentUser;
+              dispatch(
+                addUser({
+                  uid: uid,
+                  email: email,
+                  displayName: displayName,
+                  photoURL: photoURL,
+                })
+              );
+            })
+            .catch((error) => {
+              setErrorMessage(error.message);
+            });
           console.log(user);
           // ...
         })
@@ -70,6 +95,7 @@ const SignIn = () => {
         .then((userCredential) => {
           // Signed in
           const user = userCredential.user;
+
           console.log(user);
           // ...
         })
@@ -86,6 +112,22 @@ const SignIn = () => {
       .then((result) => {
         // Successfully signed in anonymously
         console.log("Signed in anonymously as:", result.user);
+        updateProfile(result.user, {
+          displayName: "Guest",
+          photoURL:
+            "https://icons.veryicon.com/png/o/miscellaneous/youyinzhibo/guest.png",
+        })
+          .then(() => {
+            const { uid, email, displayName, photoURL } = auth.currentUser;
+            dispatch(
+              addUser({
+                uid: uid,
+                email: email,
+                displayName: displayName,
+                photoURL: photoURL,
+              })
+            );
+          })
       })
       .catch((error) => {
         console.error("Error during anonymous sign-in", error);

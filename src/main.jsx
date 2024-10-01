@@ -1,4 +1,4 @@
-import { StrictMode } from "react";
+import { StrictMode, useEffect } from "react";
 import { createRoot } from "react-dom/client";
 import App from "./App.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
@@ -12,6 +12,8 @@ import Tvshows from "./components/Tvshows.jsx";
 import Peoples from "./components/Peoples.jsx";
 import { Provider } from "react-redux";
 import appStore from "./store/appStore.jsx";
+
+
 
 const router = createBrowserRouter([
   {
@@ -47,6 +49,8 @@ const router = createBrowserRouter([
     errorElement: <Error />,
   },
 ]);
+
+
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
