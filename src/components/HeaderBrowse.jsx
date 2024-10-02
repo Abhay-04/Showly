@@ -69,7 +69,9 @@ const HeaderBrowse = () => {
             src={user?.photoURL ? user?.photoURL : USER_AVATAR}
             alt="User Avatar"
           />
-           <p className="mr-1">{user?.displayName ? user?.displayName : "Guest"}</p>
+          <p className="mr-1">
+            {user?.displayName ? user?.displayName : "Guest"}
+          </p>
           <i
             className="ri-arrow-down-s-fill cursor-pointer"
             onClick={handleToggleDropdown}
@@ -82,15 +84,18 @@ const HeaderBrowse = () => {
             <ul className="list-none bg-[#181E24] px-4 py-2 cursor-pointer rounded-lg  w-40 h-auto  ">
               <li className="my-2 hover:bg-gray-300 rounded-md px-2 py-1">
                 <i className="ri-user-3-fill mr-4"></i>
-               Profile
+                Profile
               </li>
-              <li className="my-2 hover:bg-gray-300 rounded-md px-2 py-1" >
-                <i className="ri-settings-3-fill mr-4"></i>Setting
+              <li className="my-2 hover:bg-gray-300 rounded-md px-2 py-1">
+                <i className="ri-settings-3-fill mr-4"></i>Settings
               </li>
               <li className="my-2 hover:bg-gray-300 rounded-md px-2 py-1">
                 <i className="ri-bookmark-2-fill mr-4"></i>Saved
               </li>
-              <li onClick={handleSignOut} className="my-2 hover:bg-gray-300 rounded-md px-2 py-1 ">
+              <li
+                onClick={handleSignOut}
+                className="my-2 hover:bg-gray-300 rounded-md px-2 py-1 "
+              >
                 <i className="ri-logout-box-r-line mr-4"></i>
                 Logout
               </li>
