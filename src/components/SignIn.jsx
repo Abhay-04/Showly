@@ -113,7 +113,7 @@ const SignIn = () => {
         // Successfully signed in anonymously
         console.log("Signed in anonymously as:", result.user);
         updateProfile(result.user, {
-          displayName: "Guest",
+          displayName: "Guest Sharma",
           photoURL: USER_AVATAR,
         }).then(() => {
           const { uid, email, displayName, photoURL } = auth.currentUser;

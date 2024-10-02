@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Logo from "../../src/logo.jpg";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "../utils/firebase";
@@ -9,6 +9,8 @@ import { USER_AVATAR } from "../utils/constants";
 import { useNavigate } from "react-router-dom";
 
 const HeaderBrowse = () => {
+  const [showDropdown, setShowDropdown] = useState(false);
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -39,6 +41,10 @@ const HeaderBrowse = () => {
     });
   }, []);
 
+  const handleToggleDropdown = () => {
+    setShowDropdown(!showDropdown);
+  };
+
   const user = useSelector((store) => store.user);
 
   const handleSignOut = () => {
@@ -52,30 +58,48 @@ const HeaderBrowse = () => {
       });
   };
   return (
-    <div className="flex justify-between items-center px-12 bg-black text-white">
+    <div className="flex justify-between h-[10vh] items-center px-12 bg-[#1D232A] text-white">
       <div className="logo">
-        <img className="w-32 h-28" src={Logo} />
+        <img className="w-36 h-auto" src={Logo} alt="Logo" />
       </div>
-      <div className="right-nav flex items-center gap-2">
+      <div className="right-nav flex items-center gap-2 relative">
         <div className="flex items-center">
           <img
-            className="size-8 rounded-full mx-2"
+            className="w-8 h-8 rounded-full mx-2"
             src={user?.photoURL ? user?.photoURL : USER_AVATAR}
+            alt="User Avatar"
           />
-          <p>{user?.displayName ? user?.displayName : "Guest"}</p>
-          <i className="ri-arrow-down-s-line"></i>
-          <div
-            className="bg-red-500 text-center mt-2  px-6 py-2 rounded-md w-full text-white cursor-pointer "
-            onClick={handleSignOut}
-          >
-            Logout
-          </div>
+           <p className="mr-1">{user?.displayName ? user?.displayName : "Guest"}</p>
+          <i
+            className="ri-arrow-down-s-fill cursor-pointer"
+            onClick={handleToggleDropdown}
+          ></i>
         </div>
+
+        {/* Dropdown menu */}
+        {showDropdown && (
+          <div className="absolute -bottom-48 right-0 mt-2 bg-transparent text-white font-semibold  rounded-md shadow-lg">
+            <ul className="list-none bg-[#181E24] px-4 py-2 cursor-pointer rounded-lg  w-40 h-auto  ">
+              <li className="my-2 hover:bg-gray-300 rounded-md px-2 py-1">
+                <i className="ri-user-3-fill mr-4"></i>
+               Profile
+              </li>
+              <li className="my-2 hover:bg-gray-300 rounded-md px-2 py-1" >
+                <i className="ri-settings-3-fill mr-4"></i>Setting
+              </li>
+              <li className="my-2 hover:bg-gray-300 rounded-md px-2 py-1">
+                <i className="ri-bookmark-2-fill mr-4"></i>Saved
+              </li>
+              <li onClick={handleSignOut} className="my-2 hover:bg-gray-300 rounded-md px-2 py-1 ">
+                <i className="ri-logout-box-r-line mr-4"></i>
+                Logout
+              </li>
+            </ul>
+          </div>
+        )}
       </div>
     </div>
   );
 };
 
 export default HeaderBrowse;
-
-
