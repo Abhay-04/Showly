@@ -12,6 +12,7 @@ import Tvshows from "./components/Tvshows.jsx";
 import Peoples from "./components/Peoples.jsx";
 import { Provider } from "react-redux";
 import appStore from "./store/appStore.jsx";
+import Saved from "./components/Saved.jsx";
 
 
 
@@ -45,6 +46,10 @@ const router = createBrowserRouter([
         path: "/browse/peoples",
         element: <Peoples />,
       },
+      {
+        path: "/browse/saved",
+        element: <Saved />,
+      }
     ],
     errorElement: <Error />,
   },

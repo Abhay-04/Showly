@@ -1,12 +1,12 @@
-import React, { useState } from "react";
+
 import Logo from "../../src/logo.jpg";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "../utils/firebase";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { addUser, removeUser } from "../store/userSlice";
 import { USER_AVATAR } from "../utils/constants";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const HeaderBrowse = () => {
   const [showDropdown, setShowDropdown] = useState(false);
@@ -58,7 +58,7 @@ const HeaderBrowse = () => {
       });
   };
   return (
-    <div className="flex justify-between h-[10vh] items-center px-12 bg-[#1D232A] text-white">
+    <div className="flex justify-between h-[10vh] items-center px-12 bg-[#1D232A] text-white border-b-2 border-[#505760]">
       <div className="logo">
         <img className="w-36 h-auto" src={Logo} alt="Logo" />
       </div>
@@ -89,9 +89,9 @@ const HeaderBrowse = () => {
               <li className="my-2 hover:bg-gray-300 rounded-md px-2 py-1">
                 <i className="ri-settings-3-fill mr-4"></i>Settings
               </li>
-              <li className="my-2 hover:bg-gray-300 rounded-md px-2 py-1">
+             <Link to={"/browse/saved"}> <li className="my-2 hover:bg-gray-300 rounded-md px-2 py-1">
                 <i className="ri-bookmark-2-fill mr-4"></i>Saved
-              </li>
+              </li></Link>
               <li
                 onClick={handleSignOut}
                 className="my-2 hover:bg-gray-300 rounded-md px-2 py-1 "
