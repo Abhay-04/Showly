@@ -11,7 +11,7 @@ const Browse = () => {
         <div className="flex justify-between">
           <div className="left  h-[90vh] bg-[#2A323C] flex flex-col justify-between items-start px-4 py-6">
             <ul className="text-xl text-white font-semibold flex flex-col gap-10 p-6 ">
-              <Link to={"/browse"}>
+              <Link to={"/browse/trending"}>
                 <li className="hover:bg-gray-300 rounded-md px-6 py-2 w-full"><i className="ri-fire-fill mr-2"></i>Trending</li>
               </Link>
               <Link to={"/browse/popular"}>

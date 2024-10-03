@@ -27,7 +27,7 @@ const router = createBrowserRouter([
     element: <Browse />,
     children: [
       {
-        path: "/browse",
+        path: "/browse/trending",
         element: <Trending />,
       },
       {
