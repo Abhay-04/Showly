@@ -1,8 +1,27 @@
 import { Link, Outlet } from "react-router-dom";
 
 import HeaderBrowse from "./HeaderBrowse";
+import { useEffect, useState } from "react";
+import { options } from "../utils/constants";
 
 const Browse = () => {
+  const [nowPlaying, setNowPlaying] = useState();
+
+  const fetchNowPlaying = async () => {
+    const data = await fetch(
+      "https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1",
+      options
+    );
+
+    const json = await data.json();
+
+    console.log(json);
+  };
+
+  useEffect(() => {
+    fetchNowPlaying();
+  }, []);
+
   return (
     <>
       <div className="main">
@@ -12,20 +31,30 @@ const Browse = () => {
           <div className="left  h-[90vh] bg-[#2A323C] flex flex-col justify-between items-start px-4 py-6">
             <ul className="text-xl text-white font-semibold flex flex-col gap-10 p-6 ">
               <Link to={"/browse/trending"}>
-                <li className="hover:bg-gray-300 rounded-md px-6 py-2 w-full"><i className="ri-fire-fill mr-2"></i>Trending</li>
+                <li className="hover:bg-gray-300 rounded-md px-6 py-2 w-full">
+                  <i className="ri-fire-fill mr-2"></i>Trending
+                </li>
               </Link>
               <Link to={"/browse/popular"}>
-                <li className="hover:bg-gray-300 rounded-md px-6 py-2 w-full"><i className="ri-bard-fill mr-2"></i>Popular</li>
+                <li className="hover:bg-gray-300 rounded-md px-6 py-2 w-full">
+                  <i className="ri-bard-fill mr-2"></i>Popular
+                </li>
               </Link>
               <Link to={"/browse/movies"}>
-                <li className="hover:bg-gray-300 rounded-md px-6 py-2 w-full"><i className="ri-movie-2-fill mr-2"></i>Movies</li>
+                <li className="hover:bg-gray-300 rounded-md px-6 py-2 w-full">
+                  <i className="ri-movie-2-fill mr-2"></i>Movies
+                </li>
               </Link>
               <Link to={"/browse/tvshows"}>
-                <li className="hover:bg-gray-300 rounded-md px-6 py-2 w-full"><i className="ri-tv-2-fill mr-2"></i>Tvshows</li>
+                <li className="hover:bg-gray-300 rounded-md px-6 py-2 w-full">
+                  <i className="ri-tv-2-fill mr-2"></i>Tvshows
+                </li>
               </Link>
               <Link to={"/browse/peoples"}>
                 {" "}
-                <li className="hover:bg-gray-300 rounded-md px-6 py-2 w-full"><i className="ri-team-fill mr-2"></i>Peoples</li>
+                <li className="hover:bg-gray-300 rounded-md px-6 py-2 w-full">
+                  <i className="ri-team-fill mr-2"></i>Peoples
+                </li>
               </Link>
             </ul>
           </div>

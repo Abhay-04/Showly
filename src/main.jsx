@@ -1,4 +1,4 @@
-import { StrictMode} from "react";
+import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import App from "./App.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
@@ -13,8 +13,6 @@ import Peoples from "./components/Peoples.jsx";
 import { Provider } from "react-redux";
 import appStore from "./store/appStore.jsx";
 import Saved from "./components/Saved.jsx";
-
-
 
 const router = createBrowserRouter([
   {
@@ -49,18 +47,16 @@ const router = createBrowserRouter([
       {
         path: "/browse/saved",
         element: <Saved />,
-      }
+      },
+      { path: "/browse/gpt", element: <div>GPT Page</div> },
     ],
     errorElement: <Error />,
   },
+  { path: "/gpt", element: <div>GPT Page</div> },
 ]);
 
 createRoot(document.getElementById("root")).render(
-  <StrictMode>
-    <Provider store={appStore}>
-      
-        <RouterProvider router={router} />
-      
-    </Provider>
-  </StrictMode>
+  <Provider store={appStore}>
+    <RouterProvider router={router} />
+  </Provider>
 );
