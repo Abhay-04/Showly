@@ -1,21 +1,30 @@
 import { Link, Outlet } from "react-router-dom";
 
 import HeaderBrowse from "./HeaderBrowse";
-import { useEffect, useState } from "react";
-import { options } from "../utils/constants";
+import { useEffect } from "react";
+import { API_OPTIONS } from "../utils/constants";
+import { useDispatch } from "react-redux";
+import { addNowPlayingMovies } from "../store/moviesSlice";
 
 const Browse = () => {
-  const [nowPlaying, setNowPlaying] = useState();
+  const dispatch = useDispatch();
 
   const fetchNowPlaying = async () => {
     const data = await fetch(
       "https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1",
-      options
+      API_OPTIONS
     );
 
     const json = await data.json();
 
-    console.log(json);
+    
+
+    // const movies = dispatch(addNowPlayingMovies(json.results));
+
+    const randomLength = Math.floor(Math.random() * json.results.length) + 1;
+
+    const movies = dispatch(addNowPlayingMovies(json.results[randomLength]));
+    
   };
 
   useEffect(() => {
