@@ -1,5 +1,5 @@
 
-import Logo from "../../src/logo.jpg";
+import Logo from "../../src/file.png";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "../utils/firebase";
 import { useDispatch, useSelector } from "react-redux";
@@ -58,9 +58,9 @@ const HeaderBrowse = () => {
       });
   };
   return (
-    <div className="flex   justify-between h-[10vh] items-center lg:px-12 px-4 bg-[#1D232A] text-white border-b-2 border-[#505760]">
+    <div className="flex   justify-between h-[10vh] items-center lg:px-12 px-4 bg-[#1D232A] text-white lg:border-b-2 lg:border-[#505760]">
       <div className="logo">
-        <img className=" w-28 lg:w-36 h-auto" src={Logo} alt="Logo" />
+        <img className=" w-28 lg:w-36 h-auto  " src={Logo} alt="Logo" />
       </div>
       <div className="right-nav flex items-center gap-2 relative">
         <div className="flex items-center">

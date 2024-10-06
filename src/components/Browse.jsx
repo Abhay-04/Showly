@@ -5,6 +5,8 @@ import { useEffect } from "react";
 import { API_OPTIONS } from "../utils/constants";
 import { useDispatch } from "react-redux";
 import { addNowPlayingMovies } from "../store/moviesSlice";
+import BottomBrowse from "./BottomBrowse";
+
 
 const Browse = () => {
   const dispatch = useDispatch();
@@ -17,14 +19,11 @@ const Browse = () => {
 
     const json = await data.json();
 
-    
-
     // const movies = dispatch(addNowPlayingMovies(json.results));
 
     const randomLength = Math.floor(Math.random() * json.results.length) + 1;
 
     const movies = dispatch(addNowPlayingMovies(json.results[randomLength]));
-    
   };
 
   useEffect(() => {
@@ -33,8 +32,9 @@ const Browse = () => {
 
   return (
     <>
-      <div className="main">
+      <div className="main ">
         <HeaderBrowse />
+        
 
         <div className="lg:flex-row flex  flex-col-reverse  justify-between">
           <div className="left   sm:h-[90vh] bg-[#2A323C] lg:flex hidden flex-col justify-between items-start px-4 py-6">
@@ -67,10 +67,13 @@ const Browse = () => {
               </Link>
             </ul>
           </div>
+
           <div className="right w-full ">
             <Outlet />
           </div>
         </div>
+
+        <BottomBrowse />
       </div>
     </>
   );
