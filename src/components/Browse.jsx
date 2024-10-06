@@ -36,8 +36,8 @@ const Browse = () => {
       <div className="main">
         <HeaderBrowse />
 
-        <div className="flex justify-between">
-          <div className="left  h-[90vh] bg-[#2A323C] flex flex-col justify-between items-start px-4 py-6">
+        <div className="lg:flex-row flex  flex-col-reverse  justify-between">
+          <div className="left   sm:h-[90vh] bg-[#2A323C] lg:flex hidden flex-col justify-between items-start px-4 py-6">
             <ul className="text-xl text-white font-semibold flex flex-col gap-10 p-6 ">
               <Link to={"/browse/trending"}>
                 <li className="hover:bg-gray-300 rounded-md px-6 py-2 w-full">
