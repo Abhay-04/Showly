@@ -84,7 +84,7 @@ const HeaderBrowse = () => {
             <ul className="list-none bg-[#181E24] px-4 py-2 cursor-pointer rounded-lg  w-40 h-auto  ">
               <li className="my-2 hover:bg-gray-300 rounded-md px-2 py-1">
                 <i className="ri-user-3-fill mr-4"></i>
-                Profile
+                Hi, {user?.displayName ? user?.displayName?.split(' ')[0] : "Guest"}
               </li>
               <li className="my-2 hover:bg-gray-300 rounded-md px-2 py-1">
                 <i className="ri-settings-3-fill mr-4"></i>Settings
