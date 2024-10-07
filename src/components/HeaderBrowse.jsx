@@ -45,11 +45,15 @@ const HeaderBrowse = () => {
 
   const handleToggleDropdown = () => {
     setShowDropdown(!showDropdown);
-    
   };
 
   const handleClickOutside = (event) => {
-    if (dropdownRef.current && dropdownRef2.current && !dropdownRef.current.contains(event.target) && !dropdownRef2.current.contains(event.target) ) {
+    if (
+      dropdownRef.current &&
+      dropdownRef2.current &&
+      !dropdownRef.current.contains(event.target) &&
+      !dropdownRef2.current.contains(event.target)
+    ) {
       setShowDropdown(false);
     }
   };
@@ -82,7 +86,11 @@ const HeaderBrowse = () => {
         <img className=" w-28 lg:w-36 h-auto  " src={Logo} alt="Logo" />
       </div>
       <div className="right-nav flex items-center gap-2 relative cursor-pointer">
-        <div onClick={handleToggleDropdown}  ref={dropdownRef} className="flex items-center">
+        <div
+          onClick={handleToggleDropdown}
+          ref={dropdownRef}
+          className="flex items-center"
+        >
           <img
             className="w-8 h-8 rounded-full mx-2"
             src={user?.photoURL ? user?.photoURL : USER_AVATAR}
@@ -94,15 +102,16 @@ const HeaderBrowse = () => {
           <i className="ri-arrow-down-s-fill  "></i>
         </div>
 
-        <button className="mx-2 px-2 py-1 bg-purple-600 cursor-pointer text-white rounded-md">
-          GPT Search
-        </button>
+        <Link to={"/browse/gpt"}>
+          <button className="mx-2 px-2 py-1 bg-purple-600 cursor-pointer text-white rounded-md">
+            GPT Search
+          </button>
+        </Link>
 
         {/* Dropdown menu */}
         {showDropdown && (
           <div
-          ref={dropdownRef2}
-           
+            ref={dropdownRef2}
             className="absolute -bottom-48 right-15 mt-2 bg-transparent text-white font-semibold  rounded-md shadow-lg"
           >
             <ul className="list-none bg-[#181E24] px-4 py-2 cursor-pointer rounded-lg  w-40 h-auto  ">

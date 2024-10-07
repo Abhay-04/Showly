@@ -13,6 +13,7 @@ import Peoples from "./components/Peoples.jsx";
 import { Provider } from "react-redux";
 import appStore from "./store/appStore.jsx";
 import Saved from "./components/Saved.jsx";
+import GptPage from "./components/GptPage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -48,7 +49,10 @@ const router = createBrowserRouter([
         path: "/browse/saved",
         element: <Saved />,
       },
-      { path: "/browse/gpt", element: <div>GPT Page</div> },
+      {
+        path: "/browse/gpt",
+        element: <GptPage />,
+      },
     ],
     errorElement: <Error />,
   },
