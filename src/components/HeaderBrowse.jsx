@@ -81,8 +81,9 @@ const HeaderBrowse = () => {
       <div className="logo">
         <img className=" w-28 lg:w-36 h-auto  " src={Logo} alt="Logo" />
       </div>
-      <div onClick={handleToggleDropdown} className="right-nav flex items-center gap-2 relative cursor-pointer">
-        <div className="flex items-center">
+      <div className="right-nav flex items-center gap-2 relative cursor-pointer">
+    
+        <div ref={dropdownRef}  onClick={handleToggleDropdown} className="flex items-center">
           <img
             className="w-8 h-8 rounded-full mx-2"
             src={user?.photoURL ? user?.photoURL : USER_AVATAR}
@@ -97,10 +98,14 @@ const HeaderBrowse = () => {
           ></i>
         </div>
 
+        <button className="mx-2 px-2 py-1 bg-purple-600 cursor-pointer text-white rounded-md">GPT Search</button>
+        
+
         {/* Dropdown menu */}
         {showDropdown && (
-          <div ref={dropdownRef} className="absolute -bottom-48 right-0 mt-2 bg-transparent text-white font-semibold  rounded-md shadow-lg">
+          <div  className="absolute -bottom-48 right-15 mt-2 bg-transparent text-white font-semibold  rounded-md shadow-lg">
             <ul className="list-none bg-[#181E24] px-4 py-2 cursor-pointer rounded-lg  w-40 h-auto  ">
+            
               <li className="my-2 hover:bg-gray-300 rounded-md px-2 py-1">
                 <i className="ri-user-3-fill mr-4"></i>
                 Hi, {user?.displayName ? user?.displayName?.split(' ')[0] : "Guest"}
@@ -122,6 +127,7 @@ const HeaderBrowse = () => {
           </div>
         )}
       </div>
+      
     </div>
   );
 };
