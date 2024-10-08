@@ -89,6 +89,12 @@ const HeaderBrowse = () => {
         </div>
       </Link>
       <div className="right-nav flex items-center gap-2 relative cursor-pointer">
+      <Link to={"/browse/gpt"}>
+          <button className="mx-2 px-2 py-1 bg-purple-600 cursor-pointer text-white rounded-md">
+            GPT Search
+          </button>
+        </Link>
+        
         <div
           onClick={handleToggleDropdown}
           ref={dropdownRef}
@@ -99,42 +105,38 @@ const HeaderBrowse = () => {
             src={user?.photoURL ? user?.photoURL : USER_AVATAR}
             alt="User Avatar"
           />
-          <p className="mr-1 hidden sm:block">
+          {/* <p className="mr-1 hidden sm:block">
             {user?.displayName ? user?.displayName : "Guest"}
-          </p>
+          </p> */}
           <i className="ri-arrow-down-s-fill  "></i>
         </div>
 
-        <Link to={"/browse/gpt"}>
-          <button className="mx-2 px-2 py-1 bg-purple-600 cursor-pointer text-white rounded-md">
-            GPT Search
-          </button>
-        </Link>
+        
 
         {/* Dropdown menu */}
         {showDropdown && (
           <div
             ref={dropdownRef2}
-            className="absolute -bottom-48 right-15 mt-2 bg-transparent text-white font-semibold  rounded-md shadow-lg"
+            className="absolute -bottom-48 right-0 mt-2 bg-transparent text-white font-semibold  rounded-md shadow-lg w-auto"
           >
-            <ul className="list-none bg-[#181E24] px-4 py-2 cursor-pointer rounded-lg  w-40 h-auto  ">
-              <li className="my-2 hover:bg-gray-300 rounded-md px-2 py-1">
+            <ul className="list-none bg-[#181E24] px-4 py-2 cursor-pointer rounded-lg  w-full h-auto   ">
+              <li className="my-2 hover:bg-gray-300 hover:text-black rounded-md px-2 py-1">
                 <i className="ri-user-3-fill mr-4"></i>
                 Hi,{" "}
                 {user?.displayName ? user?.displayName?.split(" ")[0] : "Guest"}
               </li>
-              <li className="my-2 hover:bg-gray-300 rounded-md px-2 py-1">
-                <i className="ri-settings-3-fill mr-4"></i>Settings
+              <li className="my-2 hover:bg-gray-300 hover:text-black rounded-md px-2 py-1">
+              <i className="ri-sun-fill mr-4"></i>Light Mode
               </li>
               <Link to={"/browse/saved"}>
                 {" "}
-                <li className="my-2 hover:bg-gray-300 rounded-md px-2 py-1">
+                <li className="my-2 hover:bg-gray-300 hover:text-black rounded-md px-2 py-1">
                   <i className="ri-bookmark-2-fill mr-4"></i>Saved
                 </li>
               </Link>
               <li
                 onClick={handleSignOut}
-                className="my-2 hover:bg-gray-300 rounded-md px-2 py-1 "
+                className="my-2 hover:bg-gray-300 hover:text-black rounded-md px-2 py-1 "
               >
                 <i className="ri-logout-box-r-line mr-4"></i>
                 Logout
