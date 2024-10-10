@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const moviesSlice = createSlice({
   name: "movies",
   initialState: {
-    nowPlaingMovies: [],
+    nowPlaingMovies: null,
     randomNowPlayingMovie: null,
   },
   reducers: {
@@ -16,6 +16,7 @@ const moviesSlice = createSlice({
   },
 });
 
-export const { addNowPlayingMovies , addRandomNowPlayingMovie } = moviesSlice.actions;
+export const { addNowPlayingMovies, addRandomNowPlayingMovie } =
+  moviesSlice.actions;
 
 export default moviesSlice.reducer;
