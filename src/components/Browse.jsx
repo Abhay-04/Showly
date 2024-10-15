@@ -4,7 +4,10 @@ import HeaderBrowse from "./HeaderBrowse";
 import { useEffect } from "react";
 import { API_OPTIONS } from "../utils/constants";
 import { useDispatch } from "react-redux";
-import { addNowPlayingMovies, addRandomNowPlayingMovie } from "../store/moviesSlice";
+import {
+  addNowPlayingMovies,
+  addRandomNowPlayingMovie,
+} from "../store/moviesSlice";
 import BottomBrowse from "./BottomBrowse";
 
 const Browse = () => {
@@ -22,9 +25,9 @@ const Browse = () => {
 
     const randomLength = Math.floor(Math.random() * json.results.length) + 1;
 
-    const randomNowPlayingMovie = dispatch(addRandomNowPlayingMovie(json.results[randomLength]));
-
-    
+    const randomNowPlayingMovie = dispatch(
+      addRandomNowPlayingMovie(json.results[randomLength])
+    );
   };
 
   useEffect(() => {
@@ -38,7 +41,7 @@ const Browse = () => {
 
         <div className="lg:flex-row flex  flex-col-reverse  justify-between">
           <div className="left   sm:h-[90vh] bg-[#2A323C] lg:flex hidden flex-col justify-between items-start px-4 py-6">
-            <ul className="text-xl text-white font-semibold flex flex-col gap-10 p-6 ">
+            <ul className="text-xl text-white font-semibold flex flex-col gap-10 py-6 px-4 ">
               <Link to={"/browse/trending"}>
                 <li className="hover:bg-gray-300 rounded-md px-6 py-2 w-full">
                   <i className="ri-fire-fill mr-2"></i>Trending

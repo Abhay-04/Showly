@@ -14,6 +14,7 @@ import { Provider } from "react-redux";
 import appStore from "./store/appStore.jsx";
 import Saved from "./components/Saved.jsx";
 import GptPage from "./components/GptPage.jsx";
+import BrowseContent from "./components/BrowseContent.jsx";
 
 const router = createBrowserRouter([
   {
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
       {
         path: "/browse/trending",
         element: <Trending />,
+      },
+      {
+        path: "/browse",
+        element: <BrowseContent />,
       },
       {
         path: "/browse/popular",
