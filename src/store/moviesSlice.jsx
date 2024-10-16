@@ -5,6 +5,8 @@ const moviesSlice = createSlice({
   initialState: {
     nowPlaingMovies: null,
     randomNowPlayingMovie: null,
+    randomMovieId: null,
+    randomMovieKey: null,
   },
   reducers: {
     addNowPlayingMovies: (state, action) => {
@@ -13,10 +15,20 @@ const moviesSlice = createSlice({
     addRandomNowPlayingMovie: (state, action) => {
       state.randomNowPlayingMovie = action.payload;
     },
+    addRandomMovieId: (state, action) => {
+      state.randomMovieId = action.payload;
+    },
+    addRandomMovieKey: (state, action) => {
+      state.randomMovieKey = action.payload;
+    },
   },
 });
 
-export const { addNowPlayingMovies, addRandomNowPlayingMovie } =
-  moviesSlice.actions;
+export const {
+  addNowPlayingMovies,
+  addRandomNowPlayingMovie,
+  addRandomMovieId,
+  addRandomMovieKey,
+} = moviesSlice.actions;
 
 export default moviesSlice.reducer;
