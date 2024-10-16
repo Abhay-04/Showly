@@ -1,7 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 
-import { getAuth, GoogleAuthProvider, signInWithPopup , signInAnonymously } from "firebase/auth";
+import { getAuth, GoogleAuthProvider, signInWithPopup , signInAnonymously , RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -21,6 +21,16 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 
 
+const setupRecaptcha = () => {
+  window.recaptchaVerifier = new RecaptchaVerifier('recaptcha-container', {
+    size: 'invisible',
+    callback: (response) => {
+      // reCAPTCHA solved
+      onSignInSubmit();
+    }
+  }, auth);
+};
+
 export const provider = new GoogleAuthProvider();
 export const auth = getAuth();
-export { signInWithPopup , signInAnonymously };
+export { signInWithPopup , signInAnonymously , setupRecaptcha };

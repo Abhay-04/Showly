@@ -3,6 +3,7 @@ import { validate } from "../utils/validate";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  signInWithPhoneNumber,
   updateProfile,
 } from "firebase/auth";
 import {
@@ -10,6 +11,7 @@ import {
   provider,
   signInWithPopup,
   signInAnonymously,
+  setupRecaptcha,
 } from "../utils/firebase";
 
 import { useDispatch } from "react-redux";
@@ -142,6 +144,35 @@ const SignIn = () => {
       });
   };
 
+  const onSignInSubmit = (phoneNumber) => {
+    setupRecaptcha();
+    const appVerifier = window.recaptchaVerifier;
+
+    signInWithPhoneNumber(auth, phoneNumber, appVerifier)
+      .then((confirmationResult) => {
+        // SMS sent. Prompt the user to enter the code
+        window.confirmationResult = confirmationResult;
+      })
+      .catch((error) => {
+        // Handle Errors
+        console.error("Error during sign-in: ", error);
+      });
+  };
+
+  const verifyCode = (code) => {
+    window.confirmationResult
+      .confirm(code)
+      .then((result) => {
+        // User signed in successfully.
+        const user = result.user;
+        console.log("User signed in:", user);
+      })
+      .catch((error) => {
+        // Handle Errors
+        console.error("Error verifying code: ", error);
+      });
+  };
+
   return (
     <form onSubmit={(e) => e.preventDefault()}>
       <div className=" h-screen pt-20  flex justify-center sm:justify-center items-center sm:items-center  bg-no-repeat bg-cover bg-black sm:bg-[url('https://analyticsindiamag.com/wp-content/uploads/2019/05/apps.55787.9007199266246365.687a10a8-4c4a-4a47-8ec5-a95f70d8852d.jpg')]">
@@ -234,6 +265,14 @@ const SignIn = () => {
               className="bg-[#a19e9ef6] px-6 py-2 text-white rounded-sm font-bold "
             >
               Continue as a Guest
+            </button>
+          )}
+
+          {isSignForm && (
+            <button 
+            onClick={onSignInSubmit}
+            className="bg-[#a19e9ef6] px-6 py-2 text-white rounded-sm font-bold recaptcha-container ">
+              Phone
             </button>
           )}
 
