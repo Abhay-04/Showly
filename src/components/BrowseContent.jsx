@@ -1,4 +1,4 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import {
   addNowPlayingMovies,
@@ -8,10 +8,17 @@ import {
 import { useEffect } from "react";
 import axiosInstance from "../axiosConfig";
 import useMovieTrailerKey from "../utils/hooks/useMovieVideo";
+import VideoTrailer from "./VideoTrailer";
 
 const BrowseContent = () => {
-  const dispatch = useDispatch();
   useMovieTrailerKey();
+  const dispatch = useDispatch();
+
+  const trailerKey = useSelector((store) => store.movies.randomMovieKey);
+
+  const backdrop_path = useSelector(
+    (store) => store?.movies?.randomNowPlayingMovie?.backdrop_path
+  );
 
   const fetchNowPlaying = async () => {
     try {
@@ -40,7 +47,11 @@ const BrowseContent = () => {
     fetchNowPlaying();
   }, []);
 
-  return <div>BrowseContent</div>;
+  return (
+    trailerKey && (
+      <VideoTrailer trailerKey={trailerKey} />
+    )
+  );
 };
 
 export default BrowseContent;

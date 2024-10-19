@@ -14,8 +14,13 @@ const useMovieTrailerKey = () => {
     try {
       if (movieId) {
         const response = await axiosInstance.get(`/movie/${movieId}/videos`);
-        console.log(response);
-        dispatch(addRandomMovieKey(response.data.results));
+
+        dispatch(
+          addRandomMovieKey(
+            response.data.results.filter((m) => m.type === "Trailer")[0].key
+          )
+        );
+       
       } else {
         console.log("Movie ID is not available");
       }
