@@ -117,7 +117,7 @@ const HeaderBrowse = () => {
         {showDropdown && (
           <div
             ref={dropdownRef2}
-            className="absolute -bottom-48 right-0 mt-2 bg-transparent text-white font-semibold  rounded-md shadow-lg w-auto"
+            className="absolute -bottom-48 right-0 mt-2 bg-transparent text-white font-semibold  rounded-md shadow-lg w-auto z-50"
           >
             <ul className="list-none bg-[#181E24] px-4 py-2 cursor-pointer rounded-lg  w-full h-auto   ">
               <li className="my-2 hover:bg-gray-300 hover:text-black rounded-md px-2 py-1">

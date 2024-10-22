@@ -17,7 +17,7 @@ const useMovieTrailerKey = () => {
 
         dispatch(
           addRandomMovieKey(
-            response.data.results.filter((m) => m.type === "Trailer")[0].key
+            response?.data?.results.filter((m) => m.type === "Trailer")[0].key
           )
         );
        
