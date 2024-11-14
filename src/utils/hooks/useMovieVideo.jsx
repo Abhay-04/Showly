@@ -6,6 +6,7 @@ import { addRandomMovieKey } from "../../store/moviesSlice";
 const useMovieTrailerKey = () => {
   // Get id of random movie from store
   const movieId = useSelector((store) => store?.movies?.randomMovieId);
+  
 
   const dispatch = useDispatch();
 
@@ -14,7 +15,7 @@ const useMovieTrailerKey = () => {
     try {
       if (movieId) {
         const response = await axiosInstance.get(`/movie/${movieId}/videos`);
-
+       
         dispatch(
           addRandomMovieKey(
             response?.data?.results.filter((m) => m.type === "Trailer")[0].key

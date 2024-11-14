@@ -7,7 +7,7 @@ import BottomBrowse from "./BottomBrowse";
 const Browse = () => {
   return (
     <>
-      <div className="main ">
+      <div className="main overflow-hidden">
         <HeaderBrowse />
 
         <div className="lg:flex-row flex  flex-col-reverse  justify-between">
