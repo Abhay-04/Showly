@@ -6,21 +6,18 @@ import {
   addRandomNowPlayingMovie,
 } from "../moviesSlice";
 
-const browseDataFetchAsync = () => async (dispatch) => {
+const browseDataFetchAsync = () => async (dispatch, getState) => {
+  console.log(dispatch);
+  const movie = getState();
+ const category = movie.movies.browseDropDown
   try {
-    const data = await axiosInstance.get(
-      "/movie/now_playing?language=en-US&page=1"
-    );
-    
-    console.log(data)
-   
+    const data = await axiosInstance.get(`trending/${category}/day`);
+
+    console.log(data);
 
     const allNowPlayingmovies = await dispatch(
       addNowPlayingMovies(data?.data?.results)
     );
-
-
-    console.log(allNowPlayingmovies);
 
     const randomLength = Math.floor(Math.random() * data?.data?.results.length);
 
@@ -29,7 +26,6 @@ const browseDataFetchAsync = () => async (dispatch) => {
     );
 
     await dispatch(addRandomMovieId(randomNowPlayingMovie?.payload?.id));
-    
   } catch (error) {
     console.log(error);
   }

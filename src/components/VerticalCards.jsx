@@ -4,8 +4,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
 import "swiper/css";
 
-const VerticalCards = ({ data }) => {
-  console.log(data);
+const VerticalCards = ({data}) => {
   return (
     <div className="overflow-hidden">
       {" "}
@@ -16,14 +15,18 @@ const VerticalCards = ({ data }) => {
         onSwiper={(swiper) => console.log(swiper)}
       >
         {data.map((d) => (
-          <>
-          <SwiperSlide><div>
-            <img className="w-[160px] h-[190px] rounded-md" src={`https://image.tmdb.org/t/p/w500/${d.backdrop_path}` } />
-             <h4>{d.original_title}</h4>
-             <h4>{d.release_date}</h4>
-            
-            </div></SwiperSlide>
-          </>
+          <div key={d.id}>
+            <SwiperSlide>
+              <div className="text-white ">
+                <img
+                  className="w-[160px] h-[190px] rounded-md"
+                  src={`https://image.tmdb.org/t/p/w500/${d.backdrop_path}`}
+                />
+                <h4>{d.original_title || d.original_title || d.name || d.original_name}</h4>
+                <h4>{d.release_date || d.first_air_date}</h4>
+              </div>
+            </SwiperSlide>
+          </div>
         ))}
       </Swiper>
     </div>
