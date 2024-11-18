@@ -4,10 +4,10 @@ import browseDataFetchAsync from "../store/actions/browseDataAsync";
 import { useDispatch, useSelector } from "react-redux";
 import useMovieTrailerKey from "../utils/hooks/useMovieVideo";
 import VideoTrailer from "./VideoTrailer";
-import { changeBrowseDropDown } from "../store/moviesSlice";
+import { changeBrowseDropDown } from "../store/browseSlice";
 
 const BrowseContent = () => {
-  const movies = useSelector((store) => store?.movies);
+  const browse = useSelector((store) => store?.browse);
   const category = useSelector((store) => store?.movies?.browseDropDown);
 
   useMovieTrailerKey();
@@ -22,7 +22,7 @@ const BrowseContent = () => {
     fetchMoviesData();
   }, [category]);
 
-  if (!movies || !movies.randomNowPlayingMovie) {
+  if (!browse || !browse.randomNowPlayingMovie) {
     return <div>Loading...</div>;
   }
 
@@ -30,17 +30,17 @@ const BrowseContent = () => {
     <div>
       <div className="relative h-[55vh] w-full bg-gradient-to-r from-black">
         <div className="w-full h-full  -z-10 absolute">
-          <VideoTrailer trailerKey={movies?.randomMovieKey} />
+          <VideoTrailer trailerKey={browse?.randomMovieKey} />
         </div>
         <div className="h-full flex flex-col gap-3 justify-end  text-white  px-16 pb-12 w-[50vw]">
           <h1 className="text-4xl font-bold">
-            {movies.randomNowPlayingMovie.title ||
-              movies.randomNowPlayingMovie.original_title ||
-              movies.randomNowPlayingMovie.name ||
-              movies.randomNowPlayingMovie.original_name}
+          {browse.randomNowPlayingMovie.title ||
+              browse.randomNowPlayingMovie.original_title ||
+              browse.randomNowPlayingMovie.name ||
+              browse.randomNowPlayingMovie.original_name}
           </h1>
           <p className="text-md ">
-            {movies.randomNowPlayingMovie.overview
+            {browse.randomNowPlayingMovie.overview
               .split(" ")
               .slice(0, 30)
               .join(" ")}
@@ -49,12 +49,12 @@ const BrowseContent = () => {
           <div className="flex gap-4">
             <span>
               <i className="ri-megaphone-fill mr-1 text-yellow-500"></i>
-              {movies.randomNowPlayingMovie.release_date ||
-                movies.randomNowPlayingMovie.first_air_date}
+              {browse.randomNowPlayingMovie.release_date ||
+                browse.randomNowPlayingMovie.first_air_date}
             </span>
             <span>
               <i className="ri-movie-2-fill mr-1 text-yellow-500"></i>{" "}
-              {movies.randomNowPlayingMovie.media_type.toUpperCase()}
+              {browse.randomNowPlayingMovie.media_type.toUpperCase()}
             </span>
           </div>
           <div>
@@ -99,7 +99,7 @@ const BrowseContent = () => {
           </div>
         </div>
         <div>
-          <VerticalCards data={movies?.nowPlayingMovies} />
+          <VerticalCards data={browse?.nowPlayingMovies} />
         </div>
       </div>
     </div>

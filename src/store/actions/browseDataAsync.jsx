@@ -4,12 +4,12 @@ import {
   addNowPlayingMovies,
   addRandomMovieId,
   addRandomNowPlayingMovie,
-} from "../moviesSlice";
+} from "../browseSlice";
 
 const browseDataFetchAsync = () => async (dispatch, getState) => {
   console.log(dispatch);
-  const movie = getState();
- const category = movie.movies.browseDropDown
+  const browse = getState();
+  const category = browse.browse.browseDropDown;
   try {
     const data = await axiosInstance.get(`trending/${category}/day`);
 
