@@ -7,7 +7,7 @@ import {
 } from "../browseSlice";
 
 const browseDataFetchAsync = () => async (dispatch, getState) => {
-  console.log(dispatch);
+  
   const browse = getState();
   const category = browse.browse.browseDropDown;
   try {

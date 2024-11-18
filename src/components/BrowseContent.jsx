@@ -8,7 +8,7 @@ import { changeBrowseDropDown } from "../store/browseSlice";
 
 const BrowseContent = () => {
   const browse = useSelector((store) => store?.browse);
-  const category = useSelector((store) => store?.movies?.browseDropDown);
+  const category = useSelector((store) => store?.browse?.browseDropDown);
 
   useMovieTrailerKey();
 
