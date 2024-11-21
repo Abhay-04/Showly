@@ -5,14 +5,21 @@ import { useDispatch, useSelector } from "react-redux";
 import useMovieTrailerKey from "../utils/hooks/useMovieVideo";
 import VideoTrailer from "./VideoTrailer";
 import { changeBrowseDropDown } from "../store/browseSlice";
+import Dropdown from "../utils/hooks/usedropdown";
 
 const BrowseContent = () => {
+  const dispatch = useDispatch();
+
+  const handleSelect = (selectedOption) => {
+    dispatch(changeBrowseDropDown(selectedOption.toLowerCase()));
+  };
+
   const browse = useSelector((store) => store?.browse);
   const category = useSelector((store) => store?.browse?.browseDropDown);
 
   useMovieTrailerKey();
 
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   const fetchMoviesData = () => {
     dispatch(browseDataFetchAsync());
@@ -34,7 +41,7 @@ const BrowseContent = () => {
         </div>
         <div className="h-full flex flex-col gap-3 justify-end  text-white  px-16 pb-12 w-[50vw]">
           <h1 className="text-4xl font-bold">
-          {browse.randomNowPlayingMovie.title ||
+            {browse.randomNowPlayingMovie.title ||
               browse.randomNowPlayingMovie.original_title ||
               browse.randomNowPlayingMovie.name ||
               browse.randomNowPlayingMovie.original_name}
@@ -72,7 +79,7 @@ const BrowseContent = () => {
             <h1 className="text-2xl font-bold mb-4 text-white">Trending</h1>
           </div>
           <div className="flex gap-5">
-            <button
+            {/* <button
               onClick={() => {
                 dispatch(changeBrowseDropDown("all"));
               }}
@@ -95,7 +102,14 @@ const BrowseContent = () => {
               className="px-4 py-2 bg-purple-400 text-white rounded-md"
             >
               Tv
-            </button>
+            </button> */}
+
+            <Dropdown
+              className="z-10"
+              title="All"
+              options={["Movie", "Tv", "All"]}
+              onSelect={handleSelect}
+            />
           </div>
         </div>
         <div>

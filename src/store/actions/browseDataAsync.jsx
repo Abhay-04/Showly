@@ -13,7 +13,7 @@ const browseDataFetchAsync = () => async (dispatch, getState) => {
   try {
     const data = await axiosInstance.get(`trending/${category}/day`);
 
-    console.log(data);
+    
 
     const allNowPlayingmovies = await dispatch(
       addNowPlayingMovies(data?.data?.results)
