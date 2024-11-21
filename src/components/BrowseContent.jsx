@@ -79,34 +79,9 @@ const BrowseContent = () => {
             <h1 className="text-2xl font-bold mb-4 text-white">Trending</h1>
           </div>
           <div className="flex gap-5">
-            {/* <button
-              onClick={() => {
-                dispatch(changeBrowseDropDown("all"));
-              }}
-              className="px-4 py-2 bg-purple-400 text-white rounded-md"
-            >
-              All
-            </button>
-            <button
-              onClick={() => {
-                dispatch(changeBrowseDropDown("movie"));
-              }}
-              className="px-4 py-2 bg-purple-400 text-white rounded-md"
-            >
-              Movie
-            </button>
-            <button
-              onClick={() => {
-                dispatch(changeBrowseDropDown("tv"));
-              }}
-              className="px-4 py-2 bg-purple-400 text-white rounded-md"
-            >
-              Tv
-            </button> */}
-
             <Dropdown
-              className="z-10"
-              title="All"
+              
+              title="Filter"
               options={["Movie", "Tv", "All"]}
               onSelect={handleSelect}
             />
