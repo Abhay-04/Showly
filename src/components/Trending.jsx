@@ -9,33 +9,26 @@ import {
   setPage,
 } from "../store/trendingSlice";
 
-import Cards from "./cards";
+import Cards from "./Cards";
 
 import InfiniteScroll from "react-infinite-scroll-component";
 
 const Trending = () => {
   const dispatch = useDispatch();
-  
 
   const category = useSelector((store) => store.trending.category);
   const duration = useSelector((store) => store.trending.duration);
   const data = useSelector((store) => store.trending.data);
 
-
-
- 
   const fetchTrendingData = () => {
     dispatch(setPage(1));
     dispatch(addTrendingData([]));
     dispatch(trendingDataAsync());
-    
-   
   };
 
   const handleSelectCategory = (selectedOption) => {
     dispatch(changeTrendingCategory(selectedOption.toLowerCase()));
-  }; 
- 
+  };
 
   const handleSelectDuration = (selectedOption) => {
     dispatch(changeTrendingDuration(selectedOption.toLowerCase()));
