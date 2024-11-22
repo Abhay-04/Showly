@@ -81,7 +81,7 @@ const HeaderBrowse = () => {
       });
   };
   return (
-    <div className="flex   justify-between h-[10vh] items-center lg:px-12 px-4 bg-[#1D232A] text-white lg:border-b-2 lg:border-[#505760]">
+    <div className="flex  justify-between h-[10vh] items-center lg:px-12 px-4 bg-[#1D232A] text-white lg:border-b-2 lg:border-[#505760]">
       <Link to={"/browse"}>
         {" "}
         <div className="logo">

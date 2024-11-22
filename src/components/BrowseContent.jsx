@@ -19,7 +19,6 @@ const BrowseContent = () => {
 
   useMovieTrailerKey();
 
-  // const dispatch = useDispatch();
 
   const fetchMoviesData = () => {
     dispatch(browseDataFetchAsync());
@@ -97,44 +96,3 @@ const BrowseContent = () => {
 
 export default BrowseContent;
 
-// useMovieTrailerKey();
-// const dispatch = useDispatch();
-
-// const trailerKey = useSelector((store) => store.movies.randomMovieKey);
-// const randomNowPlayingMovie = useSelector(
-//   (store) => store.movies.randomNowPlayingMovie
-// );
-
-// const nowPlayingMovies = useSelector(
-//   (store) => store.movies.nowPlayingMovies
-// );
-
-// const fetchNowPlaying = async () => {
-//   try {
-//     const data = await axiosInstance.get(
-//       "/movie/now_playing?language=en-US&page=1"
-//     );
-
-//     const allNowPlayingmovies = dispatch(
-//       addNowPlayingMovies(data?.data?.results)
-//     );
-
-//     console.log(allNowPlayingmovies);
-
-//     const randomLength = Math.floor(
-//       Math.random() * data?.data?.results.length
-//     );
-
-//     const randomNowPlayingMovie = dispatch(
-//       addRandomNowPlayingMovie(data?.data?.results[randomLength])
-//     );
-
-//     dispatch(addRandomMovieId(randomNowPlayingMovie?.payload?.id));
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
-
-// useEffect(() => {
-//  fetchNowPlaying();
-// }, []);

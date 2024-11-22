@@ -11,7 +11,7 @@ const Browse = () => {
         <HeaderBrowse />
 
         <div className="lg:flex-row flex  flex-col-reverse  justify-between">
-          <div className="left   sm:h-[90vh] bg-[#2A323C] lg:flex hidden flex-col justify-between items-start px-4 py-6">
+          <div className="left  sm:h-[90vh] bg-[#2A323C] lg:flex hidden flex-col justify-between items-start px-4 py-6">
             <ul className="text-xl text-white font-semibold flex flex-col gap-10 py-6 px-4 ">
               <Link to={"/browse/trending"}>
                 <li className="hover:bg-purple-400 rounded-md px-6 py-2 w-full">
