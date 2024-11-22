@@ -8,7 +8,7 @@ import {
   changeTrendingDuration,
   setPage,
 } from "../store/trendingSlice";
-import { useNavigate } from "react-router-dom";
+
 import Cards from "./cards";
 
 import InfiniteScroll from "react-infinite-scroll-component";
