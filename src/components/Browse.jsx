@@ -36,7 +36,7 @@ const Browse = () => {
               <Link to={"/browse/peoples"}>
                 {" "}
                 <li className="hover:bg-purple-400 rounded-md px-6 py-2 w-full">
-                  <i className="ri-team-fill mr-2"></i>Peoples
+                  <i className="ri-team-fill mr-2"></i>People
                 </li>
               </Link>
             </ul>

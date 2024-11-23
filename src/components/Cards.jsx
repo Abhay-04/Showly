@@ -7,7 +7,7 @@ const Cards = ({ data }) => {
           <div className="text-white  ">
             <img
               className="w-[260px] h-[280px] rounded-md"
-              src={`https://image.tmdb.org/t/p/w500/${d.backdrop_path || d.profile_path}`}
+              src={`https://image.tmdb.org/t/p/w500/${d.backdrop_path || d.profile_path || d.poster_path}`}
             />
             <h4>
               {d.original_title ||

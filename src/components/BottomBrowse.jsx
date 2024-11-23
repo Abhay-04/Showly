@@ -33,7 +33,7 @@ const BottomBrowse = () => {
           {" "}
           <span className="text-white text-xs font-bold flex flex-col items-center justify-center">
             <i className="ri-team-line "></i>
-            <p>Peoples</p>
+            <p>People</p>
           </span>
         </Link>
       
