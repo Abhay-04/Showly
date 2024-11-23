@@ -6,8 +6,8 @@ const Cards = ({ data }) => {
         <div key={d.id}>
           <div className="text-white  ">
             <img
-              className="w-[260px] h-[220px] rounded-md"
-              src={`https://image.tmdb.org/t/p/w500/${d.backdrop_path}`}
+              className="w-[260px] h-[280px] rounded-md"
+              src={`https://image.tmdb.org/t/p/w500/${d.backdrop_path || d.profile_path}`}
             />
             <h4>
               {d.original_title ||

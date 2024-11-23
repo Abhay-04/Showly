@@ -9,7 +9,7 @@ import Trending from "./components/Trending.jsx";
 import Popular from "./components/Popular.jsx";
 import Movies from "./components/Movies.jsx";
 import Tvshows from "./components/Tvshows.jsx";
-import Peoples from "./components/Peoples.jsx";
+import Person from "./components/Person.jsx";
 import { Provider } from "react-redux";
 import appStore from "./store/appStore.jsx";
 import Saved from "./components/Saved.jsx";
@@ -48,7 +48,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/browse/peoples",
-        element: <Peoples />,
+        element: <Person/>,
       },
       {
         path: "/browse/saved",
