@@ -20,7 +20,6 @@ const BrowseContent = () => {
 
   useMovieTrailerKey();
 
-
   const fetchMoviesData = () => {
     dispatch(browseDataFetchAsync());
   };
@@ -37,7 +36,11 @@ const BrowseContent = () => {
     <div>
       <div className="relative h-[55vh] w-full bg-gradient-to-r from-black">
         <div className="w-full h-full  -z-10 absolute">
-          <VideoTrailer trailerKey={browse?.randomMovieKey} />
+          {browse?.randomMovieKey !== null ? (
+            <VideoTrailer trailerKey={browse?.randomMovieKey} />
+          ) : (
+            <img src={`https://image.tmdb.org/t/p/original/${browse?.randomNowPlayingMovie?.backdrop_path || browse?.randomNowPlayingMovie?.profile_path || browse?.randomNowPlayingMovie?.poster_path}`} />
+          )}
         </div>
         <div className="h-full flex flex-col gap-3 justify-end  text-white  px-16 pb-12 w-[50vw]">
           <h1 className="text-4xl font-bold">
@@ -51,7 +54,12 @@ const BrowseContent = () => {
               .split(" ")
               .slice(0, 30)
               .join(" ")}
-            <Link to={`/${browse.randomNowPlayingMovie.media_type}/${browse.randomNowPlayingMovie.id}`} className="text-blue-600 cursor-pointer">...more</Link>
+            <Link
+              to={`/${browse.randomNowPlayingMovie.media_type}/${browse.randomNowPlayingMovie.id}`}
+              className="text-blue-600 cursor-pointer"
+            >
+              ...more
+            </Link>
           </p>
           <div className="flex gap-4">
             <span>
@@ -80,7 +88,6 @@ const BrowseContent = () => {
           </div>
           <div className="flex gap-5">
             <Dropdown
-              
               title="Filter"
               options={["Movie", "Tv", "All"]}
               onSelect={handleSelect}
@@ -96,4 +103,3 @@ const BrowseContent = () => {
 };
 
 export default BrowseContent;
-
