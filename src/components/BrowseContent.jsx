@@ -6,6 +6,7 @@ import useMovieTrailerKey from "../utils/hooks/useMovieVideo";
 import VideoTrailer from "./VideoTrailer";
 import { changeBrowseDropDown } from "../store/browseSlice";
 import Dropdown from "../utils/hooks/usedropdown";
+import { Link } from "react-router-dom";
 
 const BrowseContent = () => {
   const dispatch = useDispatch();
@@ -50,7 +51,7 @@ const BrowseContent = () => {
               .split(" ")
               .slice(0, 30)
               .join(" ")}
-            <span className="text-blue-600 cursor-pointer">...more</span>
+            <Link to={`/${browse.randomNowPlayingMovie.media_type}/${browse.randomNowPlayingMovie.id}`} className="text-blue-600 cursor-pointer">...more</Link>
           </p>
           <div className="flex gap-4">
             <span>
@@ -87,7 +88,7 @@ const BrowseContent = () => {
           </div>
         </div>
         <div>
-          <VerticalCards data={browse?.nowPlayingMovies} />
+          <VerticalCards data={browse?.nowPlayingMovies} title={category} />
         </div>
       </div>
     </div>

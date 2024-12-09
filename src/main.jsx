@@ -1,4 +1,3 @@
-
 import { createRoot } from "react-dom/client";
 import App from "./App.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
@@ -15,6 +14,9 @@ import appStore from "./store/appStore.jsx";
 import Saved from "./components/Saved.jsx";
 import GptPage from "./components/GptPage.jsx";
 import BrowseContent from "./components/BrowseContent.jsx";
+import MovieDetails from "./components/MovieDetails.jsx";
+import TvDetails from "./components/TvDetails.jsx";
+import PersonDetails from "./components/PersonDetails.jsx";
 
 const router = createBrowserRouter([
   {
@@ -48,7 +50,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/browse/peoples",
-        element: <Person/>,
+        element: <Person />,
       },
       {
         path: "/browse/saved",
@@ -60,6 +62,18 @@ const router = createBrowserRouter([
       },
     ],
     errorElement: <Error />,
+  },
+  {
+    path: "/movie/:id",
+    element: <MovieDetails />,
+  },
+  {
+    path: "/tv/:id",
+    element: <TvDetails />,
+  },
+  {
+    path: "/person/:id",
+    element: <PersonDetails />,
   },
   { path: "/gpt", element: <div>GPT Page</div> },
 ]);

@@ -53,7 +53,7 @@ const Popular = () => {
           next={() => dispatch(popularDataAsync())}
           loader={<h1>Loading.....</h1>}
         >
-          <Cards data={data} />
+          <Cards data={data} title={category} />
         </InfiniteScroll>
       </div>
     </div>

@@ -58,7 +58,7 @@ const Movies = () => {
           next={() => dispatch(moviesDataAsync())}
           loader={<h1>Loading.....</h1>}
         >
-          <Cards data={data} />
+          <Cards data={data} title={"movie"} />
         </InfiniteScroll>
       </div>
     </div>

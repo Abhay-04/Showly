@@ -1,10 +1,13 @@
-const Cards = ({ data }) => {
+import { Link } from "react-router-dom";
+
+const Cards = ({ data , title }) => {
   console.log(data);
+  console.log(title);
   return (
     <div className="overflow-hidden flex flex-wrap gap-10 justify-start px-10">
       {data.map((d) => (
         <div key={d.id}>
-          <div className="text-white  ">
+          <Link to={`/${d.media_type ||  title}/${d.id}`} className="text-white  ">
             <img
               className="w-[260px] h-[280px] rounded-md"
               src={`https://image.tmdb.org/t/p/w500/${d.backdrop_path || d.profile_path || d.poster_path}`}
@@ -16,7 +19,7 @@ const Cards = ({ data }) => {
                 d.original_name}
             </h4>
             <h4>{d.release_date || d.first_air_date}</h4>
-          </div>
+          </Link>
         </div>
       ))}
     </div>

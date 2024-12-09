@@ -47,7 +47,7 @@ const Person = () => {
           next={() => dispatch(personDataAsync())}
           loader={<h1>Loading.....</h1>}
         >
-          <Cards data={data} />
+          <Cards data={data} title={"person"} />
         </InfiniteScroll>
       </div>
     </div>

@@ -3,8 +3,9 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
 import "swiper/css";
+import { Link } from "react-router-dom";
 
-const VerticalCards = ({data}) => {
+const VerticalCards = ({ data }) => {
   return (
     <div className="overflow-hidden">
       {" "}
@@ -17,14 +18,19 @@ const VerticalCards = ({data}) => {
         {data.map((d) => (
           <div key={d.id}>
             <SwiperSlide>
-              <div className="text-white ">
+              <Link to={`/${d.media_type}/${d.id}`} className="text-white ">
                 <img
                   className="w-[160px] h-[190px] rounded-md"
                   src={`https://image.tmdb.org/t/p/w500/${d.backdrop_path}`}
                 />
-                <h4>{d.original_title || d.original_title || d.name || d.original_name}</h4>
+                <h4>
+                  {d.original_title ||
+                    d.original_title ||
+                    d.name ||
+                    d.original_name}
+                </h4>
                 <h4>{d.release_date || d.first_air_date}</h4>
-              </div>
+              </Link>
             </SwiperSlide>
           </div>
         ))}

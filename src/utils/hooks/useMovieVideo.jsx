@@ -14,6 +14,7 @@ const useMovieTrailerKey = () => {
     try {
       if (movieId) {
         const response = await axiosInstance.get(`/movie/${movieId}/videos`);
+        console.log(response)
 
         dispatch(
           addRandomMovieKey(
