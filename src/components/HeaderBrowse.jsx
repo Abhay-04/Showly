@@ -30,7 +30,7 @@ const HeaderBrowse = () => {
             photoURL: photoURL,
           })
         );
-        navigate("/browse");
+        // navigate("/browse");
 
         // ...
       } else {
