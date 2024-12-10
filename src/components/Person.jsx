@@ -1,19 +1,15 @@
-
 import { useEffect } from "react";
 import personDataAsync from "../store/actions/personDataAsync";
-import { useDispatch, useSelector} from "react-redux";
-
+import { useDispatch, useSelector } from "react-redux";
 
 import Cards from "./Cards";
 
 import InfiniteScroll from "react-infinite-scroll-component";
 import { addPersonData, setPage } from "../store/personSlice";
-
+import SearchBar from "./SearchBar";
 
 const Person = () => {
   const dispatch = useDispatch();
-
- 
 
   const data = useSelector((store) => store.person.data);
 
@@ -23,8 +19,6 @@ const Person = () => {
     dispatch(personDataAsync());
   };
 
- 
-
   useEffect(() => {
     fetchPersonData();
   }, []);
@@ -33,12 +27,12 @@ const Person = () => {
     <h1>loading</h1>
   ) : (
     <div className="bg-gray-800 ">
+      <SearchBar />
       <div className="flex justify-between px-8 py-6 ">
         <h1 className="text-2xl text-white">
           {/* <div onClick={() => navigate(-1)}>Back</div> */}
           People
         </h1>
-        
       </div>
       <div className="mx-auto">
         <InfiniteScroll

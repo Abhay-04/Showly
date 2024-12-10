@@ -21,7 +21,7 @@ const VerticalCards = ({ data }) => {
               <Link to={`/${d.media_type}/${d.id}`} className="text-white ">
                 <img
                   className="w-[160px] h-[190px] rounded-md"
-                  src={`https://image.tmdb.org/t/p/w500/${d.backdrop_path}`}
+                  src={`https://image.tmdb.org/t/p/original/${d.backdrop_path}`}
                 />
                 <h4>
                   {d.original_title ||

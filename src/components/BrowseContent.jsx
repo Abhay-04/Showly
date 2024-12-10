@@ -7,6 +7,7 @@ import VideoTrailer from "./VideoTrailer";
 import { changeBrowseDropDown } from "../store/browseSlice";
 import Dropdown from "../utils/hooks/usedropdown";
 import { Link } from "react-router-dom";
+import SearchBar from "./SearchBar";
 
 const BrowseContent = () => {
   const dispatch = useDispatch();
@@ -34,12 +35,20 @@ const BrowseContent = () => {
 
   return (
     <div>
+      <SearchBar />
       <div className="relative h-[55vh] w-full bg-gradient-to-r from-black">
         <div className="w-full h-full  -z-10 absolute">
           {browse?.randomMovieKey !== null ? (
             <VideoTrailer trailerKey={browse?.randomMovieKey} />
           ) : (
-            <img src={`https://image.tmdb.org/t/p/original/${browse?.randomNowPlayingMovie?.backdrop_path || browse?.randomNowPlayingMovie?.profile_path || browse?.randomNowPlayingMovie?.poster_path}`} />
+            <img
+              className="w-[100%] h-[100%] object-center -z-10 absolute"
+              src={`https://image.tmdb.org/t/p/original/${
+                browse?.randomNowPlayingMovie?.backdrop_path ||
+                browse?.randomNowPlayingMovie?.profile_path ||
+                browse?.randomNowPlayingMovie?.poster_path
+              }`}
+            />
           )}
         </div>
         <div className="h-full flex flex-col gap-3 justify-end  text-white  px-16 pb-12 w-[50vw]">

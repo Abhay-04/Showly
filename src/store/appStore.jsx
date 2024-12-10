@@ -6,15 +6,23 @@ import popularReducer from "./popularSlice";
 import moviesReducer from "./moviesSlice";
 import tvReducer from "./tvSlice";
 import personReducer from "./personSlice";
+import moviesDetailsReducer from "./movieDetailsSlice";
+import tvDetailsReducer from "./tvDetailsSlice";
+import personDetailsReducer from "./personDetailsSlice";
+import searchDataReducer from "./searchSlice";
 const appStore = configureStore({
   reducer: {
     user: userReducer,
+    searchData: searchDataReducer,
     browse: browseReducer,
     trending: trendingReducer,
     popular: popularReducer,
     movies: moviesReducer,
     tv: tvReducer,
     person: personReducer,
+    movieDetails: moviesDetailsReducer,
+    tvDetails: tvDetailsReducer,
+    personDetails: personDetailsReducer,
   },
 });
 
