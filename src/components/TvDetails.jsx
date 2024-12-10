@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 
 import { useDispatch } from "react-redux";
 import tvDetailsAsync from "../store/actions/tvDetailsAsync";
+import HeaderBrowse from "./HeaderBrowse";
 
 const TvDetails = () => {
   const dispatch = useDispatch();
@@ -13,7 +14,12 @@ const TvDetails = () => {
     dispatch(tvDetailsAsync(id));
   }, []);
 
-  return <div>TvDetails</div>;
+  return (
+    <div>
+      <HeaderBrowse />
+      TvDetails
+    </div>
+  );
 };
 
 export default TvDetails;

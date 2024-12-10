@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 
 import { useDispatch } from "react-redux";
 import personDetailsAsync from "../store/actions/personDetailsAsync";
+import HeaderBrowse from "./HeaderBrowse";
 
 const PersonDetails = () => {
   const dispatch = useDispatch();
@@ -13,7 +14,9 @@ const PersonDetails = () => {
     dispatch(personDetailsAsync(id));
   }, []);
 
-  return <div>PersonDetails</div>;
+  return <div>
+    <HeaderBrowse />
+    PersonDetails</div>;
 };
 
 export default PersonDetails;

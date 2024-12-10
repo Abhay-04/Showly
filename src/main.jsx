@@ -75,7 +75,7 @@ const router = createBrowserRouter([
     path: "/person/:id",
     element: <PersonDetails />,
   },
-  { path: "/gpt", element: <div>GPT Page</div> },
+  
 ]);
 
 createRoot(document.getElementById("root")).render(
