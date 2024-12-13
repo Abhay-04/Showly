@@ -4,8 +4,9 @@ import { auth } from "../utils/firebase";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useRef, useState } from "react";
 import { addUser, removeUser } from "../store/userSlice";
-import { USER_AVATAR } from "../utils/constants";
+import { SUPPORTED_LANGUAGES, USER_AVATAR } from "../utils/constants";
 import { Link, useNavigate } from "react-router-dom";
+import { changeLanguage } from "../store/configSlice";
 
 const HeaderBrowse = () => {
   const [showDropdown, setShowDropdown] = useState(false);
@@ -80,6 +81,11 @@ const HeaderBrowse = () => {
         console.log(error);
       });
   };
+
+  const handleLanguageChange = (e) => {
+    dispatch(changeLanguage(e.target.value));
+  };
+
   return (
     <div className="flex  justify-between h-[10vh] items-center lg:px-12 px-4 bg-[#1D232A] text-white lg:border-b-2 lg:border-[#505760]">
       <Link to={"/browse"}>
@@ -89,12 +95,20 @@ const HeaderBrowse = () => {
         </div>
       </Link>
       <div className="right-nav flex items-center gap-2 relative cursor-pointer">
-      <Link to={"/browse/gpt"}>
+        <select onChange={handleLanguageChange} className="text-black">
+          {SUPPORTED_LANGUAGES.map((lang) => (
+            <option key={lang.identifier} value={lang.identifier}>
+              {lang.language}
+            </option>
+          ))}
+        </select>
+
+        <Link to={"/browse/gpt"}>
           <button className="mx-2 px-2 py-1 bg-purple-600 cursor-pointer text-white rounded-md">
             GPT Search
           </button>
         </Link>
-        
+
         <div
           onClick={handleToggleDropdown}
           ref={dropdownRef}
@@ -111,8 +125,6 @@ const HeaderBrowse = () => {
           <i className="ri-arrow-down-s-fill  "></i>
         </div>
 
-        
-
         {/* Dropdown menu */}
         {showDropdown && (
           <div
@@ -126,7 +138,7 @@ const HeaderBrowse = () => {
                 {user?.displayName ? user?.displayName?.split(" ")[0] : "Guest"}
               </li>
               <li className="my-2 hover:bg-gray-300 hover:text-black rounded-md px-2 py-1">
-              <i className="ri-sun-fill mr-4"></i>Light Mode
+                <i className="ri-sun-fill mr-4"></i>Light Mode
               </li>
               <Link to={"/browse/saved"}>
                 {" "}

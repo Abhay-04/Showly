@@ -8,6 +8,7 @@ import { changeBrowseDropDown } from "../store/browseSlice";
 import Dropdown from "../utils/hooks/usedropdown";
 import { Link } from "react-router-dom";
 import SearchBar from "./SearchBar";
+import lang from "../utils/languageConstants";
 
 const BrowseContent = () => {
   const dispatch = useDispatch();
@@ -18,6 +19,7 @@ const BrowseContent = () => {
 
   const browse = useSelector((store) => store?.browse);
   const category = useSelector((store) => store?.browse?.browseDropDown);
+  const language = useSelector((store) => store.config.language);
 
   useMovieTrailerKey();
 
@@ -93,7 +95,7 @@ const BrowseContent = () => {
         <div className="flex flex-row justify-between items-center w-[83vw] mb-4  ">
           <div>
             {" "}
-            <h1 className="text-2xl font-bold mb-4 text-white">Trending</h1>
+            <h1 className="text-2xl font-bold mb-4 text-white">{lang[language].trending}</h1>
           </div>
           <div className="flex gap-5">
             <Dropdown
