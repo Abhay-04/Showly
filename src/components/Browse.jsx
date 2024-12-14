@@ -53,7 +53,7 @@ const Browse = () => {
       </div>
 
       {/* Right Content */}
-      <div className="right sm:col-span-10 col-span-12 overflow-y-auto">
+      <div className="right lg:col-span-10 col-span-12 overflow-y-auto">
         <HeaderBrowse />
         <Outlet />
       </div>
