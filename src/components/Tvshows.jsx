@@ -61,6 +61,7 @@ const Tv = () => {
           hasMore={true}
           next={() => dispatch(tvDataAsync())}
           loader={<h1>Loading.....</h1>}
+          scrollableTarget="scrollableDiv" // Target the right-side container
         >
           <Cards data={data} title={"tv"} />
         </InfiniteScroll>

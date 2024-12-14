@@ -54,6 +54,7 @@ const Popular = () => {
           hasMore={true}
           next={() => dispatch(popularDataAsync())}
           loader={<h1>Loading.....</h1>}
+          scrollableTarget="scrollableDiv" // Target the right-side container
         >
           <Cards data={data} title={category} />
         </InfiniteScroll>

@@ -42,7 +42,7 @@ const Trending = () => {
   return data.length == 0 ? (
     <h1>loading</h1>
   ) : (
-    <div className="bg-black">
+    <div className="bg-black ">
       
       <div className="flex justify-between px-8 py-6 ">
         <h1 className="text-2xl text-white">
@@ -62,12 +62,13 @@ const Trending = () => {
           />
         </div>
       </div>
-      <div className="mx-auto">
+      <div className="mx-auto ">
         <InfiniteScroll
           dataLength={data.length}
           hasMore={true}
           next={() => dispatch(trendingDataAsync())}
           loader={<h1>Loading.....</h1>}
+          scrollableTarget="scrollableDiv" // Target the right-side container
         >
           <Cards data={data} title={category} />
         </InfiniteScroll>

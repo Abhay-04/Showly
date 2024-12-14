@@ -7,7 +7,6 @@ import Cards from "./Cards";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { addPersonData, setPage } from "../store/personSlice";
 
-
 const Person = () => {
   const dispatch = useDispatch();
 
@@ -27,7 +26,6 @@ const Person = () => {
     <h1>loading</h1>
   ) : (
     <div className="bg-black">
-      
       <div className="flex justify-between px-8 py-6 ">
         <h1 className="text-2xl text-white">
           {/* <div onClick={() => navigate(-1)}>Back</div> */}
@@ -40,6 +38,7 @@ const Person = () => {
           hasMore={true}
           next={() => dispatch(personDataAsync())}
           loader={<h1>Loading.....</h1>}
+          scrollableTarget="scrollableDiv" // Target the right-side container
         >
           <Cards data={data} title={"person"} />
         </InfiniteScroll>
