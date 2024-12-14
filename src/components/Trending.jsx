@@ -12,7 +12,7 @@ import {
 import Cards from "./Cards";
 
 import InfiniteScroll from "react-infinite-scroll-component";
-import SearchBar from "./SearchBar";
+
 
 const Trending = () => {
   const dispatch = useDispatch();
@@ -42,8 +42,8 @@ const Trending = () => {
   return data.length == 0 ? (
     <h1>loading</h1>
   ) : (
-    <div className="bg-gray-800 ">
-      <SearchBar />
+    <div className="bg-black">
+      
       <div className="flex justify-between px-8 py-6 ">
         <h1 className="text-2xl text-white">
           {/* <div onClick={() => navigate(-1)}>Back</div> */}

@@ -5,55 +5,61 @@ import HeaderBrowse from "./HeaderBrowse";
 import BottomBrowse from "./BottomBrowse";
 import lang from "../utils/languageConstants";
 import { useSelector } from "react-redux";
+import Logo from "../../src/file.png";
 
 const Browse = () => {
-  const language = useSelector((store) => store.config.language);
+  const langKey = useSelector((store) => store.config.language);
   return (
-    <>
-      <div className="main overflow-hidden">
-        <HeaderBrowse />
-
-        <div className="lg:flex-row flex  flex-col-reverse  justify-between">
-          <div className="left  sm:h-[90vh] bg-[#2A323C] lg:flex hidden flex-col justify-between items-start px-4 py-6">
-            <ul className="text-xl text-white font-semibold flex flex-col gap-10 py-6 px-4 ">
-              <Link to={"/browse/trending"}>
-                <li className="hover:bg-purple-400 rounded-md px-6 py-2 w-full">
-                  <i className="ri-fire-fill mr-2"></i>
-                  {lang[language].trending}
-                </li>
-              </Link>
-              <Link to={"/browse/popular"}>
-                <li className="hover:bg-purple-400 rounded-md px-6 py-2 w-full">
-                  <i className="ri-bard-fill mr-2"></i>{lang[language].popular}
-                </li>
-              </Link>
-              <Link to={"/browse/movies"}>
-                <li className="hover:bg-purple-400 rounded-md px-6 py-2 w-full">
-                  <i className="ri-movie-2-fill mr-2"></i>{lang[language].movies}
-                </li>
-              </Link>
-              <Link to={"/browse/tvshows"}>
-                <li className="hover:bg-purple-400 rounded-md px-6 py-2 w-full">
-                  <i className="ri-tv-2-fill mr-2"></i>{lang[language].tvShows}
-                </li>
-              </Link>
-              <Link to={"/browse/peoples"}>
-                {" "}
-                <li className="hover:bg-purple-400 rounded-md px-6 py-2 w-full">
-                  <i className="ri-team-fill mr-2"></i>{lang[language].people}
-                </li>
-              </Link>
-            </ul>
-          </div>
-
-          <div className="right w-full ">
-            <Outlet />
-          </div>
-        </div>
-
-        <BottomBrowse />
+    <div className="main grid grid-cols-12 fixed top-0 left-0 w-full h-screen">
+      {/* Left Sidebar */}
+      <div className="left sm:col-span-2  sm:h-full bg-black hidden lg:block">
+        <ul className="text-xl text-white font-semibold flex flex-col gap-10 pb-6 px-4">
+          <Link to={"/browse"}>
+            <div className="logo">
+              <img className="w-28 lg:w-36 h-auto" src={Logo} alt="Logo" />
+            </div>
+          </Link>
+          <Link to={"/browse/trending"}>
+            <li className="hover:bg-[#E50000] rounded-md px-6 py-2 ">
+              <i className="ri-fire-fill mr-2"></i>
+              {lang[langKey].trending}
+            </li>
+          </Link>
+          <Link to={"/browse/popular"}>
+            <li className="hover:bg-[#E50000] rounded-md px-6 py-2 ">
+              <i className="ri-bard-fill mr-2"></i>
+              {lang[langKey].popular}
+            </li>
+          </Link>
+          <Link to={"/browse/movies"}>
+            <li className="hover:bg-[#E50000] rounded-md px-6 py-2 ">
+              <i className="ri-movie-2-fill mr-2"></i>
+              {lang[langKey].movies}
+            </li>
+          </Link>
+          <Link to={"/browse/tvshows"}>
+            <li className="hover:bg-[#E50000] rounded-md px-6 py-2 ">
+              <i className="ri-tv-2-fill mr-2"></i>
+              {lang[langKey].tvShows}
+            </li>
+          </Link>
+          <Link to={"/browse/peoples"}>
+            <li className="hover:bg-[#E50000] rounded-md px-6 py-2 ">
+              <i className="ri-team-fill mr-2"></i>
+              {lang[langKey].people}
+            </li>
+          </Link>
+        </ul>
       </div>
-    </>
+
+      {/* Right Content */}
+      <div className="right sm:col-span-10 col-span-12 overflow-y-auto">
+        <HeaderBrowse />
+        <Outlet />
+      </div>
+
+      <BottomBrowse />
+    </div>
   );
 };
 

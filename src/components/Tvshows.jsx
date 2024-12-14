@@ -10,7 +10,7 @@ import Cards from "./Cards";
 
 import InfiniteScroll from "react-infinite-scroll-component";
 import { addTvData, changeTvCategory, setPage } from "../store/tvSlice";
-import SearchBar from "./SearchBar";
+
 
 
 const Tv = () => {
@@ -39,12 +39,12 @@ const Tv = () => {
   return data.length == 0 ? (
     <h1>loading</h1>
   ) : (
-    <div className="bg-gray-800 ">
-      <SearchBar />
+    <div className="bg-black" >
+      
       <div className="flex justify-between px-8 py-6 ">
         <h1 className="text-2xl text-white">
           {/* <div onClick={() => navigate(-1)}>Back</div> */}
-          Movies
+          Tv Shows
         </h1>
         <div className="flex gap-3">
           <Dropdown

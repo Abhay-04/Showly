@@ -11,7 +11,7 @@ import {
   changeMoviesCategory,
   setPage,
 } from "../store/moviesSlice";
-import SearchBar from "./SearchBar";
+
 
 const Movies = () => {
   const dispatch = useDispatch();
@@ -38,8 +38,8 @@ const Movies = () => {
   return data.length == 0 ? (
     <h1>loading</h1>
   ) : (
-    <div className="bg-gray-800 ">
-      <SearchBar />
+    <div className="bg-black" >
+     
       <div className="flex justify-between px-8 py-6 ">
         <h1 className="text-2xl text-white">
           {/* <div onClick={() => navigate(-1)}>Back</div> */}

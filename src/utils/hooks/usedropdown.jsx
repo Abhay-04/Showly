@@ -15,7 +15,7 @@ const Dropdown = ({ title, options, onSelect }) => {
       {/* Dropdown Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="px-4 py-2 bg-purple-600 min-w-32 text-white rounded-md shadow-md focus:outline-none"
+        className="px-4 py-2 bg-[#E50000] min-w-32 text-white rounded-md shadow-md focus:outline-none"
       >
         <div className="flex justify-between items-center gap-3">
           <div>{selectedOption.toUpperCase() || title.toUpperCase()} </div>
@@ -31,7 +31,7 @@ const Dropdown = ({ title, options, onSelect }) => {
 
       {/* Dropdown Options */}
       {isOpen && (
-        <div className="absolute mt-2 bg-white border rounded-md shadow-lg w-48 z-50">
+        <div className="absolute mt-2 bg-white border rounded-md shadow-lg w-36 z-50">
           <ul className="py-2">
             {options.map((option, index) => (
               <li

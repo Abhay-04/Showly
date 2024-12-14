@@ -1,4 +1,3 @@
-import Logo from "../../src/file.png";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "../utils/firebase";
 import { useDispatch, useSelector } from "react-redux";
@@ -7,6 +6,7 @@ import { addUser, removeUser } from "../store/userSlice";
 import { SUPPORTED_LANGUAGES, USER_AVATAR } from "../utils/constants";
 import { Link, useNavigate } from "react-router-dom";
 import { changeLanguage } from "../store/configSlice";
+import SearchBar from "./SearchBar";
 
 const HeaderBrowse = () => {
   const [showDropdown, setShowDropdown] = useState(false);
@@ -82,29 +82,27 @@ const HeaderBrowse = () => {
       });
   };
 
-  const handleLanguageChange = (e) => {
-    dispatch(changeLanguage(e.target.value));
-  };
+  // const handleLanguageChange = (e) => {
+  //   dispatch(changeLanguage(e.target.value));
+  // };
 
   return (
-    <div className="flex  justify-between h-[10vh] items-center lg:px-12 px-4 bg-[#1D232A] text-white lg:border-b-2 lg:border-[#505760]">
-      <Link to={"/browse"}>
-        {" "}
-        <div className="logo">
-          <img className=" w-28 lg:w-36 h-auto  " src={Logo} alt="Logo" />
-        </div>
-      </Link>
+    <div className="flex bg-black  justify-between h-[10vh] items-center lg:px-20   text-white ">
+      <div>
+        {/* <SearchBar /> */}
+        <h1>SearchBAr</h1>
+      </div>
       <div className="right-nav flex items-center gap-2 relative cursor-pointer">
-        <select onChange={handleLanguageChange} className="text-black">
+        {/* <select onChange={handleLanguageChange} className="text-black">
           {SUPPORTED_LANGUAGES.map((lang) => (
             <option key={lang.identifier} value={lang.identifier}>
               {lang.language}
             </option>
           ))}
-        </select>
+        </select> */}
 
         <Link to={"/browse/gpt"}>
-          <button className="mx-2 px-2 py-1 bg-purple-600 cursor-pointer text-white rounded-md">
+          <button className="mx-2 px-2 py-1 bg-[#E50000] cursor-pointer text-white rounded-md">
             GPT Search
           </button>
         </Link>
