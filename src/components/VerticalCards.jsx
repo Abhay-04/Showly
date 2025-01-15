@@ -27,7 +27,7 @@ const VerticalCards = ({ data }) => {
     },
     // When the viewport width is >= 1280px
     1280: {
-      slidesPerView: 8,
+      slidesPerView: 6,
     },
   }}
   onSlideChange={() => console.log("slide change")}
