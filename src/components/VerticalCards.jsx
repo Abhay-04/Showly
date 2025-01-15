@@ -11,7 +11,7 @@ const VerticalCards = ({ data }) => {
     <div className="overflow-hidden">
       {" "}
       <Swiper
-  spaceBetween={10}
+  spaceBetween={25}
   breakpoints={{
     // When the viewport width is >= 320px
     320: {
