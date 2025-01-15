@@ -24,7 +24,7 @@ const Cards = ({ data, title }) => {
                   : NO_IMAGE_URL
               }
             />
-            <h4 className="text-xl pt-4 pb-2 font-semibold">
+            <h4 className="text-xl pt-4 pb-1 font-semibold">
               {d.original_title ||
                 d.original_title ||
                 d.name ||
