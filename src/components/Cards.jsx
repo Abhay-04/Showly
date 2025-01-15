@@ -15,7 +15,7 @@ const Cards = ({ data, title }) => {
             className="text-white  "
           >
             <img
-              className="w-[260px] h-[280px] rounded-md"
+              className="w-[260px] h-[180px] sm:h-[280px] rounded-md"
               src={
                 d.backdrop_path || d.profile_path || d.poster_path === null
                   ? `https://image.tmdb.org/t/p/w500/${
