@@ -12,7 +12,7 @@ const Browse = () => {
   return (
     <div className="main grid grid-cols-12 w-full h-full">
   {/* Left Sidebar */}
-  <div className="left sm:col-span-2 bg-black  hidden lg:block">
+  <div className="left sm:col-span-2 bg-black  hidden lg:block py-10">
     <ul className="text-xl text-white font-semibold flex flex-col gap-10 pb-6 px-4">
       <Link to={"/browse"}>
         <div className="logo">

@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import searchDataAsync from "../store/actions/searchDataAsync";
 import { addQueryData } from "../store/searchSlice";
 import { Link } from "react-router-dom";
+import { NO_IMAGE_URL } from "../utils/constants";
 
 const SearchBar = () => {
   const dispatch = useDispatch();
@@ -24,37 +25,40 @@ const SearchBar = () => {
   }, [query]);
 
   return (
-    <div>
+    <div className="relative">
       <div>
         <input
-          className="w-full p-4 text-xl   border border-black"
+          className="w-full p-4 text-xl bg-transparent rounded-lg"
           type="text"
           placeholder="Search for movies, TV shows, or people..."
           value={query}
           onChange={handleQuery}
         ></input>
       </div>
-      <div className="w-[50%] bg-gray-200 ">
-        {searchData.map((d) => (
-          <Link to={`/${d.media_type}/${d.id}`}
-            key={d.id}
-            className="flex justify-between items-center px-8 py-2"
-          >
-            <img
-              className="size-28"
-              src={`https://image.tmdb.org/t/p/w500/${
-                d.backdrop_path || d.profile_path || d.poster_path
-              }`}
-            />
-            <h1>
-              {d.original_title ||
-                d.original_title ||
-                d.name ||
-                d.original_name}
-            </h1>
-          </Link>
-        ))}
-      </div>
+      {searchData.length > 0 && (
+        <div className=" bg-black overflow-hidden overflow-y-scroll h-[45vh] w-full absolute z-[1000] ">
+          {searchData.map((d) => (
+            <Link
+              to={`/${d.media_type}/${d.id}`}
+              key={d.id}
+              className="flex justify-between items-center px-8 py-2"
+            >
+              <img
+                className="size-28"
+                src={d.backdrop_path || d.profile_path || d.poster_path != null ? `https://image.tmdb.org/t/p/w500/${
+                  d.backdrop_path || d.profile_path || d.poster_path
+                }` : NO_IMAGE_URL }
+              />
+              <h1>
+                {d.original_title ||
+                  d.original_title ||
+                  d.name ||
+                  d.original_name}
+              </h1>
+            </Link>
+          ))}
+        </div>
+      )}
     </div>
   );
 };

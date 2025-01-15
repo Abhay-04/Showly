@@ -82,24 +82,24 @@ const HeaderBrowse = () => {
       });
   };
 
-  // const handleLanguageChange = (e) => {
-  //   dispatch(changeLanguage(e.target.value));
-  // };
+  const handleLanguageChange = (e) => {
+    dispatch(changeLanguage(e.target.value));
+  };
 
   return (
-    <div className="flex bg-black  justify-between h-[10vh] items-center lg:px-20   text-white ">
-      <div>
-        {/* <SearchBar /> */}
-        <h1>SearchBAr</h1>
+    <div className="grid grid-cols-12 py-12 bg-black lg:px-20   text-white ">
+      <div className="left col-span-8">
+        <SearchBar />
+        
       </div>
-      <div className="right-nav flex items-center gap-2 relative cursor-pointer">
-        {/* <select onChange={handleLanguageChange} className="text-black">
+      <div className="right col-span-4  flex items-center justify-end gap-2 relative cursor-pointer">
+        <select onChange={handleLanguageChange} className="text-white bg-black">
           {SUPPORTED_LANGUAGES.map((lang) => (
             <option key={lang.identifier} value={lang.identifier}>
               {lang.language}
             </option>
           ))}
-        </select> */}
+        </select>
 
         <Link to={"/browse/gpt"}>
           <button className="mx-2 px-2 py-1 bg-[#E50000] cursor-pointer text-white rounded-md">

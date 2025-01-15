@@ -9,6 +9,7 @@ import Dropdown from "../utils/hooks/usedropdown";
 import { Link } from "react-router-dom";
 import SearchBar from "./SearchBar";
 import lang from "../utils/languageConstants";
+import { NO_IMAGE_URL } from "../utils/constants";
 
 const BrowseContent = () => {
   const dispatch = useDispatch();
@@ -38,8 +39,8 @@ const BrowseContent = () => {
 
   return (
     <div className="">
-      <div className="relative h-[55vh] w-full bg-gradient-to-r from-black" >
-        <div className="w-full h-full  -z-10 absolute">
+      <div className="relative h-[55vh] w-full bg-gradient-to-r from-black">
+        <div className="w-[100%] h-full  -z-10 absolute">
           {/* {browse?.randomMovieKey !== null ? (
             <VideoTrailer trailerKey={browse?.randomMovieKey} />
           ) : (
@@ -55,11 +56,17 @@ const BrowseContent = () => {
           {browse?.randomMovieKey !== null && videoMutedStatus ? (
             <img
               className="w-[100%] h-[100%] object-center -z-10 absolute"
-              src={`https://image.tmdb.org/t/p/original/${
+              src={
                 browse?.randomNowPlayingMovie?.backdrop_path ||
                 browse?.randomNowPlayingMovie?.profile_path ||
-                browse?.randomNowPlayingMovie?.poster_path
-              }`}
+                browse?.randomNowPlayingMovie?.poster_path !== null
+                  ? `https://image.tmdb.org/t/p/original/${
+                      browse?.randomNowPlayingMovie?.backdrop_path ||
+                      browse?.randomNowPlayingMovie?.profile_path ||
+                      browse?.randomNowPlayingMovie?.poster_path
+                    }`
+                  : NO_IMAGE_URL
+              }
             />
           ) : (
             <VideoTrailer trailerKey={browse?.randomMovieKey} />

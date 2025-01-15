@@ -1,5 +1,6 @@
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
+import { NO_IMAGE_URL } from "../utils/constants";
 
 // Import Swiper styles
 import "swiper/css";
@@ -21,7 +22,7 @@ const VerticalCards = ({ data }) => {
               <Link to={`/${d.media_type}/${d.id}`} className="text-white ">
                 <img
                   className="w-[160px] h-[190px] rounded-md"
-                  src={`https://image.tmdb.org/t/p/original/${d.backdrop_path}`}
+                  src={ d.backdrop_path !== null ? `https://image.tmdb.org/t/p/original/${d.backdrop_path}` : NO_IMAGE_URL}
                 />
                 <h4>
                   {d.original_title ||

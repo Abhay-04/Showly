@@ -2,7 +2,7 @@
 
 const Saved = () => {
   return (
-    <div>Saved</div>
+    <div className="bg-black w-full h-full text-white text-2xl">Saved</div>
   )
 }
 
