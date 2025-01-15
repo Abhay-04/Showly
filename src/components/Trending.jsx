@@ -44,13 +44,15 @@ const Trending = () => {
   ) : (
     <div className="bg-black ">
       
-      <div className="flex justify-between px-8 py-6 ">
-        <h1 className="text-2xl text-white">
+      <div className=" grid grid-cols-12 px-8  ">
+        <div className="col-span-4">
+        <h1 className="text-2xl  text-white">
           {/* <div onClick={() => navigate(-1)}>Back</div> */}
           Trending
         </h1>
-        <div className="flex gap-3">
-          <Dropdown
+        </div>
+        <div className="col-span-8 text-end">
+          <Dropdown 
             title={category.toUpperCase()}
             options={["Movie", "Tv", "All"]}
             onSelect={handleSelectCategory}
@@ -62,7 +64,7 @@ const Trending = () => {
           />
         </div>
       </div>
-      <div className="mx-auto ">
+      <div className="">
         <InfiniteScroll
           dataLength={data.length}
           hasMore={true}

@@ -11,7 +11,7 @@ const Dropdown = ({ title, options, onSelect }) => {
   };
 
   return (
-    <div className="relative inline-block text-left">
+    <div className="relative inline-block text-left ">
       {/* Dropdown Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}

@@ -4,9 +4,9 @@ const Cards = ({ data , title }) => {
   console.log(data);
   console.log(title);
   return (
-    <div className="overflow-hidden flex flex-wrap gap-10 justify-start px-10">
+    <div className="overflow-hidden grid  gap-4 grid-cols-12 px-8 mt-8 ">
       {data.map((d) => (
-        <div key={d.id}>
+        <div className="col-span-12 sm:col-span-6 md:col-span-4 2xl:col-span-2" key={d.id}>
           <Link to={`/${d.media_type ||  title}/${d.id}`} className="text-white  ">
             <img
               className="w-[260px] h-[280px] rounded-md"

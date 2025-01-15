@@ -36,6 +36,7 @@ const router = createBrowserRouter([
         path: "/browse",
         element: <BrowseContent />,
       },
+      
       {
         path: "/browse/popular",
         element: <Popular />,
