@@ -39,8 +39,8 @@ const BrowseContent = () => {
   }
 
   return (
-    <div className="">
-      <div className="relative h-[70vh] sm:h-[55vh] w-full bg-gradient-to-r from-black">
+    <div>
+      <div className="relative h-[60vh] sm:h-[55vh] w-full bg-gradient-to-r from-black">
         <div className="w-[100%] h-full  -z-10 absolute">
           {/* {browse?.randomMovieKey !== null ? (
             <VideoTrailer trailerKey={browse?.randomMovieKey} />
@@ -74,13 +74,13 @@ const BrowseContent = () => {
           )}
         </div>
         <div className="h-full flex flex-col gap-3 justify-end  text-white p-6  sm:px-16 pb-12 sm:w-[50vw]">
-          <h1 className="text-4xl font-bold">
+          <h1 className=" text-2xl sm:text-4xl font-bold">
             {browse.randomNowPlayingMovie.title ||
               browse.randomNowPlayingMovie.original_title ||
               browse.randomNowPlayingMovie.name ||
               browse.randomNowPlayingMovie.original_name}
           </h1>
-          <p className="text-md ">
+          <p className=" text-sm sm:text-lg ">
             {browse.randomNowPlayingMovie.overview
               .split(" ")
               .slice(0, 30)
@@ -114,7 +114,7 @@ const BrowseContent = () => {
         </div>
       </div>
 
-      <div className="  px-6 sm:px-12 pl-18 pt-3 bg-black sm:h-[45vh] flex flex-col justify-center ">
+      <div className="  px-6 sm:px-12 pl-18 pt-20 sm:pt-8 bg-black sm:h-[45vh] flex flex-col justify-center  ">
         <div className="flex flex-row justify-between   mb-4  ">
           <div>
             {" "}

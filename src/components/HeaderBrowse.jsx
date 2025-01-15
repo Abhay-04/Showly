@@ -88,16 +88,16 @@ const HeaderBrowse = () => {
   };
 
   return (
-    <div className="grid grid-cols-12 py-6 sm:py-12 bg-black lg:px-20 gap-4   text-white ">
-      <div className="logo col-span-6 sm:col-span-12 sm:hidden">
+    <div className="grid grid-cols-12 px-3 pt-2 sm:pb-6 pb-12 sm:py-12 bg-black lg:px-20 gap-4   text-white ">
+      <div className="logo col-span-6 order-1  sm:col-span-12 sm:hidden">
         <Link to={"/browse"}>
           <img className="w-28 lg:w-36 h-auto" src={Logo} alt="Logo" />
         </Link>
       </div>
-      <div className="left  col-span-12 sm:col-span-8">
+      <div className="left  col-span-12 order-3 sm:order-2 sm:col-span-8">
         <SearchBar />
       </div>
-      <div className="right col-span-6 sm:col-span-4 flex items-center justify-end gap-2 relative cursor-pointer">
+      <div className="right col-span-6 order-2 sm:order-3 sm:col-span-4 flex items-center justify-end gap-2 relative cursor-pointer">
         <select  onChange={handleLanguageChange} className="text-white bg-black  hidden  sm:block">
           {SUPPORTED_LANGUAGES.map((lang) => (
             <option key={lang.identifier} value={lang.identifier}>

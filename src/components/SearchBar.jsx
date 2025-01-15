@@ -28,7 +28,7 @@ const SearchBar = () => {
     <div className="relative">
       <div>
         <input
-          className="w-full  sm:p-4  text-sm sm:text-xl bg-transparent rounded-lg"
+          className="w-full  p-2 sm:p-4  text-sm sm:text-xl bg-transparent rounded-lg"
           type="text"
           placeholder="Search for movies, TV shows, or people..."
           value={query}
