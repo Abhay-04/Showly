@@ -13,9 +13,13 @@ const searchSlice = createSlice({
     addQueryData: (state, action) => {
       state.query = action.payload;
     },
+
+    removeQueryData: (state) => {
+      state.data = null;
+    }
   },
 });
 
-export const { addSearchData, addQueryData } = searchSlice.actions;
+export const { addSearchData, addQueryData , removeQueryData } = searchSlice.actions;
 
 export default searchSlice.reducer;
