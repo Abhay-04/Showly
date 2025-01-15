@@ -14,7 +14,6 @@ const SearchBar = () => {
   const handleQuery = (e) => {
     const query = e.target.value;
     dispatch(addQueryData(query));
-    
   };
 
   const handleSearchQuery = () => {
@@ -23,24 +22,24 @@ const SearchBar = () => {
 
   useEffect(() => {
     handleSearchQuery();
-    
   }, [query]);
 
   return (
     <div className="relative">
       <div>
         <input
-          className="w-full p-4 text-xl bg-transparent rounded-lg"
+          className="w-full  sm:p-4  text-sm sm:text-xl bg-transparent rounded-lg"
           type="text"
           placeholder="Search for movies, TV shows, or people..."
           value={query}
-          
-          
           onChange={handleQuery}
         ></input>
       </div>
       {searchData.length > 0 && (
-        <div onClick={dispatch(removeQueryData)} className=" bg-black overflow-hidden overflow-y-scroll h-[45vh] w-full absolute z-[1000] ">
+        <div
+          onClick={dispatch(removeQueryData)}
+          className=" bg-black overflow-hidden overflow-y-scroll h-[45vh] w-full absolute z-[1000] "
+        >
           {searchData.map((d) => (
             <Link
               to={`/${d.media_type}/${d.id}`}
