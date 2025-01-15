@@ -45,14 +45,14 @@ const Trending = () => {
   ) : (
     <div className="bg-black ">
       
-      <div className=" grid grid-cols-12 px-8  ">
-        <div className="col-span-4">
+      <div className=" grid grid-cols-12 gap-y-4 px-8  ">
+        <div className="col-span-12">
         <h1 className="text-2xl  text-white">
           {/* <div onClick={() => navigate(-1)}>Back</div> */}
           Trending
         </h1>
         </div>
-        <div className="col-span-8 text-end">
+        <div className="col-span-12 flex gap-4 ">
           <Dropdown 
             title={category.toUpperCase()}
             options={["Movie", "Tv", "All"]}
