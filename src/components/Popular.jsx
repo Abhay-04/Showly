@@ -40,7 +40,7 @@ const Popular = () => {
     <div className="bg-black">
       <div className="grid grid-cols-12 gap-y-4 px-8">
         <div className="col-span-6">
-          <h1 className="text-2xl text-white">
+          <h1 className="text-2xl font-semibold text-white">
             {/* <div onClick={() => navigate(-1)}>Back</div> */}
             Popular
           </h1>
