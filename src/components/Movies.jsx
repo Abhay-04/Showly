@@ -11,6 +11,7 @@ import {
   changeMoviesCategory,
   setPage,
 } from "../store/moviesSlice";
+import Loading from "./Loading";
 
 
 const Movies = () => {
@@ -36,7 +37,7 @@ const Movies = () => {
   }, [category]);
 
   return data.length == 0 ? (
-    <h1>loading</h1>
+    <Loading />
   ) : (
     <div className="bg-black" >
      

@@ -10,6 +10,7 @@ import Cards from "./Cards";
 
 import InfiniteScroll from "react-infinite-scroll-component";
 import { addTvData, changeTvCategory, setPage } from "../store/tvSlice";
+import Loading from "./Loading";
 
 
 
@@ -37,7 +38,7 @@ const Tv = () => {
   }, [category]);
 
   return data.length == 0 ? (
-    <h1>loading</h1>
+   <Loading />
   ) : (
     <div className="bg-black" >
       

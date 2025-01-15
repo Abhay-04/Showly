@@ -12,6 +12,7 @@ import {
 import Cards from "./Cards";
 
 import InfiniteScroll from "react-infinite-scroll-component";
+import Loading from "./Loading";
 
 
 const Trending = () => {
@@ -40,7 +41,7 @@ const Trending = () => {
   }, [category, duration]);
 
   return data.length == 0 ? (
-    <h1>loading</h1>
+    <Loading />
   ) : (
     <div className="bg-black ">
       

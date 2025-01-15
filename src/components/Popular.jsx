@@ -7,6 +7,7 @@ import Cards from "./Cards";
 
 import InfiniteScroll from "react-infinite-scroll-component";
 import { addPopularData, changePopularCategory, setPage } from "../store/popularSlice";
+import Loading from "./Loading";
 
 
 const Popular = () => {
@@ -31,7 +32,7 @@ const Popular = () => {
   }, [category]);
 
   return data.length == 0 ? (
-    <h1>loading</h1>
+  <Loading />
   ) : (
     <div className="bg-black">
       

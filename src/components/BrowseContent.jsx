@@ -10,6 +10,7 @@ import { Link } from "react-router-dom";
 import SearchBar from "./SearchBar";
 import lang from "../utils/languageConstants";
 import { NO_IMAGE_URL } from "../utils/constants";
+import Loading from "./Loading"
 
 const BrowseContent = () => {
   const dispatch = useDispatch();
@@ -34,7 +35,7 @@ const BrowseContent = () => {
   }, [category]);
 
   if (!browse || !browse.randomNowPlayingMovie) {
-    return <div>Loading...</div>;
+    return <Loading />;
   }
 
   return (

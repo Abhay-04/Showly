@@ -6,6 +6,7 @@ import Cards from "./Cards";
 
 import InfiniteScroll from "react-infinite-scroll-component";
 import { addPersonData, setPage } from "../store/personSlice";
+import Loading from "./Loading";
 
 const Person = () => {
   const dispatch = useDispatch();
@@ -23,7 +24,7 @@ const Person = () => {
   }, []);
 
   return data.length == 0 ? (
-    <h1>loading</h1>
+    <Loading />
   ) : (
     <div className="bg-black">
       <div className="flex justify-between px-8 py-6 ">
