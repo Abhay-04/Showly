@@ -7,6 +7,7 @@ import { SUPPORTED_LANGUAGES, USER_AVATAR } from "../utils/constants";
 import { Link, useNavigate } from "react-router-dom";
 import { changeLanguage } from "../store/configSlice";
 import SearchBar from "./SearchBar";
+import Logo from "../../src/file.png";
 
 const HeaderBrowse = () => {
   const [showDropdown, setShowDropdown] = useState(false);
@@ -88,9 +89,13 @@ const HeaderBrowse = () => {
 
   return (
     <div className="grid grid-cols-12 py-12 bg-black lg:px-20   text-white ">
+      <div className="logo hidden">
+        <Link to={"/browse"}>
+          <img className="w-28 lg:w-36 h-auto" src={Logo} alt="Logo" />
+        </Link>
+      </div>
       <div className="left col-span-8">
         <SearchBar />
-        
       </div>
       <div className="right col-span-4  flex items-center justify-end gap-2 relative cursor-pointer">
         <select onChange={handleLanguageChange} className="text-white bg-black">
