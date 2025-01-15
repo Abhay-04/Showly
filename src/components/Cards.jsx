@@ -4,10 +4,10 @@ const Cards = ({ data, title }) => {
   console.log(data);
   console.log(title);
   return (
-    <div className="overflow-hidden grid  gap-x-6 gap-y-16 grid-cols-12 px-8 mt-8 ">
+    <div className="overflow-hidden grid  gap-x-6 gap-y-16 grid-cols-12 px-8 mt-8  ">
       {data.map((d) => (
         <div
-          className="col-span-6 md:col-span-4 2xl:col-span-2"
+          className="col-span-6 md:col-span-4 2xl:col-span-2  "
           key={d.id}
         >
           <Link

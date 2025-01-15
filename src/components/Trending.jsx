@@ -14,7 +14,6 @@ import Cards from "./Cards";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Loading from "./Loading";
 
-
 const Trending = () => {
   const dispatch = useDispatch();
 
@@ -43,17 +42,16 @@ const Trending = () => {
   return data.length == 0 ? (
     <Loading />
   ) : (
-    <div className="bg-black ">
-      
-      <div className=" grid grid-cols-12 gap-y-4 px-8  ">
-        <div className="col-span-12">
-        <h1 className="text-2xl  text-white">
-          {/* <div onClick={() => navigate(-1)}>Back</div> */}
-          Trending
-        </h1>
+    <div className="bg-black">
+      <div className="grid grid-cols-12 gap-y-4 px-8 ">
+        <div className="col-span-12 sm:col-span-6">
+          <h1 className="text-2xl  text-white">
+            {/* <div onClick={() => navigate(-1)}>Back</div> */}
+            Trending
+          </h1>
         </div>
-        <div className="col-span-12 flex gap-4 ">
-          <Dropdown 
+        <div className="col-span-12 sm:col-span-6 flex sm:justify-end gap-4  ">
+          <Dropdown
             title={category.toUpperCase()}
             options={["Movie", "Tv", "All"]}
             onSelect={handleSelectCategory}
@@ -65,7 +63,7 @@ const Trending = () => {
           />
         </div>
       </div>
-      <div className="">
+      <div>
         <InfiniteScroll
           dataLength={data.length}
           hasMore={true}

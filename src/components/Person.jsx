@@ -27,11 +27,13 @@ const Person = () => {
     <Loading />
   ) : (
     <div className="bg-black">
-      <div className="flex justify-between px-8 py-6 ">
-        <h1 className="text-2xl text-white">
-          {/* <div onClick={() => navigate(-1)}>Back</div> */}
-          People
-        </h1>
+      <div className="grid grid-cols-12 gap-y-4 px-8">
+        <div className="col-span-12">
+          <h1 className="text-2xl text-white">
+            {/* <div onClick={() => navigate(-1)}>Back</div> */}
+            People
+          </h1>
+        </div>
       </div>
       <div className="mx-auto">
         <InfiniteScroll

@@ -1,14 +1,17 @@
 import { useEffect } from "react";
 import popularDataAsync from "../store/actions/popularDataAsync";
-import { useDispatch, useSelector} from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Dropdown from "../utils/hooks/usedropdown";
 
 import Cards from "./Cards";
 
 import InfiniteScroll from "react-infinite-scroll-component";
-import { addPopularData, changePopularCategory, setPage } from "../store/popularSlice";
+import {
+  addPopularData,
+  changePopularCategory,
+  setPage,
+} from "../store/popularSlice";
 import Loading from "./Loading";
-
 
 const Popular = () => {
   const dispatch = useDispatch();
@@ -32,16 +35,18 @@ const Popular = () => {
   }, [category]);
 
   return data.length == 0 ? (
-  <Loading />
+    <Loading />
   ) : (
     <div className="bg-black">
-      
-      <div className="flex justify-between px-8 py-6 ">
-        <h1 className="text-2xl text-white">
-          {/* <div onClick={() => navigate(-1)}>Back</div> */}
-          Popular
-        </h1>
-        <div className="flex gap-3">
+      <div className="grid grid-cols-12 gap-y-4 px-8">
+        <div className="col-span-6">
+          <h1 className="text-2xl text-white">
+            {/* <div onClick={() => navigate(-1)}>Back</div> */}
+            Popular
+          </h1>
+        </div>
+
+        <div className="col-span-6 flex justify-end gap-4 ">
           <Dropdown
             title={category.toUpperCase()}
             options={["Tv", "Movie"]}
