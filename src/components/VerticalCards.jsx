@@ -45,7 +45,7 @@ const VerticalCards = ({ data }) => {
           }
           alt={d.name || d.original_title || "Image"}
         />
-        <h4 className="text-xl py-2 font-semibold">{d.original_title || d.name || d.original_name}</h4>
+        <h4 className="text-xl pt-2 pb-1 font-semibold">{d.original_title || d.name || d.original_name}</h4>
         <h4>{d.release_date || d.first_air_date}</h4>
       </Link>
     </SwiperSlide>
