@@ -37,8 +37,8 @@ const BrowseContent = () => {
   }
 
   return (
-    <div>
-      <div className="relative h-[55vh] w-full bg-gradient-to-r from-black">
+    <div className="">
+      <div className="relative h-[55vh] w-full bg-gradient-to-r from-black" >
         <div className="w-full h-full  -z-10 absolute">
           {/* {browse?.randomMovieKey !== null ? (
             <VideoTrailer trailerKey={browse?.randomMovieKey} />
@@ -106,8 +106,8 @@ const BrowseContent = () => {
         </div>
       </div>
 
-      <div className="px-12 pl-18 pt-3 bg-black ">
-        <div className="flex flex-row justify-between items-center  mb-4  ">
+      <div className="px-12 pl-18 pt-3 bg-black h-[45vh] flex flex-col justify-center ">
+        <div className="flex flex-row justify-between   mb-4  ">
           <div>
             {" "}
             <h1 className="text-2xl font-bold mb-4 text-white">
@@ -122,7 +122,7 @@ const BrowseContent = () => {
             />
           </div>
         </div>
-        <div>
+        <div className="">
           <VerticalCards data={browse?.nowPlayingMovies} title={category} />
         </div>
       </div>
