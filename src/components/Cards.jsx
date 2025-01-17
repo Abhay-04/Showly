@@ -8,7 +8,7 @@ const Cards = ({ data, title }) => {
     <div className="overflow-hidden grid  gap-x-6 gap-y-16 grid-cols-12 px-8 mt-8  ">
       {data.map((d) => (
         <div
-          className="col-span-6 md:col-span-4 2xl:col-span-3 "
+          className="col-span-6 sm:col-span-4 xl:col-span-3 2xl:col-span-2 "
           key={d.id}
         >
           <Link
@@ -16,7 +16,7 @@ const Cards = ({ data, title }) => {
             className="text-white  "
           >
             <img
-              className="w-[320px] h-[180px] sm:h-[280px] rounded-md"
+              className="w-[320px] h-[180px] sm:h-[240px] rounded-md"
               src={
                 d.backdrop_path || d.profile_path || d.poster_path === null
                   ? `https://image.tmdb.org/t/p/w500/${
@@ -25,7 +25,7 @@ const Cards = ({ data, title }) => {
                   : NO_IMAGE_URL
               }
             />
-            <h4 className="text-xl pt-4 pb-1 font-semibold">
+            <h4 className=" text-base sm:text-lg pt-4 pb-1 font-semibold">
               {d.original_title ||
                 d.original_title ||
                 d.name ||

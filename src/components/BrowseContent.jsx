@@ -40,7 +40,7 @@ const BrowseContent = () => {
 
   return (
     <div className="">
-      <div className="relative h-[60vh] sm:h-[55vh] w-full bg-gradient-to-r from-black  ">
+      <div className="relative h-[50vh] sm:h-[55vh] w-full bg-gradient-to-r from-black  ">
         <div className="w-[100%] h-full  -z-10 absolute ">
           {/* {browse?.randomMovieKey !== null ? (
             <VideoTrailer trailerKey={browse?.randomMovieKey} />
