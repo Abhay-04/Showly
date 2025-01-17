@@ -1,3 +1,16 @@
+/* Hide scrollbar for the infinite scroll container */
+.infinite-scroll-container {
+  overflow: hidden; /* Hides all scrollbars */
+  overflow-y: auto; /* Allows vertical scrolling */
+  scrollbar-width: none; /* Hides scrollbar in Firefox */
+  -ms-overflow-style: none; /* Hides scrollbar in Internet Explorer */
+}
+
+.infinite-scroll-container::-webkit-scrollbar {
+  display: none; /* Hides scrollbar in Chrome, Safari, and Edge */
+}
+
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

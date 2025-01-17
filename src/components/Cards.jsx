@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
 import { NO_IMAGE_URL } from "../utils/constants";
 const Cards = ({ data, title }) => {
-  console.log(data);
-  console.log(title);
+  // console.log(data);
+  // console.log(title);
+  
   return (
     <div className="overflow-hidden grid  gap-x-6 gap-y-16 grid-cols-12 px-8 mt-8  ">
       {data.map((d) => (

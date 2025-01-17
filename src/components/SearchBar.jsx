@@ -2,7 +2,11 @@ import React, { useEffect } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
 import searchDataAsync from "../store/actions/searchDataAsync";
-import { addQueryData, removeQueryData } from "../store/searchSlice";
+import {
+  addQueryData,
+  removeQueryData,
+  
+} from "../store/searchSlice";
 import { Link } from "react-router-dom";
 import { NO_IMAGE_URL } from "../utils/constants";
 

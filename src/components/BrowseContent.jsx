@@ -7,10 +7,10 @@ import VideoTrailer from "./VideoTrailer";
 import { changeBrowseDropDown, toggleVideoMuted } from "../store/browseSlice";
 import Dropdown from "../utils/hooks/usedropdown";
 import { Link } from "react-router-dom";
-import SearchBar from "./SearchBar";
+
 import lang from "../utils/languageConstants";
 import { NO_IMAGE_URL } from "../utils/constants";
-import Loading from "./Loading"
+import Loading from "./Loading";
 
 const BrowseContent = () => {
   const dispatch = useDispatch();
@@ -40,8 +40,8 @@ const BrowseContent = () => {
 
   return (
     <div>
-      <div className="relative h-[60vh] sm:h-[55vh] w-full bg-gradient-to-r from-black">
-        <div className="w-[100%] h-full  -z-10 absolute">
+      <div className="relative h-[60vh] sm:h-[55vh] w-full bg-gradient-to-r from-black  ">
+        <div className="w-[100%] h-full  -z-10 absolute ">
           {/* {browse?.randomMovieKey !== null ? (
             <VideoTrailer trailerKey={browse?.randomMovieKey} />
           ) : (
@@ -73,7 +73,7 @@ const BrowseContent = () => {
             <VideoTrailer trailerKey={browse?.randomMovieKey} />
           )}
         </div>
-        <div className="h-full flex flex-col gap-3 justify-end  text-white p-6  sm:px-16 pb-12 sm:w-[50vw]">
+        <div className="h-full flex flex-col gap-3 justify-end  text-white p-6  sm:px-16 pb-12 sm:w-[50vw] ">
           <h1 className=" text-2xl sm:text-4xl font-bold">
             {browse.randomNowPlayingMovie.title ||
               browse.randomNowPlayingMovie.original_title ||
@@ -114,7 +114,7 @@ const BrowseContent = () => {
         </div>
       </div>
 
-      <div className=" px-6 sm:px-12 pl-18 pt-20 sm:pt-8 bg-black sm:h-[50vh] flex flex-col justify-center  ">
+      <div className=" px-6 sm:px-12 pl-18 pt-20 sm:pt-8 bg-black sm:h-[55vh] flex flex-col justify-center  ">
         <div className="flex flex-row justify-between   mb-4  ">
           <div>
             {" "}
