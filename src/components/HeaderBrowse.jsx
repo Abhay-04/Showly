@@ -9,6 +9,7 @@ import { changeLanguage } from "../store/configSlice";
 import SearchBar from "./SearchBar";
 import Logo from "../../src/file.png";
 
+
 const HeaderBrowse = () => {
   const [showDropdown, setShowDropdown] = useState(false);
 
@@ -71,6 +72,7 @@ const HeaderBrowse = () => {
   }, []);
 
   const user = useSelector((store) => store.user);
+  const langKey = useSelector((store) => store.config.language);
 
   const handleSignOut = () => {
     signOut(auth)
@@ -90,21 +92,36 @@ const HeaderBrowse = () => {
   const location = useLocation();
 
   // Check if the route starts with `/browse/`
-  const isBrowseRoute = location.pathname.startsWith('/browse');
-
+  const isBrowseRoute = location.pathname.startsWith("/browse");
 
   return (
     <div className="grid grid-cols-12 px-3 pt-2 sm:pb-6 pb-12 sm:py-12 bg-black lg:px-20 gap-4   text-white ">
-      <div className={`logo col-span-5 order-1  ${isBrowseRoute ? "lg:col-span-6": "lg:col-span-3" } ${isBrowseRoute ? "lg:hidden" : "block"} `}>
+      <div
+        className={`logo col-span-5 order-1  ${
+          isBrowseRoute ? "lg:col-span-6" : "lg:col-span-3"
+        } ${isBrowseRoute ? "lg:hidden" : "block"} `}
+      >
         <Link to={"/browse"}>
           <img className="w-32 lg:w-36 h-auto" src={Logo} alt="Logo" />
         </Link>
       </div>
-      <div className={`left  col-span-12 order-3 lg:order-2  ${isBrowseRoute ? "lg:col-span-6" : "lg:col-span-6"}`}>
+      <div
+        className={`left  col-span-12 order-3 lg:order-2  ${
+          isBrowseRoute ? "lg:col-span-6" : "lg:col-span-6"
+        }`}
+      >
         <SearchBar />
       </div>
-      <div className={`right col-span-7 order-2 lg:order-3 ${isBrowseRoute ? "lg:col-span-6" : "lg:col-span-3"} flex items-center justify-end gap-2 relative cursor-pointer`}>
-        <select  onChange={handleLanguageChange} className="text-white bg-black ">
+      <div
+        className={`right col-span-7 order-2 lg:order-3 ${
+          isBrowseRoute ? "lg:col-span-6" : "lg:col-span-3"
+        } flex items-center justify-end gap-2 relative cursor-pointer`}
+      >
+        <select
+          value={langKey}
+          onChange={handleLanguageChange}
+          className="text-white bg-black "
+        >
           {SUPPORTED_LANGUAGES.map((lang) => (
             <option key={lang.identifier} value={lang.identifier}>
               {lang.language}
