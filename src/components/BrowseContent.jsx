@@ -73,7 +73,7 @@ const BrowseContent = () => {
             <VideoTrailer trailerKey={browse?.randomMovieKey} />
           )}
         </div>
-        <div className="h-full flex flex-col gap-3 justify-end  text-white p-6  sm:px-16 pb-12 sm:w-[50vw] ">
+        <div className="h-full flex flex-col gap-4 justify-end  text-white p-6  sm:px-16 pb-12 sm:w-[50vw] ">
           <h1 className=" text-2xl sm:text-4xl font-bold">
             {browse.randomNowPlayingMovie.title ||
               browse.randomNowPlayingMovie.original_title ||
@@ -108,7 +108,7 @@ const BrowseContent = () => {
               onClick={() => dispatch(toggleVideoMuted())}
               className="bg-[#E50000] px-4 py-2 rounded-lg"
             >
-              {videoMutedStatus ? `${lang[langKey].playTrailer}` : `${lang[langKey].stopTrailer}`}
+              {videoMutedStatus ? <i className="ri-play-large-line"></i> :<i className="ri-pause-large-fill"></i> } {videoMutedStatus ?  `${lang[langKey].playTrailer } ` : `${lang[langKey].stopTrailer}`}
             </button>
           </div>
         </div>
