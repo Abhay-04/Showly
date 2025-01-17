@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import lang from "../utils/languageConstants";
 
 import { useDispatch, useSelector } from "react-redux";
@@ -31,7 +31,7 @@ const SearchBar = () => {
       <div>
         
         <input
-          className="w-full  p-2 sm:p-4  text-sm sm:text-xl bg-transparent rounded-lg"
+          className="w-full  p-4  text-lg sm:text-xl bg-transparent rounded-lg"
           type="text"
           placeholder={lang[langKey].searchPlaceholder}
           value={query}

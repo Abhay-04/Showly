@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useRef, useState } from "react";
 import { addUser, removeUser } from "../store/userSlice";
 import { SUPPORTED_LANGUAGES, USER_AVATAR } from "../utils/constants";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { changeLanguage } from "../store/configSlice";
 import SearchBar from "./SearchBar";
 import Logo from "../../src/file.png";
@@ -87,18 +87,24 @@ const HeaderBrowse = () => {
     dispatch(changeLanguage(e.target.value));
   };
 
+  const location = useLocation();
+
+  // Check if the route starts with `/browse/`
+  const isBrowseRoute = location.pathname.startsWith('/browse');
+
+
   return (
     <div className="grid grid-cols-12 px-3 pt-2 sm:pb-6 pb-12 sm:py-12 bg-black lg:px-20 gap-4   text-white ">
-      <div className="logo col-span-6 order-1  sm:col-span-12 sm:hidden">
+      <div className={`logo col-span-5 order-1  ${isBrowseRoute ? "lg:col-span-6": "lg:col-span-3" } ${isBrowseRoute ? "lg:hidden" : "block"} `}>
         <Link to={"/browse"}>
-          <img className="w-28 lg:w-36 h-auto" src={Logo} alt="Logo" />
+          <img className="w-32 lg:w-36 h-auto" src={Logo} alt="Logo" />
         </Link>
       </div>
-      <div className="left  col-span-12 order-3 sm:order-2 sm:col-span-8">
+      <div className={`left  col-span-12 order-3 lg:order-2  ${isBrowseRoute ? "lg:col-span-6" : "lg:col-span-6"}`}>
         <SearchBar />
       </div>
-      <div className="right col-span-6 order-2 sm:order-3 sm:col-span-4 flex items-center justify-end gap-2 relative cursor-pointer">
-        <select  onChange={handleLanguageChange} className="text-white bg-black  hidden  sm:block">
+      <div className={`right col-span-7 order-2 lg:order-3 ${isBrowseRoute ? "lg:col-span-6" : "lg:col-span-3"} flex items-center justify-end gap-2 relative cursor-pointer`}>
+        <select  onChange={handleLanguageChange} className="text-white bg-black ">
           {SUPPORTED_LANGUAGES.map((lang) => (
             <option key={lang.identifier} value={lang.identifier}>
               {lang.language}
@@ -107,7 +113,7 @@ const HeaderBrowse = () => {
         </select>
 
         <Link to={"/browse/gpt"}>
-          <button className="mx-2 px-2 py-1 hidden sm:block bg-[#E50000] cursor-pointer text-white rounded-md">
+          <button className="mx-2 px-2 py-1 hidden lg:block bg-[#E50000] cursor-pointer text-white rounded-md">
             GPT Search
           </button>
         </Link>
