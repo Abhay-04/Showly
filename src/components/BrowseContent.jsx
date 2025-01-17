@@ -114,7 +114,7 @@ const BrowseContent = () => {
         </div>
       </div>
 
-      <div className=" px-6 pb-10 sm:px-12 pl-18 pt-20 sm:pt-8 bg-black sm:h-[60vh] flex flex-col justify-center  ">
+      <div className=" px-6 pb-10 sm:px-12 pl-18 pt-20 sm:pt-8 bg-black h-full sm:h-[60vh] flex flex-col justify-center  ">
         <div className="flex flex-row justify-between   mb-4  ">
           <div>
             {" "}

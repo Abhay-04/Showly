@@ -3,11 +3,7 @@ import lang from "../utils/languageConstants";
 
 import { useDispatch, useSelector } from "react-redux";
 import searchDataAsync from "../store/actions/searchDataAsync";
-import {
-  addQueryData,
-  removeQueryData,
-  
-} from "../store/searchSlice";
+import { addQueryData, removeQueryData } from "../store/searchSlice";
 import { Link } from "react-router-dom";
 import { NO_IMAGE_URL } from "../utils/constants";
 
@@ -16,7 +12,6 @@ const SearchBar = () => {
   const dispatch = useDispatch();
   const query = useSelector((store) => store.searchData.query);
   const searchData = useSelector((store) => store.searchData.data);
-  
 
   const handleQuery = (e) => {
     const query = e.target.value;
@@ -34,6 +29,7 @@ const SearchBar = () => {
   return (
     <div className="relative">
       <div>
+        
         <input
           className="w-full  p-2 sm:p-4  text-sm sm:text-xl bg-transparent rounded-lg"
           type="text"
@@ -45,16 +41,16 @@ const SearchBar = () => {
       {searchData.length > 0 && (
         <div
           onClick={dispatch(removeQueryData)}
-          className=" bg-black overflow-hidden overflow-y-scroll h-[45vh] w-full absolute z-[1000] "
+          className=" bg-black overflow-hidden overflow-y-scroll h-[35vh] sm:h-[45vh] w-full absolute top-16 py-12 z-[1000] sm:text-lg "
         >
           {searchData.map((d) => (
             <Link
               to={`/${d.media_type}/${d.id}`}
               key={d.id}
-              className="flex justify-between items-center px-8 py-2"
+              className="flex justify-between gap-4 items-center px-8 py-2"
             >
               <img
-                className="size-28"
+                className=" size-24 sm:size-36"
                 src={
                   d.backdrop_path || d.profile_path || d.poster_path != null
                     ? `https://image.tmdb.org/t/p/w500/${
