@@ -12,9 +12,11 @@ import {
   setPage,
 } from "../store/moviesSlice";
 import Loading from "./Loading";
+import lang from "../utils/languageConstants";
 
 
 const Movies = () => {
+  const langKey = useSelector((store) => store.config.language);
   const dispatch = useDispatch();
 
   const category = useSelector((store) => store.movies.category);
@@ -45,7 +47,7 @@ const Movies = () => {
        <div className="col-span-6">
        <h1 className="text-2xl font-semibold text-white">
           {/* <div onClick={() => navigate(-1)}>Back</div> */}
-          Movies
+          {lang[langKey].movies}
         </h1>
        </div>
         <div className="col-span-6 flex justify-end gap-4 ">

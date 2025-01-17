@@ -8,8 +8,10 @@ import Cards from "./Cards";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { addTvData, changeTvCategory, setPage } from "../store/tvSlice";
 import Loading from "./Loading";
+import lang from "../utils/languageConstants";
 
 const Tv = () => {
+  const langKey = useSelector((store) => store.config.language);
   const dispatch = useDispatch();
 
   const category = useSelector((store) => store.tv.category);
@@ -38,7 +40,7 @@ const Tv = () => {
         <div className="col-span-6">
           <h1 className="text-2xl font-semibold text-white">
             {/* <div onClick={() => navigate(-1)}>Back</div> */}
-            Tv Shows
+            {lang[langKey].tvShows}
           </h1>
         </div>
         <div className="col-span-6 flex justify-end gap-4">

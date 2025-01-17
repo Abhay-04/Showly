@@ -7,8 +7,10 @@ import Cards from "./Cards";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { addPersonData, setPage } from "../store/personSlice";
 import Loading from "./Loading";
+import lang from "../utils/languageConstants";
 
 const Person = () => {
+  const langKey = useSelector((store) => store.config.language);
   const dispatch = useDispatch();
 
   const data = useSelector((store) => store.person.data);
@@ -31,7 +33,7 @@ const Person = () => {
         <div className="col-span-12">
           <h1 className="text-2xl font-semibold text-white">
             {/* <div onClick={() => navigate(-1)}>Back</div> */}
-            People
+            {lang[langKey].people}
           </h1>
         </div>
       </div>

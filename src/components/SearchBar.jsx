@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import lang from "../utils/languageConstants";
 
 import { useDispatch, useSelector } from "react-redux";
 import searchDataAsync from "../store/actions/searchDataAsync";
@@ -11,9 +12,11 @@ import { Link } from "react-router-dom";
 import { NO_IMAGE_URL } from "../utils/constants";
 
 const SearchBar = () => {
+  const langKey = useSelector((store) => store.config.language);
   const dispatch = useDispatch();
   const query = useSelector((store) => store.searchData.query);
   const searchData = useSelector((store) => store.searchData.data);
+  
 
   const handleQuery = (e) => {
     const query = e.target.value;
@@ -34,7 +37,7 @@ const SearchBar = () => {
         <input
           className="w-full  p-2 sm:p-4  text-sm sm:text-xl bg-transparent rounded-lg"
           type="text"
-          placeholder="Search for movies, TV shows, or people..."
+          placeholder={lang[langKey].searchPlaceholder}
           value={query}
           onChange={handleQuery}
         ></input>

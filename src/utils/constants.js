@@ -17,7 +17,7 @@ export const SUPPORTED_LANGUAGES = [
   { identifier: "en", language: "English" },
   { identifier: "hindi", language: "Hindi" },
   { identifier: "spanish", language: "Spanish" },
-  // { identifier: "telugu", language: "Telugu" },
+  { identifier: "telugu", language: "Telugu" },
 ];
 
 export const genreId = {

@@ -108,13 +108,13 @@ const BrowseContent = () => {
               onClick={() => dispatch(toggleVideoMuted())}
               className="bg-[#E50000] px-4 py-2 rounded-lg"
             >
-              {videoMutedStatus ? "Play Trailer" : "Stop Trailer"}
+              {videoMutedStatus ? `${lang[langKey].playTrailer}` : `${lang[langKey].stopTrailer}`}
             </button>
           </div>
         </div>
       </div>
 
-      <div className=" px-6 sm:px-12 pl-18 pt-20 sm:pt-8 bg-black sm:h-[70vh] flex flex-col justify-center  ">
+      <div className=" px-6 pb-10 sm:px-12 pl-18 pt-20 sm:pt-8 bg-black sm:h-[60vh] flex flex-col justify-center  ">
         <div className="flex flex-row justify-between   mb-4  ">
           <div>
             {" "}

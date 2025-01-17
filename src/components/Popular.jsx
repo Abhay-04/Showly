@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import popularDataAsync from "../store/actions/popularDataAsync";
 import { useDispatch, useSelector } from "react-redux";
 import Dropdown from "../utils/hooks/usedropdown";
+import lang from "../utils/languageConstants";
 
 import Cards from "./Cards";
 
@@ -14,6 +15,7 @@ import {
 import Loading from "./Loading";
 
 const Popular = () => {
+  const langKey = useSelector((store) => store.config.language);
   const dispatch = useDispatch();
 
   const category = useSelector((store) => store.popular.category);
@@ -42,7 +44,7 @@ const Popular = () => {
         <div className="col-span-6">
           <h1 className="text-2xl font-semibold text-white">
             {/* <div onClick={() => navigate(-1)}>Back</div> */}
-            Popular
+            {lang[langKey].popular}
           </h1>
         </div>
 

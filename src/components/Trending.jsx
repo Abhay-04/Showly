@@ -13,6 +13,7 @@ import Cards from "./Cards";
 
 import InfiniteScroll from "react-infinite-scroll-component";
 import Loading from "./Loading";
+import lang from "../utils/languageConstants";
 
 const Trending = () => {
   const dispatch = useDispatch();
@@ -20,6 +21,7 @@ const Trending = () => {
   const category = useSelector((store) => store.trending.category);
   const duration = useSelector((store) => store.trending.duration);
   const data = useSelector((store) => store.trending.data);
+  const langKey = useSelector((store) => store.config.language);
 
   const fetchTrendingData = () => {
     dispatch(setPage(1));
@@ -47,7 +49,7 @@ const Trending = () => {
         <div className="col-span-12 sm:col-span-6 ">
           <h1 className="text-2xl font-semibold  text-white">
             {/* <div onClick={() => navigate(-1)}>Back</div> */}
-            Trending
+            {lang[langKey].trending}
           </h1>
         </div>
         <div className="col-span-12 sm:col-span-6 flex sm:justify-end gap-4  ">
