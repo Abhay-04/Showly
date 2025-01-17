@@ -3,7 +3,11 @@ import lang from "../utils/languageConstants";
 
 import { useDispatch, useSelector } from "react-redux";
 import searchDataAsync from "../store/actions/searchDataAsync";
-import { addQueryData, removeQueryData } from "../store/searchSlice";
+import {
+  addQueryData,
+  removeQueryData,
+  removeSearchData,
+} from "../store/searchSlice";
 import { Link } from "react-router-dom";
 import { NO_IMAGE_URL } from "../utils/constants";
 
@@ -22,25 +26,33 @@ const SearchBar = () => {
     dispatch(searchDataAsync());
   };
 
+  const handleRemoveQuery = () => {
+    dispatch(removeQueryData());
+  };
+
   useEffect(() => {
     handleSearchQuery();
   }, [query]);
 
   return (
     <div className="relative">
-      <div>
-        
+      <div className="flex items-center justify-center">
+        <i className="ri-search-line text-2xl -mr-8 cursor-pointer"></i>
         <input
-          className="w-full  p-4  text-lg sm:text-xl bg-transparent rounded-lg"
+          className="w-full  p-4 px-12  text-xs sm:text-xl bg-transparent rounded-lg"
           type="text"
           placeholder={lang[langKey].searchPlaceholder}
           value={query}
           onChange={handleQuery}
         ></input>
+        <i
+          onClick={handleRemoveQuery}
+          className="ri-close-line text-2xl -ml-10 cursor-pointer"
+        ></i>
       </div>
       {searchData.length > 0 && (
         <div
-          onClick={dispatch(removeQueryData)}
+          onClick={dispatch(removeSearchData)}
           className=" bg-black overflow-hidden overflow-y-scroll h-[35vh] sm:h-[45vh] w-full absolute top-16 py-12 z-[1000] sm:text-lg "
         >
           {searchData.map((d) => (
