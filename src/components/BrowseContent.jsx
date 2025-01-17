@@ -39,7 +39,7 @@ const BrowseContent = () => {
   }
 
   return (
-    <div>
+    <div className="">
       <div className="relative h-[60vh] sm:h-[55vh] w-full bg-gradient-to-r from-black  ">
         <div className="w-[100%] h-full  -z-10 absolute ">
           {/* {browse?.randomMovieKey !== null ? (
@@ -114,7 +114,7 @@ const BrowseContent = () => {
         </div>
       </div>
 
-      <div className=" px-6 sm:px-12 pl-18 pt-20 sm:pt-8 bg-black sm:h-[55vh] flex flex-col justify-center  ">
+      <div className=" px-6 sm:px-12 pl-18 pt-20 sm:pt-8 bg-black sm:h-[70vh] flex flex-col justify-center  ">
         <div className="flex flex-row justify-between   mb-4  ">
           <div>
             {" "}
