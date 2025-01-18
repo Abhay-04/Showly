@@ -7,7 +7,7 @@ const BottomBrowse = () => {
 
   const langKey = useSelector((store) => store.config.language);
   return (
-    <div className="bg-[#181E24] grid grid-cols-5 w-full lg:hidden sticky z-[10000] pt-4 pb-6 bottom-0">
+    <div className="bg-[#181E24] grid grid-cols-5 w-full lg:hidden h-auto fixed z-[10000] py-3  bottom-0">
       
         <Link to={"/browse/trending"}>
           <div className="text-white text-xs font-bold flex flex-col items-center justify-center">
