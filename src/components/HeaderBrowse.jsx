@@ -95,7 +95,7 @@ const HeaderBrowse = () => {
   const isBrowseRoute = location.pathname.startsWith("/browse");
 
   return (
-    <div className="grid grid-cols-12 px-3 pt-2 sm:pb-6 pb-12 sm:py-12 bg-black lg:px-20 gap-4   text-white ">
+    <div className="grid grid-cols-12 px-3 pt-5 sm:pb-6 pb-6 sm:py-12 bg-black lg:px-20 gap-4   text-white ">
       <div
         className={`logo col-span-5 order-1  ${
           isBrowseRoute ? "lg:col-span-6" : "lg:col-span-3"

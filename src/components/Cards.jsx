@@ -16,7 +16,7 @@ const Cards = ({ data, title }) => {
             className="text-white  "
           >
             <img
-              className="w-full h-auto sm:h-[220px] rounded-xl object-cover
+              className="w-full h-[160px] sm:h-[220px] rounded-xl object-center
                "
               src={
                 d.backdrop_path || d.profile_path || d.poster_path === null

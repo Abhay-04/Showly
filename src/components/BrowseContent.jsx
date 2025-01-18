@@ -45,7 +45,7 @@ const BrowseContent = () => {
           <div className="relative w-full h-full rounded-xl">
             {/* Background Image */}
             <img
-              className="w-full h-full rounded-xl object-cover aspect-auto -z-10 absolute"
+              className="w-full h-full  object-center sm:object-cover  -z-10 absolute"
               src={
                 browse?.randomNowPlayingMovie.backdrop_path ||
                 browse?.randomNowPlayingMovie.poster_path
@@ -64,7 +64,7 @@ const BrowseContent = () => {
             )}
           </div>
         </div>
-        <div className="h-full flex flex-col gap-4 justify-end  text-white p-6  sm:px-16 pb-12 sm:w-[50vw] ">
+        <div className="h-full flex flex-col gap-3 justify-end  text-white p-4  sm:px-16 pb-6 sm:w-[50vw] ">
           <h1 className=" text-2xl sm:text-4xl font-bold">
             {browse.randomNowPlayingMovie.title ||
               browse.randomNowPlayingMovie.original_title ||
@@ -116,7 +116,7 @@ const BrowseContent = () => {
         </div>
       </div>
 
-      <div className=" px-6 pb-10 sm:px-12 pl-18 pt-20 sm:pt-20 bg-black h-[100vh] md:h-[120vh] 2xl:h-auto flex flex-col justify-center  ">
+      <div className=" px-6 pb-10 sm:px-12 pt-16 sm:pt-20 bg-black h-[90vh] md:h-[120vh] 2xl:h-auto flex flex-col sm:justify-center  ">
         <div className="flex flex-row justify-between   mb-4  ">
           <div>
             {" "}
