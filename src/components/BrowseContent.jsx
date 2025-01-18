@@ -40,12 +40,12 @@ const BrowseContent = () => {
 
   return (
     <div className="">
-      <div className="relative h-[50vh] sm:h-[55vh] w-full bg-gradient-to-r from-black  ">
+      <div className="relative h-[50vh] sm:h-[55vh] w-full bg-gradient-to-r from-black ">
         <div className="w-[100%] h-full  -z-10 absolute ">
           <div className="relative w-full h-full rounded-xl">
             {/* Background Image */}
             <img
-              className="w-full h-full  object-center sm:object-cover  -z-10 absolute"
+              className="w-full h-full  object-center   -z-10 absolute"
               src={
                 browse?.randomNowPlayingMovie.backdrop_path ||
                 browse?.randomNowPlayingMovie.poster_path
@@ -110,7 +110,7 @@ const BrowseContent = () => {
                   : `${lang[langKey].stopTrailer}`}
               </button>
             ) : (
-              <button className="bg-[#E50000] px-4 py-2 rounded-lg">  <i className="ri-error-warning-line"></i> Trailer Not Available</button>
+              <button className="bg-[#E50000] px-4 py-2 rounded-lg">  <i className="ri-error-warning-line"></i> {lang[langKey].trailerNA}</button>
             )}
           </div>
         </div>
@@ -126,7 +126,7 @@ const BrowseContent = () => {
           </div>
           <div className="flex gap-5">
             <Dropdown
-              title="Filter"
+              title={lang[langKey].filter}
               options={["Movie", "Tv", "All"]}
               onSelect={handleSelect}
             />

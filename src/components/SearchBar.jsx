@@ -39,16 +39,16 @@ const SearchBar = () => {
       <div className="flex items-center justify-center">
         <i className="ri-search-line text-2xl -mr-8 cursor-pointer"></i>
         <input
-          className="w-full  p-4 px-12  text-xs sm:text-xl bg-transparent rounded-lg"
+          className="w-full  p-4 px-12  text-xs sm:text-xl bg-transparent rounded-lg focus:outline-none"
           type="text"
           placeholder={lang[langKey].searchPlaceholder}
           value={query}
           onChange={handleQuery}
         ></input>
-        <i
+        {query && <i
           onClick={handleRemoveQuery}
           className="ri-close-line text-2xl -ml-10 cursor-pointer"
-        ></i>
+        ></i>}
       </div>
       {searchData.length > 0 && (
         <div

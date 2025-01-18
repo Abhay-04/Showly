@@ -8,7 +8,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { changeLanguage } from "../store/configSlice";
 import SearchBar from "./SearchBar";
 import Logo from "../../src/file.png";
-
+import lang from "../utils/languageConstants";
 
 const HeaderBrowse = () => {
   const [showDropdown, setShowDropdown] = useState(false);
@@ -107,20 +107,20 @@ const HeaderBrowse = () => {
       </div>
       <div
         className={`left  col-span-12 order-3 lg:order-2  ${
-          isBrowseRoute ? "lg:col-span-6" : "lg:col-span-6"
+          isBrowseRoute ? "lg:col-span-7" : "lg:col-span-6"
         }`}
       >
         <SearchBar />
       </div>
       <div
         className={`right col-span-7 order-2 lg:order-3 ${
-          isBrowseRoute ? "lg:col-span-6" : "lg:col-span-3"
+          isBrowseRoute ? "lg:col-span-5" : "lg:col-span-3"
         } flex items-center justify-end gap-2 relative cursor-pointer`}
       >
         <select
           value={langKey}
           onChange={handleLanguageChange}
-          className="text-white bg-black "
+          className="text-white bg-black focus:outline-none px-2 items-center "
         >
           {SUPPORTED_LANGUAGES.map((lang) => (
             <option key={lang.identifier} value={lang.identifier}>
@@ -131,7 +131,7 @@ const HeaderBrowse = () => {
 
         <Link to={"/browse/gpt"}>
           <button className="mx-2 px-2 py-1 hidden lg:block bg-[#E50000] cursor-pointer text-white rounded-md">
-            GPT Search
+            {lang[langKey].gptBtn}
           </button>
         </Link>
 
