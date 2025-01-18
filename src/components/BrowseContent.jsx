@@ -42,36 +42,27 @@ const BrowseContent = () => {
     <div className="">
       <div className="relative h-[50vh] sm:h-[55vh] w-full bg-gradient-to-r from-black  ">
         <div className="w-[100%] h-full  -z-10 absolute ">
-          {/* {browse?.randomMovieKey !== null ? (
-            <VideoTrailer trailerKey={browse?.randomMovieKey} />
-          ) : (
+          <div className="relative w-full h-full rounded-xl">
+            {/* Background Image */}
             <img
-              className="w-[100%] h-[100%] object-center -z-10 absolute"
-              src={`https://image.tmdb.org/t/p/original/${
-                browse?.randomNowPlayingMovie?.backdrop_path ||
-                browse?.randomNowPlayingMovie?.profile_path ||
-                browse?.randomNowPlayingMovie?.poster_path
-              }`}
-            />
-          )} */}
-          {browse?.randomMovieKey !== null && videoMutedStatus ? (
-            <img
-              className="w-[100%] h-[100%] object-center -z-10 absolute"
+              className="w-full h-full rounded-xl object-cover aspect-auto -z-10 absolute"
               src={
-                browse?.randomNowPlayingMovie?.backdrop_path ||
-                browse?.randomNowPlayingMovie?.profile_path ||
-                browse?.randomNowPlayingMovie?.poster_path !== null
+                browse?.randomNowPlayingMovie.backdrop_path ||
+                browse?.randomNowPlayingMovie.poster_path
                   ? `https://image.tmdb.org/t/p/original/${
                       browse?.randomNowPlayingMovie?.backdrop_path ||
-                      browse?.randomNowPlayingMovie?.profile_path ||
                       browse?.randomNowPlayingMovie?.poster_path
                     }`
-                  : NO_IMAGE_URL
+                  : "https://image.tmdb.org/t/p/original//9iwmsNVjbex9qa7FhqDUh92EjdQ.jpg"
               }
+              alt="Background Movie"
             />
-          ) : (
-            <VideoTrailer trailerKey={browse?.randomMovieKey} />
-          )}
+
+            {/* Conditional Video */}
+            {browse?.randomMovieKey !== null && !videoMutedStatus && (
+              <VideoTrailer trailerKey={browse?.randomMovieKey} />
+            )}
+          </div>
         </div>
         <div className="h-full flex flex-col gap-4 justify-end  text-white p-6  sm:px-16 pb-12 sm:w-[50vw] ">
           <h1 className=" text-2xl sm:text-4xl font-bold">
@@ -104,17 +95,28 @@ const BrowseContent = () => {
             </span>
           </div>
           <div>
-            <button
-              onClick={() => dispatch(toggleVideoMuted())}
-              className="bg-[#E50000] px-4 py-2 rounded-lg"
-            >
-              {videoMutedStatus ? <i className="ri-play-large-line"></i> :<i className="ri-pause-large-fill"></i> } {videoMutedStatus ?  `${lang[langKey].playTrailer } ` : `${lang[langKey].stopTrailer}`}
-            </button>
+            {browse?.randomMovieKey !== null ? (
+              <button
+                onClick={() => dispatch(toggleVideoMuted())}
+                className="bg-[#E50000] px-4 py-2 rounded-lg"
+              >
+                {videoMutedStatus ? (
+                  <i className="ri-play-large-line"></i>
+                ) : (
+                  <i className="ri-pause-large-fill"></i>
+                )}{" "}
+                {videoMutedStatus
+                  ? `${lang[langKey].playTrailer} `
+                  : `${lang[langKey].stopTrailer}`}
+              </button>
+            ) : (
+              <button className="bg-[#E50000] px-4 py-2 rounded-lg">  <i className="ri-error-warning-line"></i> Trailer Not Available</button>
+            )}
           </div>
         </div>
       </div>
 
-      <div className=" px-6 pb-10 sm:px-12 pl-18 pt-20 sm:pt-8 bg-black h-full sm:h-[60vh] flex flex-col justify-center  ">
+      <div className=" px-6 pb-10 sm:px-12 pl-18 pt-20 sm:pt-20 bg-black h-[100vh] md:h-[120vh] 2xl:h-auto flex flex-col justify-center  ">
         <div className="flex flex-row justify-between   mb-4  ">
           <div>
             {" "}

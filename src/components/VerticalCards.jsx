@@ -13,31 +13,34 @@ const VerticalCards = ({ data }) => {
       <Swiper
         spaceBetween={25}
         breakpoints={{
+         
+
+
           // When the viewport width is >= 320px
-          320: {
-            slidesPerView: 2,
+         250: {
+            slidesPerView: 1.2,
           },
           // When the viewport width is >= 640px
           640: {
-            slidesPerView: 4,
+            slidesPerView: 3.5,
           },
           // When the viewport width is >= 1024px
           1024: {
-            slidesPerView: 5,
+            slidesPerView: 3.5,
           },
           // When the viewport width is >= 1280px
           1280: {
-            slidesPerView: 5,
+            slidesPerView: 4.5,
           },
         }}
-        onSlideChange={() => console.log("slide change")}
-        onSwiper={(swiper) => console.log(swiper)}
+       
+       
       >
         {data.map((d) => (
-          <SwiperSlide className="pb-60 lg:pb-20" key={d.id}>
+          <SwiperSlide className="pb-40 lg:pb-20" key={d.id}>
             <Link to={`/${d.media_type}/${d.id}`} className="text-white">
               <img
-                className="w-full h-[190px] rounded-md object-cover"
+                className="w-full h-auto sm:h-[220px] rounded-xl object-cover"
                 src={
                   d.backdrop_path !== null
                     ? `https://image.tmdb.org/t/p/original/${d.backdrop_path}`
