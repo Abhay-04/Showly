@@ -37,7 +37,7 @@ const SearchBar = () => {
   return (
     <div className="relative">
       <div className="flex items-center justify-center">
-        <i className="ri-search-line text-2xl -mr-8 cursor-pointer"></i>
+        <i className="ri-search-line text-2xl -mr-8 cursor-pointer "></i>
         <input
           className="w-full  p-4 px-12  text-xs sm:text-xl bg-transparent rounded-lg focus:outline-none"
           type="text"
