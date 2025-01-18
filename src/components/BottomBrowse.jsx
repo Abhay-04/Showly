@@ -14,7 +14,7 @@ const BottomBrowse = () => {
       
         <Link to={"/browse"}>
           <div className={`text-white text-xs font-bold flex flex-col items-center justify-center rounded-lg ${
-          location.pathname === "/browse" ? "bg-red-500" : ""
+          location.pathname === "/browse" ? "bg-[#E50000]" : ""
         }`}>
           <i className="ri-home-line"></i>
           {"Home"}
@@ -22,7 +22,7 @@ const BottomBrowse = () => {
         </Link>
         <Link to={"/browse/trending"}>
           <div className={`text-white text-xs font-bold flex flex-col items-center justify-center rounded-lg ${
-          location.pathname === "/browse/trending" ? "bg-red-500" : ""
+          location.pathname === "/browse/trending" ? "bg-[#E50000]" : ""
         }`}>
           <i className="ri-fire-line "></i>
           {lang[langKey].trending}
@@ -30,7 +30,7 @@ const BottomBrowse = () => {
         </Link>
         <Link to={"/browse/popular"}>
           <div className={`text-white text-xs font-bold flex flex-col items-center justify-center rounded-lg ${
-          location.pathname === "/browse/popular" ? "bg-red-500" : ""
+          location.pathname === "/browse/popular" ? "bg-[#E50000]" : ""
         }`}>
             <i className="ri-bard-line "></i>
             {lang[langKey].popular}
@@ -38,7 +38,7 @@ const BottomBrowse = () => {
         </Link>
         <Link to={"/browse/movies"}>
           <div className={`text-white text-xs font-bold flex flex-col items-center justify-center rounded-lg ${
-          location.pathname === "/browse/movies" ? "bg-red-500" : ""
+          location.pathname === "/browse/movies" ? "bg-[#E50000]" : ""
         }`}>
             <i className="ri-movie-2-line"></i>
             {lang[langKey].movies}
@@ -46,7 +46,7 @@ const BottomBrowse = () => {
         </Link>
         <Link to={"/browse/tvshows"}>
           <div className={`text-white text-xs font-bold flex flex-col items-center justify-center rounded-lg ${
-          location.pathname === "/browse/tvshows" ? "bg-red-500" : ""
+          location.pathname === "/browse/tvshows" ? "bg-[#E50000]" : ""
         }`}>
             <i className="ri-tv-2-line "></i>
             {lang[langKey].tvShows}
@@ -55,7 +55,7 @@ const BottomBrowse = () => {
         <Link to={"/browse/peoples"}>
           {" "}
           <div className={`text-white text-xs font-bold flex flex-col items-center justify-center rounded-lg ${
-          location.pathname === "/browse/peoples" ? "bg-red-500" : ""
+          location.pathname === "/browse/peoples" ? "bg-[#E50000]" : ""
         }`}>
             <i className="ri-team-line "></i>
             {lang[langKey].people}
