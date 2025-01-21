@@ -17,7 +17,7 @@ const Browse = () => {
     <ul className="text-xl text-white font-semibold flex flex-col gap-10 pb-6 px-4">
       <Link to={"/browse"}>
         <div className="logo">
-          <img className="w-28 lg:w-36 h-auto" src={Logo} alt="Logo" />
+          <img className="w-28 lg:w-40 ml-3  h-auto" src={Logo} alt="Logo" />
         </div>
       </Link>
       <Link to={"/browse"}>

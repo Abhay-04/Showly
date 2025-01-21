@@ -37,7 +37,7 @@ const VerticalCards = ({ data }) => {
        
       >
         {data.map((d) => (
-          <SwiperSlide className="pb-40 lg:pb-20" key={d.id}>
+          <SwiperSlide className="pb-40 lg:pb-30" key={d.id}>
             <Link to={`/${d.media_type}/${d.id}`} className="text-white">
               <img
                 className="w-full h-auto sm:h-[220px] rounded-xl object-cover"
