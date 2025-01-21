@@ -10,7 +10,13 @@ const lang = {
     stopTrailer: "Stop trailer",
     trailerNA: "Trailer Not Available",
     gptBtn: "GPT Search",
-    filter: "Filter"
+    filter: "Filter",
+    home: "Home",
+    lightMode: "Light Mode",
+    saved : "Saved",
+    logOut : "Log Out",
+    hi : "Hi",
+
   },
   hindi: {
     trending: "ट्रेंडिंग",
@@ -23,7 +29,12 @@ const lang = {
     stopTrailer: "ट्रेलर रोकें",
     trailerNA: "ट्रेलर उपलब्ध नहीं है",
     gptBtn: "जीपीटी खोज",
-    filter: "फ़िल्टर"
+    filter: "फ़िल्टर",
+    home: "होम",
+    lightMode: "लाइट मोड",
+    saved : "सहेजा गया",
+    logOut : "लॉग आउट",
+    hi: "नमस्ते"
 
   },
   spanish: {
@@ -38,7 +49,12 @@ const lang = {
     stopTrailer: "Detener remolque",
     trailerNA: "Tráiler no disponible",
     gptBtn: "Búsqueda GPT",
-    filter: "Filtrar"
+    filter: "Filtrar",
+    home: "Home",
+    lightMode: "Modo claro",
+    saved : "Guardado",
+    logOut : "Cerrar sesión",
+    hi: "Hola"
 
   
   },
@@ -54,8 +70,12 @@ const lang = {
     stopTrailer: "ట్రైలర్ ఆపు",
     trailerNA: "ట్రైలర్ అందుబాటులో లేదు",
     gptBtn: "GPT శోధన",
-    filter: "ఫిల్టర్ చేయండి"
-
+    filter: "ఫిల్టర్ చేయండి",
+    home: "హోమ్",
+    lightMode: "లైట్ మోడ్",
+    saved : "సేవ్ చేయబడింది",
+    logOut : "లాగ్ అవుట్",
+    hi: "హలో"
   },
 };
 

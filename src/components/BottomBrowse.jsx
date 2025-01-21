@@ -17,7 +17,7 @@ const BottomBrowse = () => {
           location.pathname === "/browse" ? "bg-[#E50000]" : ""
         }`}>
           <i className="ri-home-line"></i>
-          {"Home"}
+          {lang[langKey].home}
           </div>
         </Link>
         <Link to={"/browse/trending"}>

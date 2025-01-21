@@ -25,7 +25,7 @@ const Browse = () => {
           location.pathname === "/browse" ? "bg-[#E50000]" : ""
         } rounded-md px-6 py-2`}>
           <i class="ri-home-2-fill mr-2"></i>
-          {"Home"}
+          {lang[langKey].home}
         </li>
       </Link>
       <Link to={"/browse/trending"}>

@@ -160,16 +160,16 @@ const HeaderBrowse = () => {
             <ul className="list-none bg-[#181E24] px-4 py-2 cursor-pointer rounded-lg  w-full h-auto   ">
               <li className="my-2 hover:bg-gray-300 hover:text-black rounded-md px-2 py-1">
                 <i className="ri-user-3-fill mr-4"></i>
-                Hi,{" "}
+                {lang[langKey].hi},{" "}
                 {user?.displayName ? user?.displayName?.split(" ")[0] : "Guest"}
               </li>
               <li className="my-2 hover:bg-gray-300 hover:text-black rounded-md px-2 py-1">
-                <i className="ri-sun-fill mr-4"></i>Light Mode
+                <i className="ri-sun-fill mr-4"></i>{lang[langKey].lightMode}
               </li>
               <Link to={"/browse/saved"}>
                 {" "}
                 <li className="my-2 hover:bg-gray-300 hover:text-black rounded-md px-2 py-1">
-                  <i className="ri-bookmark-2-fill mr-4"></i>Saved
+                  <i className="ri-bookmark-2-fill mr-4"></i>{lang[langKey].saved}
                 </li>
               </Link>
               <li
@@ -177,7 +177,7 @@ const HeaderBrowse = () => {
                 className="my-2 hover:bg-gray-300 hover:text-black rounded-md px-2 py-1 "
               >
                 <i className="ri-logout-box-r-line mr-4"></i>
-                Logout
+                {lang[langKey].logOut}
               </li>
             </ul>
           </div>
