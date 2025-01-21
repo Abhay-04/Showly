@@ -20,6 +20,14 @@ const Browse = () => {
           <img className="w-28 lg:w-36 h-auto" src={Logo} alt="Logo" />
         </div>
       </Link>
+      <Link to={"/browse"}>
+        <li className={`hover:bg-[#E50000] ${
+          location.pathname === "/browse" ? "bg-[#E50000]" : ""
+        } rounded-md px-6 py-2`}>
+          <i class="ri-home-2-fill mr-2"></i>
+          {"Home"}
+        </li>
+      </Link>
       <Link to={"/browse/trending"}>
         <li className={`hover:bg-[#E50000] ${
           location.pathname === "/browse/trending" ? "bg-[#E50000]" : ""
