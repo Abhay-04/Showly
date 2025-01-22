@@ -40,7 +40,7 @@ const BrowseContent = () => {
 
   return (
     <div className="">
-      <div className="relative h-[50vh] sm:h-[55vh] w-full bg-gradient-to-r from-black ">
+      <div className={`relative h-[50vh] ${ !videoMutedStatus ? "sm:h-[85vh]" : "sm:h-[55vh]"} aspect-video w-full  ${ videoMutedStatus && "bg-gradient-to-r from-black" }`}>
         <div className="w-[100%] h-full  -z-10 absolute ">
           <div className="relative w-full h-full rounded-xl">
             {/* Background Image */}
@@ -64,14 +64,14 @@ const BrowseContent = () => {
             )}
           </div>
         </div>
-        <div className="h-full flex flex-col gap-3 justify-end  text-white p-4  sm:px-16 pb-6 sm:w-[50vw] ">
-          <h1 className=" text-2xl sm:text-4xl font-bold">
+      <div className="h-full flex flex-col gap-3 justify-end  text-white p-4  sm:px-16 pb-6 sm:w-[50vw] ">
+        { videoMutedStatus && <h1 className=" text-2xl sm:text-4xl font-bold">
             {browse.randomNowPlayingMovie.title ||
               browse.randomNowPlayingMovie.original_title ||
               browse.randomNowPlayingMovie.name ||
               browse.randomNowPlayingMovie.original_name}
-          </h1>
-          <p className=" text-sm sm:text-lg ">
+          </h1>}
+         { videoMutedStatus && <p className=" text-sm sm:text-lg ">
             {browse.randomNowPlayingMovie.overview
               .split(" ")
               .slice(0, 30)
@@ -82,8 +82,8 @@ const BrowseContent = () => {
             >
               ...more
             </Link>
-          </p>
-          <div className="flex gap-4">
+          </p>}
+          {videoMutedStatus && <div className="flex gap-4">
             <span>
               <i className="ri-megaphone-fill mr-1 text-yellow-500"></i>
               {browse.randomNowPlayingMovie.release_date ||
@@ -93,12 +93,12 @@ const BrowseContent = () => {
               <i className="ri-movie-2-fill mr-1 text-yellow-500"></i>{" "}
               {browse.randomNowPlayingMovie.media_type.toUpperCase()}
             </span>
-          </div>
+          </div>}
           <div>
             {browse?.randomMovieKey !== null ? (
               <button
                 onClick={() => dispatch(toggleVideoMuted())}
-                className="bg-[#E50000] px-4 py-2 rounded-lg"
+                className={` ${ videoMutedStatus ? "bg-[#E50000]" : "bg-[#e5000048]"} hover:bg-[#E50000] px-4 py-2 rounded-lg`}
               >
                 {videoMutedStatus ? (
                   <i className="ri-play-large-line"></i>
