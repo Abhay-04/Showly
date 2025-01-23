@@ -11,7 +11,7 @@ const VerticalCards = ({ data }) => {
     <div className="overflow-hidden">
       {" "}
       <Swiper
-        spaceBetween={25}
+        spaceBetween={0}
         breakpoints={{
          
 
@@ -30,7 +30,7 @@ const VerticalCards = ({ data }) => {
           },
           // When the viewport width is >= 1280px
           1280: {
-            slidesPerView: 4.5,
+            slidesPerView: 5.5,
           },
         }}
        
@@ -40,7 +40,7 @@ const VerticalCards = ({ data }) => {
           <SwiperSlide className="pb-40 lg:pb-30" key={d.id}>
             <Link to={`/${d.media_type}/${d.id}`} className="text-white">
               <img
-                className="w-full h-auto sm:h-[220px] rounded-xl object-cover object-top"
+                className="w-[85%] h-auto sm:h-[320px] rounded-xl object-cover object-top"
                 src={
                   d.backdrop_path !== null
                     ? `https://image.tmdb.org/t/p/original/${d.backdrop_path}`

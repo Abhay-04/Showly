@@ -45,7 +45,7 @@ const BrowseContent = () => {
           <div className="relative w-full h-full rounded-xl">
             {/* Background Image */}
             <img
-              className="w-full h-full  object-top object-cover   -z-10 absolute"
+              className="w-full h-full  sm:object-right-top sm:object-cover object-cover object-center  -z-10 absolute"
               src={
                 browse?.randomNowPlayingMovie.backdrop_path ||
                 browse?.randomNowPlayingMovie.poster_path

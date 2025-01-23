@@ -14,8 +14,8 @@ const Cards = ({ data, title }) => {
             to={`/${d.media_type || title}/${d.id}`}
             className="text-white  "
           >
-            <img
-              className="w-full h-[160px] sm:h-[200px] rounded-xl  object-center object-cover  
+            <img alt={d.id}
+              className="w-full h-[160px] sm:h-[280px] rounded-xl  object-center object-cover  
                " 
               src={
                 d.backdrop_path || d.profile_path || d.poster_path === null
