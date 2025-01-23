@@ -62,7 +62,7 @@ const SearchBar = () => {
               className="flex justify-between gap-4 items-center px-8 py-2"
             >
               <img
-                className=" size-24 sm:size-36"
+                className=" size-24 sm:size-36 object-cover object-center rounded-xl"
                 src={
                   d.backdrop_path || d.profile_path || d.poster_path != null
                     ? `https://image.tmdb.org/t/p/w500/${
@@ -71,7 +71,7 @@ const SearchBar = () => {
                     : NO_IMAGE_URL
                 }
               />
-              <h1>
+              <h1 className=" text-sm text-end sm:text-lg font-semibold">
                 {d.original_title ||
                   d.original_title ||
                   d.name ||
