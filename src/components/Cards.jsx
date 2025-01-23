@@ -31,7 +31,14 @@ const Cards = ({ data, title }) => {
                 d.name ||
                 d.original_name}
             </h4>
-            <h4 className="text-base sm:text-md  font-medium">{d.release_date || d.first_air_date}</h4>
+            <h4 className="text-base sm:text-md font-medium">
+  {new Date(d.release_date || d.first_air_date).toLocaleDateString('en-US', {
+    month: 'short', // Short form for months (e.g., Jan, Feb, Mar)
+    day: '2-digit', // Two-digit day (e.g., 23)
+    year: 'numeric', // Full year (e.g., 2024)
+  })}
+</h4>
+
           </Link>
         </div>
       ))}

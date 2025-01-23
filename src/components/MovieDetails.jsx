@@ -21,7 +21,7 @@ const MovieDetails = () => {
   
   return <div>
      <HeaderBrowse />
-    {data.details.original_title}</div>;
+    Kaam pragati par hai</div>;
 };
 
 export default MovieDetails;

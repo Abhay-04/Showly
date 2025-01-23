@@ -16,7 +16,7 @@ const PersonDetails = () => {
 
   return <div>
     <HeaderBrowse />
-    PersonDetails</div>;
+    Kaam Pragati par hai</div>;
 };
 
 export default PersonDetails;

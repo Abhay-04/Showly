@@ -85,10 +85,19 @@ const BrowseContent = () => {
           </p>}
           {videoMutedStatus && <div className="flex gap-4">
             <span>
-              <i className="ri-megaphone-fill mr-1 text-yellow-500"></i>
-              {browse.randomNowPlayingMovie.release_date ||
-                browse.randomNowPlayingMovie.first_air_date}
-            </span>
+  <i className="ri-megaphone-fill mr-1 text-yellow-500"></i>
+  {browse.randomNowPlayingMovie.release_date || browse.randomNowPlayingMovie.first_air_date
+    ? new Date(
+        browse.randomNowPlayingMovie.release_date || 
+        browse.randomNowPlayingMovie.first_air_date
+      ).toLocaleDateString('en-US', {
+        month: 'short', // Short form for months (e.g., Jan, Feb, Mar)
+        day: '2-digit', // Two-digit day (e.g., 23)
+        year: 'numeric', // Full year (e.g., 2024)
+      })
+    : 'N/A'}
+</span>
+
             <span>
               <i className="ri-movie-2-fill mr-1 text-yellow-500"></i>{" "}
               {browse.randomNowPlayingMovie.media_type.toUpperCase()}

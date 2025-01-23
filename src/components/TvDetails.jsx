@@ -17,7 +17,7 @@ const TvDetails = () => {
   return (
     <div>
       <HeaderBrowse />
-      TvDetails
+      Kaam Pragati Par hai
     </div>
   );
 };
