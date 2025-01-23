@@ -17,11 +17,17 @@ const moviesSlice = createSlice({
     addRandomNowPlayingMovie: (state, action) => {
       state.randomNowPlayingMovie = action.payload;
     },
+    removeRandomNowPlayingMovie: (state, action) => {
+      state.randomNowPlayingMovie = null;
+    },
     addRandomMovieId: (state, action) => {
       state.randomMovieId = action.payload;
     },
     addRandomMovieKey: (state, action) => {
       state.randomMovieKey = action.payload;
+    },
+    removeRandomMovieKey: (state) => {
+      state.randomMovieKey = null;
     },
     changeBrowseDropDown: (state, action) => {
       state.browseDropDown = action.payload;
@@ -35,8 +41,10 @@ const moviesSlice = createSlice({
 export const {
   addNowPlayingMovies,
   addRandomNowPlayingMovie,
+  removeRandomNowPlayingMovie,
   addRandomMovieId,
   addRandomMovieKey,
+  removeRandomMovieKey,
   changeBrowseDropDown,
   toggleVideoMuted
 } = moviesSlice.actions;

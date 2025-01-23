@@ -9,7 +9,7 @@ import Dropdown from "../utils/hooks/usedropdown";
 import { Link } from "react-router-dom";
 
 import lang from "../utils/languageConstants";
-import { NO_IMAGE_URL } from "../utils/constants";
+
 import Loading from "./Loading";
 
 const BrowseContent = () => {
@@ -17,6 +17,8 @@ const BrowseContent = () => {
 
   const handleSelect = (selectedOption) => {
     dispatch(changeBrowseDropDown(selectedOption.toLowerCase()));
+    dispatch(browseDataFetchAsync());
+    
   };
 
   const browse = useSelector((store) => store?.browse);
@@ -27,12 +29,18 @@ const BrowseContent = () => {
 
   const fetchMoviesData = () => {
     dispatch(browseDataFetchAsync());
+    
+   
+    
+   
+    
   };
   const videoMutedStatus = useSelector((state) => state.browse.videoMuted);
 
   useEffect(() => {
     fetchMoviesData();
-  }, [category]);
+   
+  }, []);
 
   if (!browse || !browse.randomNowPlayingMovie) {
     return <Loading />;

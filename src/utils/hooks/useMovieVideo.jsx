@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import axiosInstance from "../../axiosConfig";
 import { useEffect } from "react";
-import { addRandomMovieKey } from "../../store/browseSlice";
+import { addRandomMovieKey, removeRandomMovieKey} from "../../store/browseSlice";
 
 const useMovieTrailerKey = () => {
   // Get id of random movie from store
@@ -14,18 +14,29 @@ const useMovieTrailerKey = () => {
     try {
       if (movieId) {
         const response = await axiosInstance.get(`/movie/${movieId}/videos`);
-        console.log(response)
+       
+      dispatch(removeRandomMovieKey())
+       const finalKey = await response.data.results.filter((m) => m.type === "Trailer" )[0].key
+         
+        
+        finalKey && dispatch(
+          addRandomMovieKey(finalKey) 
+        )
 
-        dispatch(
-          addRandomMovieKey(
-            response?.data?.results.filter((m) => m.type === "Trailer")[0].key
-          )
-        );
+        
+
+       
       } else {
-        console.log("Movie ID is not available");
+        
+       
+        console.log("Trailer is not available")
+        
+        
+        
       }
     } catch (error) {
       console.log(error);
+      dispatch(removeRandomMovieKey());
     }
   };
 
