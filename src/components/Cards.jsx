@@ -1,8 +1,7 @@
 import { Link } from "react-router-dom";
 import { NO_IMAGE_URL } from "../utils/constants";
 const Cards = ({ data, title }) => {
-  // console.log(data);
-  // console.log(title);
+ 
   
   return (
     <div className="overflow-hidden grid  gap-x-6 gap-y-16 grid-cols-12 px-8 mt-8  ">
@@ -16,8 +15,8 @@ const Cards = ({ data, title }) => {
             className="text-white  "
           >
             <img
-              className="w-full h-[160px] sm:h-[220px] rounded-xl object-center
-               "
+              className="w-full h-[160px] sm:h-[200px] rounded-xl  object-center object-cover  
+               " 
               src={
                 d.backdrop_path || d.profile_path || d.poster_path === null
                   ? `https://image.tmdb.org/t/p/w500/${
@@ -26,13 +25,13 @@ const Cards = ({ data, title }) => {
                   : NO_IMAGE_URL
               }
             />
-            <h4 className=" text-base sm:text-lg pt-4 pb-1 font-semibold">
+            <h4 className=" text-base sm:text-md  font-semibold">
               {d.original_title ||
-                d.original_title ||
+                d.title ||
                 d.name ||
                 d.original_name}
             </h4>
-            <h4 className="font-medium">{d.release_date || d.first_air_date}</h4>
+            <h4 className="text-base sm:text-md  font-medium">{d.release_date || d.first_air_date}</h4>
           </Link>
         </div>
       ))}

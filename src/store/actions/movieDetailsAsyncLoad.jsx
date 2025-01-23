@@ -6,6 +6,7 @@ const movieDetailsAsync =
   async (dispatch, getState) => {
     try {
       const details = await axiosInstance.get(`/movie/${id}`);
+      const cast = await axiosInstance.get(`/movie/${id}/credits`)
 
       const recommendations = await axiosInstance.get(
         `movie/${id}/recommendations`
@@ -17,6 +18,7 @@ const movieDetailsAsync =
 
       const allDetails = {
         details: details.data,
+        cast: cast.data.cast,
         recommendations: recommendations.data.results,
         externalId: externalId.data,
         similar: similar.data.results,
