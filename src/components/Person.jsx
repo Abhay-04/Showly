@@ -42,7 +42,7 @@ const Person = () => {
           dataLength={data.length}
           hasMore={true}
           next={() => dispatch(personDataAsync())}
-          loader={<h1>Loading.....</h1>}
+          loader={<Loading />}
           scrollableTarget="scrollableDiv" // Target the right-side container
         >
           <Cards data={data} title={"person"} />

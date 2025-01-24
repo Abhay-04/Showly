@@ -63,7 +63,7 @@ const Movies = () => {
           dataLength={data.length}
           hasMore={true}
           next={() => dispatch(moviesDataAsync())}
-          loader={<h1>Loading.....</h1>}
+          loader={<Loading />}
           scrollableTarget="scrollableDiv" // Target the right-side container
         >
           <Cards data={data} title={"movie"} />

@@ -61,7 +61,7 @@ const Popular = () => {
           dataLength={data.length}
           hasMore={true}
           next={() => dispatch(popularDataAsync())}
-          loader={<h1>Loading.....</h1>}
+          loader={<Loading />}
           scrollableTarget="scrollableDiv" // Target the right-side container
         >
           <Cards data={data} title={category} />

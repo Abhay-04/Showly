@@ -24,7 +24,7 @@ const Browse = () => {
         <li className={`hover:bg-[#E50000] ${
           location.pathname === "/browse" ? "bg-[#E50000]" : ""
         } rounded-md px-6 py-2`}>
-          <i class="ri-home-2-fill mr-2"></i>
+          <i className="ri-home-2-fill mr-2"></i>
           {lang[langKey].home}
         </li>
       </Link>

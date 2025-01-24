@@ -56,7 +56,7 @@ const Tv = () => {
           dataLength={data.length}
           hasMore={true}
           next={() => dispatch(tvDataAsync())}
-          loader={<h1>Loading.....</h1>}
+          loader={<Loading />}
           scrollableTarget="scrollableDiv" // Target the right-side container
         >
           <Cards data={data} title={"tv"} />
