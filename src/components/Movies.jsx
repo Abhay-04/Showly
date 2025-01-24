@@ -36,6 +36,7 @@ const Movies = () => {
   useEffect(() => {
     fetchMoviesData();
     
+    
   }, [category]);
 
   return data.length == 0 ? (

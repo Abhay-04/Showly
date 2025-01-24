@@ -25,13 +25,13 @@ const Cards = ({ data, title }) => {
                   : NO_IMAGE_URL
               }
             />
-            <h4 className=" text-base sm:text-md  font-semibold">
+            <h4 className=" text-base sm:text-md  font-semibold pt-2">
               {d.original_title ||
                 d.title ||
                 d.name ||
                 d.original_name}
             </h4>
-            <h4 className="text-base sm:text-md font-medium">
+            <h4 className="text-sm sm:text-md font-medium">
   {new Date(d.release_date || d.first_air_date).toLocaleDateString('en-US', {
     month: 'short', // Short form for months (e.g., Jan, Feb, Mar)
     day: '2-digit', // Two-digit day (e.g., 23)

@@ -3,9 +3,10 @@ import { addMovieDetailsData } from "../movieDetailsSlice";
 
 const movieDetailsAsync =
   ({ id }) =>
-  async (dispatch, getState) => {
+  async (dispatch) => {
     try {
       const details = await axiosInstance.get(`/movie/${id}`);
+      const watchProviders = await axiosInstance.get(`movie/${id}/watch/providers`)
       const cast = await axiosInstance.get(`/movie/${id}/credits`)
 
       const recommendations = await axiosInstance.get(
@@ -18,6 +19,7 @@ const movieDetailsAsync =
 
       const allDetails = {
         details: details.data,
+        watchProviders: watchProviders.data.results.IN,
         cast: cast.data.cast,
         recommendations: recommendations.data.results,
         externalId: externalId.data,

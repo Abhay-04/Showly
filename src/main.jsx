@@ -6,7 +6,7 @@ import { Provider } from "react-redux";
 import appStore from "./store/appStore.jsx";
 import Loading from "./components/Loading.jsx";
 
-// const App = lazy(() => import("./App.jsx"));
+
 const Browse = lazy(() => import("./components/Browse.jsx"));
 const BrowseContent = lazy(() => import("./components/BrowseContent.jsx"));
 const Error = lazy(() => import("./components/Error.jsx"));

@@ -48,7 +48,7 @@ const BrowseContent = () => {
 
   return (
     <div className="">
-      <div className={`relative h-[50vh] ${ !videoMutedStatus ? "sm:h-[85vh]" : "sm:h-[55vh]"} aspect-video w-full  ${ videoMutedStatus && "bg-gradient-to-r from-black" }`}>
+      <div className={`relative h-[60vh] ${ !videoMutedStatus ? "2xl:h-[85vh]" : "sm:h-[55vh]"} aspect-video w-full  ${ videoMutedStatus && "bg-gradient-to-r from-black" }`}>
         <div className="w-[100%] h-full  -z-10 absolute ">
           <div className="relative w-full h-full rounded-xl">
             {/* Background Image */}
@@ -133,7 +133,7 @@ const BrowseContent = () => {
         </div>
       </div>
 
-      <div className=" px-6 pb-10 sm:px-12 pt-16 sm:pt-20 bg-black h-[90vh] md:h-[120vh] lg:h-[100vh] 2xl:h-[70vh] flex flex-col sm:justify-center  ">
+      <div className=" px-6 pb-10 sm:px-12 pt-16 sm:pt-20 bg-black h-[90vh] md:h-[120vh] lg:h-[80vh] 2xl:h-[75vh] flex flex-col sm:justify-center  ">
         <div className="flex flex-row justify-between   mb-4  ">
           <div>
             {" "}

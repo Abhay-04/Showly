@@ -40,7 +40,7 @@ const VerticalCards = ({ data }) => {
           <SwiperSlide className="pb-40 lg:pb-30" key={d.id}>
             <Link to={`/${d.media_type}/${d.id}`} className="text-white">
               <img
-                className="w-[85%] h-auto sm:h-[320px] rounded-xl object-cover object-top"
+                className="w-[85%] h-auto sm:h-[260px] 2xl:h-[320px] rounded-xl object-cover object-top"
                 src={
                   d.backdrop_path !== null
                     ? `https://image.tmdb.org/t/p/original/${d.backdrop_path}`
