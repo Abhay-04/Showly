@@ -5,19 +5,22 @@ import { NO_IMAGE_URL } from "../utils/constants";
 // Import Swiper styles
 import "swiper/css";
 import { Link } from "react-router-dom";
+import MovieDetails from "./TvDetails";
+
+
+
 
 const VerticalCards = ({ data }) => {
+
+
   return (
-    <div className="overflow-hidden">
+    <div className="">
       {" "}
       <Swiper
         spaceBetween={0}
         breakpoints={{
-         
-
-
           // When the viewport width is >= 320px
-         250: {
+          250: {
             slidesPerView: 1.2,
           },
           // When the viewport width is >= 640px
@@ -33,34 +36,44 @@ const VerticalCards = ({ data }) => {
             slidesPerView: 5.5,
           },
         }}
-       
-       
       >
         {data.map((d) => (
-          <SwiperSlide className="pb-40 lg:pb-30" key={d.id}>
-            <Link to={`/${d.media_type}/${d.id}`} className="text-white">
+          <SwiperSlide  key={d.id}>
+            <Link 
+            onClick={<MovieDetails />}
+              to={
+                d.media_type ? `/${d.media_type}/${d.id} ` : `/person/${d.id}`
+              }
+              className="text-white"
+            >
               <img
                 className="w-[85%] h-auto sm:h-[260px] 2xl:h-[320px] rounded-xl object-cover object-top"
                 src={
                   d.backdrop_path !== null
-                    ? `https://image.tmdb.org/t/p/original/${d.backdrop_path}`
+                    ? `https://image.tmdb.org/t/p/original/${
+                        d.backdrop_path || d.profile_path
+                      }`
                     : NO_IMAGE_URL
                 }
                 alt={d.name || d.original_title || "Image"}
               />
-              <h4 className="text-md pt-2 pb-1 font-semibold">
-                {d.original_title || d.name || d.original_name}
+              <h4 className="text-md py-2 font-semibold w-[90%]">
+                {d.original_title || d.name || d.original_name }
+              </h4>
+              <h4 className="text-md font-semibold">
+                {d.character ? d?.character : ""}
               </h4>
               <h4>
-  {d.release_date || d.first_air_date
-    ? new Date(d.release_date || d.first_air_date).toLocaleDateString('en-US', {
-        month: 'short', // Short form for months (e.g., Jan, Feb, Mar)
-        day: '2-digit', // Two-digit day (e.g., 23)
-        year: 'numeric', // Full year (e.g., 2024)
-      })
-    : 'N/A'}
-</h4>
-
+                {d?.release_date || d?.first_air_date
+                  ? new Date(
+                      d.release_date || d.first_air_date
+                    ).toLocaleDateString("en-US", {
+                      month: "short", // Short form for months (e.g., Jan, Feb, Mar)
+                      day: "2-digit", // Two-digit day (e.g., 23)
+                      year: "numeric", // Full year (e.g., 2024)
+                    })
+                  : ""}
+              </h4>
             </Link>
           </SwiperSlide>
         ))}

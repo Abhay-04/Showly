@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const tvDetailsSlice = createSlice({
   name: "tvDetails",
   initialState: {
+    info: null
     
   },
   reducers: {
@@ -10,7 +11,7 @@ const tvDetailsSlice = createSlice({
       state.info = action.payload;
     },
     removeTvDetailsData: (state) => {
-      state.info = {};
+      state.info = null;
     },
   },
 });

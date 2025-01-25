@@ -164,12 +164,14 @@ const HeaderBrowse = () => {
                 {user?.displayName ? user?.displayName?.split(" ")[0] : "Guest"}
               </li>
               <li className="my-2 hover:bg-gray-300 hover:text-black rounded-md px-2 py-1">
-                <i className="ri-sun-fill mr-4"></i>{lang[langKey].lightMode}
+                <i className="ri-sun-fill mr-4"></i>
+                {lang[langKey].lightMode}
               </li>
               <Link to={"/browse/saved"}>
                 {" "}
                 <li className="my-2 hover:bg-gray-300 hover:text-black rounded-md px-2 py-1">
-                  <i className="ri-bookmark-2-fill mr-4"></i>{lang[langKey].saved}
+                  <i className="ri-bookmark-2-fill mr-4"></i>
+                  {lang[langKey].saved}
                 </li>
               </Link>
               <li

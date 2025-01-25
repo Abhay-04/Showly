@@ -26,7 +26,7 @@ const tvDetailsAsync =
         externalId: externalId.data,
         similar: similar.data.results,
         translations: translations.data.translations,
-        watchProviders: watchProviders.data,
+        watchProviders: watchProviders.data.results.IN,
         videos: videos.data.results,
       };
 
