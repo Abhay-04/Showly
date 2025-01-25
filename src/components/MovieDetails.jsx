@@ -16,8 +16,7 @@ const MovieDetails = () => {
   const videoMutedStatus = useSelector((state) => state.browse.videoMuted);
   const langKey = useSelector((store) => store.config.language);
   const data = useSelector((store) => store.movieDetails.info);
-  const castData = useSelector((store) => store.movieDetails.info);
-  const recommendations = useSelector((store) => store.movieDetails.info);
+  
 
   useEffect(() => {
     dispatch(removeMovieDetailsData());
@@ -149,21 +148,21 @@ const MovieDetails = () => {
         {data.cast.length > 0 && (
           <div className="py-20">
             <h2 className="text-3xl font-semibold py-5">Cast</h2>
-            <VerticalCards data={data.cast} />
+            <VerticalCards data={data.cast} mediaType = {"person"} />
           </div>
         )}
 
         {data.similar.length > 0 && (
           <div className="pb-20">
             <h2 className="text-3xl font-semibold py-5">Similar</h2>
-            <VerticalCards data={data.similar} />
+            <VerticalCards data={data.similar} mediaType = {"movie"}/>
           </div>
         )}
 
         {data.recommendations.length > 0 && (
           <div className="pb-20">
             <h2 className="text-3xl font-semibold py-5">Recommendations</h2>
-            <VerticalCards data={data.recommendations} />
+            <VerticalCards data={data.recommendations} mediaType = {"movie"} />
           </div>
         )}
       </div>

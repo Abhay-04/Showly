@@ -18,7 +18,7 @@ const MovieDetails = () => {
   const videoMutedStatus = useSelector((state) => state.browse.videoMuted);
   const langKey = useSelector((store) => store.config.language);
   const data = useSelector((store) => store.tvDetails.info);
-  console.log(data);
+  
 
   useEffect(() => {
     dispatch(removeTvDetailsData());
@@ -130,24 +130,30 @@ const MovieDetails = () => {
             </div>
           </div>
         </div>
-
-        {data.details.seasons.length > 0 && (
+        {data.cast.length > 0 && (
           <div className="py-20">
-            <h2 className="text-3xl font-semibold py-5">Seasons</h2>
-            <VerticalCards data={data.details.seasons} />
+            <h2 className="text-3xl font-semibold py-5">Cast</h2>
+            <VerticalCards data={data.cast} mediaType = {"person"} />
           </div>
         )}
-        {data.cast.length > 0 && (
+        {data.details.seasons.length > 0 && (
           <div className="pb-20">
-            <h2 className="text-3xl font-semibold py-5">Cast</h2>
-            <VerticalCards data={data.cast} />
+            <h2 className="text-3xl font-semibold py-5">Seasons</h2>
+            <VerticalCards data={data.details.seasons} notClickable={true} />
+          </div>
+        )}
+       
+       {data.similar.length > 0 && (
+          <div className="pb-20">
+            <h2 className="text-3xl font-semibold py-5">Similar</h2>
+            <VerticalCards data={data.similar} mediaType = {"tv"} />
           </div>
         )}
 
         {data.recommendations.length > 0 && (
           <div className="pb-20">
             <h2 className="text-3xl font-semibold py-5">Recommendations</h2>
-            <VerticalCards data={data.recommendations} />
+            <VerticalCards data={data.recommendations} mediaType = {"tv"} />
           </div>
         )}
       </div>
