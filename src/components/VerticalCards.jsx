@@ -4,12 +4,12 @@ import { NO_IMAGE_URL } from "../utils/constants";
 
 // Import Swiper styles
 import "swiper/css";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import MovieDetails from "./MovieDetails";
 import TvDetails from "./TvDetails";
 
 const VerticalCards = ({ data, mediaType, notClickable }) => {
-  const location = useLocation();
+  
 
   return (
     <div className="">
@@ -51,6 +51,12 @@ const VerticalCards = ({ data, mediaType, notClickable }) => {
                 <h4 className="text-md font-semibold">
                   {d.character ? d?.character : ""}
                 </h4>
+
+                <h4 className="text-md font-semibold">
+                  {d.episode_count ? d?.episode_count : "0"} Episodes
+                </h4>
+                
+                
                 <h4>
                   {d?.release_date || d?.first_air_date
                     ? new Date(
@@ -90,6 +96,8 @@ const VerticalCards = ({ data, mediaType, notClickable }) => {
                 <h4 className="text-md font-semibold">
                   {d.character ? d?.character : ""}
                 </h4>
+              
+                
                 <h4>
                   {d?.release_date || d?.first_air_date
                     ? new Date(
