@@ -51,7 +51,7 @@ const VerticalCards = ({ data }) => {
                 src={
                   d.backdrop_path !== null
                     ? `https://image.tmdb.org/t/p/original/${
-                        d.backdrop_path || d.profile_path
+                        d.backdrop_path || d.profile_path || d.poster_path
                       }`
                     : NO_IMAGE_URL
                 }

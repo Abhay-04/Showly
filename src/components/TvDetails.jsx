@@ -1,6 +1,3 @@
-
-
-
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 
@@ -13,6 +10,7 @@ import lang from "../utils/languageConstants";
 import { toggleVideoMuted } from "../store/browseSlice";
 import { removeTvDetailsData } from "../store/tvDetailsSlice";
 import tvDetailsAsync from "../store/actions/tvDetailsAsync";
+import VerticalCards from "./VerticalCards";
 
 const MovieDetails = () => {
   const dispatch = useDispatch();
@@ -32,12 +30,12 @@ const MovieDetails = () => {
   return (
     <div>
       <HeaderBrowse />
-      <div className="bg-black w-full  text-white h-[100vh] ">
+      <div className="bg-black w-full  text-white px-52 ">
         <div
-          className="grid grid-cols-12 gap-5 py-8 px-52  bg-cover bg-black bg-right"
+          className="grid grid-cols-12 gap-5 py-8  bg-cover bg-black bg-right"
           // style={{
           //   backgroundImage: `url(https://image.tmdb.org/t/p/original${data.details.backdrop_path})`,
-          
+
           // }}
         >
           <div className=" col-span-3 w-[85%] flex flex-col items-center justify-center rounded-xl bg-[#032541]">
@@ -83,7 +81,6 @@ const MovieDetails = () => {
                   <div className="border py-1 px-2">U/A 13+</div>
                 )}
               </div>
-              
 
               <div className="flex gap-x-2">
                 <i className="ri-movie-line"></i>
@@ -91,7 +88,6 @@ const MovieDetails = () => {
                   <span key={g.id}>{g.name}</span>
                 ))}
               </div>
-              
             </div>
 
             <div className="text-xl font-bold">
@@ -134,10 +130,29 @@ const MovieDetails = () => {
             </div>
           </div>
         </div>
+
+        {data.details.seasons.length > 0 && (
+          <div className="py-20">
+            <h2 className="text-3xl font-semibold py-5">Seasons</h2>
+            <VerticalCards data={data.details.seasons} />
+          </div>
+        )}
+        {data.cast.length > 0 && (
+          <div className="pb-20">
+            <h2 className="text-3xl font-semibold py-5">Cast</h2>
+            <VerticalCards data={data.cast} />
+          </div>
+        )}
+
+        {data.recommendations.length > 0 && (
+          <div className="pb-20">
+            <h2 className="text-3xl font-semibold py-5">Recommendations</h2>
+            <VerticalCards data={data.recommendations} />
+          </div>
+        )}
       </div>
     </div>
   );
 };
 
 export default MovieDetails;
-
