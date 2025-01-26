@@ -14,9 +14,12 @@ const PersonDetails = () => {
     dispatch(personDetailsAsync(id));
   }, []);
 
-  return <div>
-    <HeaderBrowse />
-    Kaam Pragati par hai</div>;
+  return (
+    <div className="bg-black  h-[100vh] text-white ">
+      <HeaderBrowse />
+      <div>Kaam Pragati par hai</div>
+    </div>
+  );
 };
 
 export default PersonDetails;
