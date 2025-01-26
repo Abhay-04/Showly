@@ -32,6 +32,9 @@ const MovieDetails = () => {
   useEffect(() => {
     dispatch(removeTvDetailsData());
     dispatch(tvDetailsAsync(id));
+    {
+      tvTrailerPlay && dispatch(toggleTvTrailerPlay());
+    }
   }, []);
 
   if (data == null) return <Loading />;
@@ -145,9 +148,7 @@ const MovieDetails = () => {
               Play Trailer
             </button>
 
-            {tvTrailerPlay && (
-              <YtTrailer trailerKey={data?.videos?.key} />
-            )}
+            {tvTrailerPlay && <YtTrailer trailerKey={data?.videos?.key} />}
           </div>
         </div>
         {data.cast.length > 0 && (

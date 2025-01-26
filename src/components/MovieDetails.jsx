@@ -26,6 +26,7 @@ const MovieDetails = () => {
   useEffect(() => {
     dispatch(removeMovieDetailsData());
     dispatch(movieDetailsAsync(id));
+    { movieTrailerPlay && dispatch(toggleMovieTrailerPlay())}
   }, []);
 
   if (data == null) return <Loading />;
