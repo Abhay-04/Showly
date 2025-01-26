@@ -1,22 +1,27 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 import { useDispatch, useSelector } from "react-redux";
 import movieDetailsAsync from "../store/actions/movieDetailsAsyncLoad";
 import HeaderBrowse from "./HeaderBrowse";
 import Loading from "./Loading";
-import { removeMovieDetailsData } from "../store/movieDetailsSlice";
+import { removeMovieDetailsData, toggleMovieTrailerPlay } from "../store/movieDetailsSlice";
 import lang from "../utils/languageConstants";
 import { toggleVideoMuted } from "../store/browseSlice";
 import VerticalCards from "./VerticalCards";
+import YtTrailer from "./YtTrailer";
 
 const MovieDetails = () => {
   const dispatch = useDispatch();
   const id = useParams();
   const videoMutedStatus = useSelector((state) => state.browse.videoMuted);
+  const movieTrailerPlay = useSelector((state) => state.movieDetails.movieTrailerPlay);
   const langKey = useSelector((store) => store.config.language);
   const data = useSelector((store) => store.movieDetails.info);
-  
+
+  const handlePlayTrailer = () => {
+    dispatch(toggleMovieTrailerPlay());
+  };
 
   useEffect(() => {
     dispatch(removeMovieDetailsData());
@@ -117,7 +122,7 @@ const MovieDetails = () => {
                 {data.details.overview}
               </div>
             </div>
-
+            {/* 
             <div>
               {data ? (
                 <button
@@ -142,27 +147,36 @@ const MovieDetails = () => {
                   {lang[langKey].trailerNA}
                 </button>
               )}
-            </div>
+            </div> */}
+
+            <button
+              onClick={handlePlayTrailer}
+              className="bg-[#E50000] px-4 py-2 rounded-lg "
+            >
+              Play Trailer
+            </button>
+
+            {movieTrailerPlay && <YtTrailer trailerKey={data?.videos?.key} />}
           </div>
         </div>
         {data.cast.length > 0 && (
           <div className="py-20">
-            <h2 className="text-3xl font-semibold py-5">Cast</h2>
-            <VerticalCards data={data.cast} mediaType = {"person"} />
+            <h2 className="text-3xl font-semibold py-5">Top Cast</h2>
+            <VerticalCards data={data.cast} mediaType={"person"} />
           </div>
         )}
 
         {data.similar.length > 0 && (
           <div className="pb-20">
             <h2 className="text-3xl font-semibold py-5">Similar</h2>
-            <VerticalCards data={data.similar} mediaType = {"movie"}/>
+            <VerticalCards data={data.similar} mediaType={"movie"} />
           </div>
         )}
 
         {data.recommendations.length > 0 && (
           <div className="pb-20">
             <h2 className="text-3xl font-semibold py-5">Recommendations</h2>
-            <VerticalCards data={data.recommendations} mediaType = {"movie"} />
+            <VerticalCards data={data.recommendations} mediaType={"movie"} />
           </div>
         )}
       </div>

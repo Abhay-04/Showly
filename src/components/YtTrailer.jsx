@@ -1,0 +1,43 @@
+import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+
+
+import { toggleMovieTrailerPlay } from "../store/movieDetailsSlice";
+import { toggleTvTrailerPlay } from "../store/tvDetailsSlice";
+
+const YtTrailer = ({trailerKey}) => {
+    console.log(trailerKey)
+
+
+
+
+  const dispatch = useDispatch();
+
+  const handleCloseTrailer = () => {
+    dispatch(toggleMovieTrailerPlay());
+    dispatch(toggleTvTrailerPlay());
+  };
+  return (
+    <div className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-[5000]">
+      <div className="relative w-full h-full">
+        <iframe
+          className="w-full h-full"
+          src={`https://www.youtube.com/embed/${trailerKey}`}
+          title="YouTube video player"
+          frameBorder="0"
+          allow="autoplay; encrypted-media"
+          allowFullScreen
+       
+        ></iframe>
+        <button
+          onClick={handleCloseTrailer}
+          className="absolute top-4 right-4 text-white text-xl"
+        >
+          ✖
+        </button>
+      </div>
+    </div>
+  );
+};
+
+export default YtTrailer;

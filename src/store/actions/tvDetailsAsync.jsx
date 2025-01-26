@@ -27,7 +27,7 @@ const tvDetailsAsync =
         similar: similar.data.results,
         translations: translations.data.translations,
         watchProviders: watchProviders.data.results.IN,
-        videos: videos.data.results,
+        videos: videos.data.results.find(v => v.type === "Trailer"),
       };
 
       dispatch(addTvDetailsData(allDetails));

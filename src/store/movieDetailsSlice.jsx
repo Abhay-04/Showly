@@ -4,7 +4,8 @@ import { createSlice } from "@reduxjs/toolkit";
 const movieDetailsSlice = createSlice({
   name: "movieDetails",
   initialState: {
-    info: null
+    info: null,
+    movieTrailerPlay : false,
     
   },
   reducers: {
@@ -14,9 +15,13 @@ const movieDetailsSlice = createSlice({
     removeMovieDetailsData: (state) => {
       state.info = null;
     },
+
+    toggleMovieTrailerPlay: (state) => {
+      state.movieTrailerPlay = !state.movieTrailerPlay;
+    },
   },
 });
 
-export const { addMovieDetailsData, removeMovieDetailsData } = movieDetailsSlice.actions;
+export const { addMovieDetailsData, removeMovieDetailsData , toggleMovieTrailerPlay} = movieDetailsSlice.actions;
 
 export default movieDetailsSlice.reducer;

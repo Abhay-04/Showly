@@ -3,7 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 const tvDetailsSlice = createSlice({
   name: "tvDetails",
   initialState: {
-    info: null
+    info: null,
+    tvTrailerPlay : false,
     
   },
   reducers: {
@@ -13,9 +14,12 @@ const tvDetailsSlice = createSlice({
     removeTvDetailsData: (state) => {
       state.info = null;
     },
+    toggleTvTrailerPlay: (state) => {
+      state.tvTrailerPlay = !state.tvTrailerPlay;
+    },
   },
 });
 
-export const { addTvDetailsData , removeTvDetailsData} = tvDetailsSlice.actions;
+export const { addTvDetailsData , removeTvDetailsData , toggleTvTrailerPlay} = tvDetailsSlice.actions;
 
 export default tvDetailsSlice.reducer;

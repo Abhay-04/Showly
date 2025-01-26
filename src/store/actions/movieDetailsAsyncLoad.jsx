@@ -25,7 +25,7 @@ const movieDetailsAsync =
         externalId: externalId.data,
         similar: similar.data.results,
         translations: translations.data.translations,
-        videos: videos.data.results,
+        videos: videos.data.results.find(v => v.type === "Trailer")
       };
 
       dispatch(addMovieDetailsData(allDetails));

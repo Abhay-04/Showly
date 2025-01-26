@@ -8,9 +8,13 @@ import Loading from "./Loading";
 
 import lang from "../utils/languageConstants";
 import { toggleVideoMuted } from "../store/browseSlice";
-import { removeTvDetailsData } from "../store/tvDetailsSlice";
+import {
+  removeTvDetailsData,
+  toggleTvTrailerPlay,
+} from "../store/tvDetailsSlice";
 import tvDetailsAsync from "../store/actions/tvDetailsAsync";
 import VerticalCards from "./VerticalCards";
+import YtTrailer from "./YtTrailer";
 
 const MovieDetails = () => {
   const dispatch = useDispatch();
@@ -18,7 +22,12 @@ const MovieDetails = () => {
   const videoMutedStatus = useSelector((state) => state.browse.videoMuted);
   const langKey = useSelector((store) => store.config.language);
   const data = useSelector((store) => store.tvDetails.info);
-  
+
+  const tvTrailerPlay = useSelector((state) => state.tvDetails.tvTrailerPlay);
+
+  const handlePlayTrailer = () => {
+    dispatch(toggleTvTrailerPlay());
+  };
 
   useEffect(() => {
     dispatch(removeTvDetailsData());
@@ -103,7 +112,7 @@ const MovieDetails = () => {
               </div>
             </div>
 
-            <div>
+            {/* <div>
               {data ? (
                 <button
                   onClick={() => dispatch(toggleVideoMuted())}
@@ -127,13 +136,24 @@ const MovieDetails = () => {
                   {lang[langKey].trailerNA}
                 </button>
               )}
-            </div>
+            </div> */}
+
+            <button
+              onClick={handlePlayTrailer}
+              className="bg-[#E50000] px-4 py-2 rounded-lg "
+            >
+              Play Trailer
+            </button>
+
+            {tvTrailerPlay && (
+              <YtTrailer trailerKey={data?.videos?.key} />
+            )}
           </div>
         </div>
         {data.cast.length > 0 && (
           <div className="py-20">
-            <h2 className="text-3xl font-semibold py-5">Cast</h2>
-            <VerticalCards data={data.cast} mediaType = {"person"} />
+            <h2 className="text-3xl font-semibold py-5">Top Cast</h2>
+            <VerticalCards data={data.cast} mediaType={"person"} />
           </div>
         )}
         {data.details.seasons.length > 0 && (
@@ -142,18 +162,18 @@ const MovieDetails = () => {
             <VerticalCards data={data.details.seasons} notClickable={true} />
           </div>
         )}
-       
-       {data.similar.length > 0 && (
+
+        {data.similar.length > 0 && (
           <div className="pb-20">
             <h2 className="text-3xl font-semibold py-5">Similar</h2>
-            <VerticalCards data={data.similar} mediaType = {"tv"} />
+            <VerticalCards data={data.similar} mediaType={"tv"} />
           </div>
         )}
 
         {data.recommendations.length > 0 && (
           <div className="pb-20">
             <h2 className="text-3xl font-semibold py-5">Recommendations</h2>
-            <VerticalCards data={data.recommendations} mediaType = {"tv"} />
+            <VerticalCards data={data.recommendations} mediaType={"tv"} />
           </div>
         )}
       </div>
