@@ -120,7 +120,7 @@ const HeaderBrowse = () => {
         <select
           value={langKey}
           onChange={handleLanguageChange}
-          className="text-white bg-black focus:outline-none px-2 items-center "
+          className="text-white bg-black focus:outline-none cursor-pointer px-2 items-center "
         >
           {SUPPORTED_LANGUAGES.map((lang) => (
             <option key={lang.identifier} value={lang.identifier}>
