@@ -62,9 +62,9 @@ const MovieDetails = () => {
                   className="size-10 object-fill object-center overflow-hidden rounded-md"
                   src={`https://image.tmdb.org/t/p/original${data?.watchProviders?.flatrate[0].logo_path}`}
                 />{" "}
-                <div className="leading-3">
-                  <p className="text-sm">Now Streaming </p>
-                  <p className="font-bold">Watch Now </p>
+                <div className="leading-6">
+                  <p className="text-sm">{lang[langKey].nowStreaming}</p>
+                  <p className="font-bold">{lang[langKey].watchNow} </p>
                 </div>
               </div>
             ) : (
@@ -101,12 +101,12 @@ const MovieDetails = () => {
             </div>
 
             <div className="text-xl font-bold">
-              {Math.round(data.details.vote_average * 10)}% User Score
+              {Math.round(data.details.vote_average * 10)}% {lang[langKey].userScore}
             </div>
 
             <div className="w-[85%] flex flex-col gap-y-1">
               <div className="text-gray-400">{data.details.tagline}</div>
-              <div className="text-xl font-semibold">Overview</div>
+              <div className="text-xl font-semibold">{lang[langKey].overView}</div>
               <div className="text-sm leading-6 py-3">
                 {" "}
                 {data.details.overview}
@@ -117,10 +117,10 @@ const MovieDetails = () => {
 
             <button
               onClick={handlePlayTrailer}
-              className="bg-[#E50000] px-4 py-2 rounded-lg w-[12%] "
+              className="bg-[#E50000] px-4 py-2 rounded-lg w-max "
             >
               <i className="ri-play-large-line mr-1"></i>
-              Play Trailer
+              {lang[langKey].playTrailer}
             </button>
 
             {tvTrailerPlay && <YtTrailer trailerKey={data?.videos?.key} />}
@@ -128,27 +128,27 @@ const MovieDetails = () => {
         </div>
         {data.cast.length > 0 && (
           <div className="py-20">
-            <h2 className="text-3xl font-semibold py-5">Top Cast</h2>
+            <h2 className="text-3xl font-semibold py-5">{lang[langKey].topCast}</h2>
             <VerticalCards data={data.cast} mediaType={"person"} />
           </div>
         )}
         {data.details.seasons.length > 0 && (
           <div className="pb-20">
-            <h2 className="text-3xl font-semibold py-5">Seasons</h2>
+            <h2 className="text-3xl font-semibold py-5">{lang[langKey].seasons}</h2>
             <VerticalCards data={data.details.seasons} notClickable={true} />
           </div>
         )}
 
         {data.similar.length > 0 && (
           <div className="pb-20">
-            <h2 className="text-3xl font-semibold py-5">Similar</h2>
+            <h2 className="text-3xl font-semibold py-5">{lang[langKey].similar}</h2>
             <VerticalCards data={data.similar} mediaType={"tv"} />
           </div>
         )}
 
         {data.recommendations.length > 0 && (
           <div className="pb-20">
-            <h2 className="text-3xl font-semibold py-5">Recommendations</h2>
+            <h2 className="text-3xl font-semibold py-5">{lang[langKey].recommendations}</h2>
             <VerticalCards data={data.recommendations} mediaType={"tv"} />
           </div>
         )}

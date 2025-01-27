@@ -13,10 +13,17 @@ const lang = {
     filter: "Filter",
     home: "Home",
     lightMode: "Light Mode",
-    saved : "Saved",
-    logOut : "Log Out",
-    hi : "Hi",
-
+    saved: "Saved",
+    logOut: "Log Out",
+    hi: "Hi",
+    topCast: "Top Cast",
+    similar: "Similar",
+    recommendations: "Recommendations",
+    seasons: "Seasons",
+    nowStreaming: "Now Streaming",
+    watchNow: "Watch Now",
+    userScore: "User Score",
+    overView: "Overview"
   },
   hindi: {
     trending: "ट्रेंडिंग",
@@ -32,10 +39,17 @@ const lang = {
     filter: "फ़िल्टर",
     home: "होम",
     lightMode: "लाइट मोड",
-    saved : "सहेजा गया",
-    logOut : "लॉग आउट",
-    hi: "नमस्ते"
-
+    saved: "सहेजा गया",
+    logOut: "लॉग आउट",
+    hi: "नमस्ते",
+    topCast: "मुख्य कलाकार",
+    similar: "समान",
+    recommendations: "सिफारिशें ",
+    seasons: "सत्र",
+    nowStreaming: "अब स्ट्रीमिंग हो रहा है",
+    watchNow: "अभी देखें",
+    userScore: "उपयोगकर्ता स्कोर",
+    overView: "संक्षिप्त विवरण"
   },
   spanish: {
     trending: "Tendencia",
@@ -52,11 +66,17 @@ const lang = {
     filter: "Filtrar",
     home: "Home",
     lightMode: "Modo claro",
-    saved : "Guardado",
-    logOut : "Cerrar sesión",
-    hi: "Hola"
-
-  
+    saved: "Guardado",
+    logOut: "Cerrar sesión",
+    hi: "Hola",
+    topCast: "Elenco Principal",
+    similar: "Similar",
+    recommendations: "Recomendaciones",
+    seasons: "Temporada",
+    nowStreaming: "Ahora en Streaming",
+    watchNow: "Ver Ahora",
+    userScore: "Puntuación del Usuario",
+    overView: "Resumen"
   },
   telugu: {
     trending: "ట్రెండింగ్‌లో ఉంది",
@@ -73,9 +93,17 @@ const lang = {
     filter: "ఫిల్టర్ చేయండి",
     home: "హోమ్",
     lightMode: "లైట్ మోడ్",
-    saved : "సేవ్ చేయబడింది",
-    logOut : "లాగ్ అవుట్",
-    hi: "హలో"
+    saved: "సేవ్ చేయబడింది",
+    logOut: "లాగ్ అవుట్",
+    hi: "హలో",
+    topCast: "ప్రధాన నటులు",
+    similar: "సమానమైన ",
+    recommendations: "సిఫారసులు",
+    seasons: "సీజన్",
+    nowStreaming: "ఇప్పుడు స్ట్రీమింగ్‌లో ఉంది",
+    watchNow: "ఇప్పుడు చూడండి",
+    userScore: "వినియోగదారు స్కోరు",
+    overView: "అవలోకనం"
   },
 };
 
