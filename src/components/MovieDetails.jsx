@@ -5,7 +5,10 @@ import { useDispatch, useSelector } from "react-redux";
 import movieDetailsAsync from "../store/actions/movieDetailsAsyncLoad";
 import HeaderBrowse from "./HeaderBrowse";
 import Loading from "./Loading";
-import { removeMovieDetailsData, toggleMovieTrailerPlay } from "../store/movieDetailsSlice";
+import {
+  removeMovieDetailsData,
+  toggleMovieTrailerPlay,
+} from "../store/movieDetailsSlice";
 import lang from "../utils/languageConstants";
 import { toggleVideoMuted } from "../store/browseSlice";
 import VerticalCards from "./VerticalCards";
@@ -15,7 +18,9 @@ const MovieDetails = () => {
   const dispatch = useDispatch();
   const id = useParams();
   const videoMutedStatus = useSelector((state) => state.browse.videoMuted);
-  const movieTrailerPlay = useSelector((state) => state.movieDetails.movieTrailerPlay);
+  const movieTrailerPlay = useSelector(
+    (state) => state.movieDetails.movieTrailerPlay
+  );
   const langKey = useSelector((store) => store.config.language);
   const data = useSelector((store) => store.movieDetails.info);
 
@@ -26,7 +31,9 @@ const MovieDetails = () => {
   useEffect(() => {
     dispatch(removeMovieDetailsData());
     dispatch(movieDetailsAsync(id));
-    { movieTrailerPlay && dispatch(toggleMovieTrailerPlay())}
+    {
+      movieTrailerPlay && dispatch(toggleMovieTrailerPlay());
+    }
   }, []);
 
   if (data == null) return <Loading />;
@@ -95,15 +102,19 @@ const MovieDetails = () => {
                     year: "numeric",
                   }
                 )}
-                (IN)
+                 <span className="pl-2">(IN)</span>
               </div>
 
               <div className="flex gap-x-2">
                 <i className="ri-movie-line"></i>
-                {data.details.genres.map((g) => (
-                  <span key={g.id}>{g.name}</span>
+                {data.details.genres.map((g, index) => (
+                  <span key={g.id}>
+                    {g.name}
+                    {index < data.details.genres.length - 1 && " , "}
+                  </span>
                 ))}
               </div>
+
               <div>
                 <i className="ri-time-line mr-1"></i>
                 {Math.floor(data.details.runtime / 60)}h{" "}
@@ -123,37 +134,13 @@ const MovieDetails = () => {
                 {data.details.overview}
               </div>
             </div>
-            {/* 
-            <div>
-              {data ? (
-                <button
-                  onClick={() => dispatch(toggleVideoMuted())}
-                  className={` ${
-                    videoMutedStatus ? "bg-[#E50000]" : "bg-[#e5000048]"
-                  } hover:bg-[#E50000] px-4 py-2 rounded-lg`}
-                >
-                  {videoMutedStatus ? (
-                    <i className="ri-play-large-line"></i>
-                  ) : (
-                    <i className="ri-pause-large-fill"></i>
-                  )}{" "}
-                  {videoMutedStatus
-                    ? `${lang[langKey].playTrailer} `
-                    : `${lang[langKey].stopTrailer}`}
-                </button>
-              ) : (
-                <button className="bg-[#E50000] px-4 py-2 rounded-lg">
-                  {" "}
-                  <i className="ri-error-warning-line"></i>{" "}
-                  {lang[langKey].trailerNA}
-                </button>
-              )}
-            </div> */}
+        
 
-            <button
+            <button 
               onClick={handlePlayTrailer}
-              className="bg-[#E50000] px-4 py-2 rounded-lg "
+              className="bg-[#E50000] px-4 py-2 rounded-lg w-[12%] "
             >
+               <i className="ri-play-large-line mr-1"></i>
               Play Trailer
             </button>
 

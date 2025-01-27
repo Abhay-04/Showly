@@ -119,7 +119,7 @@ const BrowseContent = () => {
               </span>
             </div>
           )}
-          <div className="z-[1000]">
+          <div className="z-[100]">
             {browse?.randomMovieKey !== null ? (
               <button
                 onClick={() => dispatch(toggleVideoMuted())}

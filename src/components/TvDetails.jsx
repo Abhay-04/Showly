@@ -96,9 +96,7 @@ const MovieDetails = () => {
 
               <div className="flex gap-x-2">
                 <i className="ri-movie-line"></i>
-                {data.details.genres.map((g) => (
-                  <span key={g.id}>{g.name}</span>
-                ))}
+                <span>{data.details.genres.map((g) => g.name).join(" , ")}</span>
               </div>
             </div>
 
@@ -115,36 +113,13 @@ const MovieDetails = () => {
               </div>
             </div>
 
-            {/* <div>
-              {data ? (
-                <button
-                  onClick={() => dispatch(toggleVideoMuted())}
-                  className={` ${
-                    videoMutedStatus ? "bg-[#E50000]" : "bg-[#e5000048]"
-                  } hover:bg-[#E50000] px-4 py-2 rounded-lg`}
-                >
-                  {videoMutedStatus ? (
-                    <i className="ri-play-large-line"></i>
-                  ) : (
-                    <i className="ri-pause-large-fill"></i>
-                  )}{" "}
-                  {videoMutedStatus
-                    ? `${lang[langKey].playTrailer} `
-                    : `${lang[langKey].stopTrailer}`}
-                </button>
-              ) : (
-                <button className="bg-[#E50000] px-4 py-2 rounded-lg">
-                  {" "}
-                  <i className="ri-error-warning-line"></i>{" "}
-                  {lang[langKey].trailerNA}
-                </button>
-              )}
-            </div> */}
+           
 
             <button
               onClick={handlePlayTrailer}
-              className="bg-[#E50000] px-4 py-2 rounded-lg "
+              className="bg-[#E50000] px-4 py-2 rounded-lg w-[12%] "
             >
+              <i className="ri-play-large-line mr-1"></i>
               Play Trailer
             </button>
 

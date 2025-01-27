@@ -45,10 +45,12 @@ const SearchBar = () => {
           value={query}
           onChange={handleQuery}
         ></input>
-        {query && <i
-          onClick={handleRemoveQuery}
-          className="ri-close-line text-2xl -ml-10 cursor-pointer"
-        ></i>}
+        {query && (
+          <i
+            onClick={handleRemoveQuery}
+            className="ri-close-line text-2xl -ml-10 cursor-pointer"
+          ></i>
+        )}
       </div>
       {searchData.length > 0 && (
         <div
@@ -59,9 +61,10 @@ const SearchBar = () => {
             <Link
               to={`/${d.media_type}/${d.id}`}
               key={d.id}
-              className="flex justify-between gap-4 items-center px-8 py-2"
+              className="grid grid-cols-12  items-start px-6 py-3 "
             >
-              <img
+             <div className="col-span-3 flex justify-center ">
+             <img
                 className=" size-24 sm:size-36 object-cover object-center rounded-xl"
                 src={
                   d.backdrop_path || d.profile_path || d.poster_path != null
@@ -71,12 +74,30 @@ const SearchBar = () => {
                     : NO_IMAGE_URL
                 }
               />
-              <h1 className=" text-sm text-end sm:text-lg font-semibold">
-                {d.original_title ||
-                  d.original_title ||
-                  d.name ||
-                  d.original_name}
-              </h1>
+             </div>
+              <div className="col-span-9 flex flex-col gap-2">
+                <h1 className=" text-sm text-start sm:text-lg font-semibold">
+                  {d.original_title ||
+                    d.original_title ||
+                    d.name ||
+                    d.original_name}
+                </h1>
+
+              <div className="flex gap-x-3">
+             { d?.release_date || d?.first_air_date && <span className=" text-sm text-start sm:text-sm font-semibold">
+                  {d?.release_date || d?.first_air_date || ""}
+                </span>}
+
+           
+                <span className=" text-sm text-start sm:text-sm font-semibold">
+                  {d?.media_type.toUpperCase()}
+                </span>
+              </div>
+               {d.overview && <h1 className=" text-sm text-start sm:text-sm font-semibold w-[80%]">
+                  {d?.overview?.split(" ").slice(0, 20).join(" ")}...
+                </h1>}
+
+              </div>
             </Link>
           ))}
         </div>
