@@ -28,7 +28,7 @@ const PersonDetails = () => {
       <HeaderBrowse />
       <div className=" w-full   text-white px-52">
         <div className="grid grid-cols-12 gap-x-8">
-          <div className=" col-span-3 flex justify-end items-center">
+          <div className=" col-span-3 flex justify-end pt-6">
             <img
               className="size-96 h-[520px]   rounded-lg"
               src={`https://image.tmdb.org/t/p/original/${data.details.profile_path}`}
