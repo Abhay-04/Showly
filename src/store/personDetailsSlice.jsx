@@ -1,14 +1,17 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { info } from "autoprefixer";
 
 const personDetailsSlice = createSlice({
   name: "personDetails",
-  initialState: {},
+  initialState: {
+    info: null,
+  },
   reducers: {
     addPersonDetailsData: (state, action) => {
       state.info = action.payload;
     },
     removePersonDetailsData: (state) => {
-      state.info = {};
+      state.info = null;
     },
   },
 });

@@ -55,7 +55,7 @@ const SearchBar = () => {
       {searchData.length > 0 && (
         <div
           onClick={dispatch(removeSearchData)}
-          className=" bg-black overflow-hidden overflow-y-scroll h-[35vh] sm:h-[45vh] w-full absolute top-16 py-12 z-[1000] sm:text-lg "
+          className=" bg-black overflow-hidden overflow-y-scroll h-[35vh] sm:h-[45vh] rounded-b-2xl w-full absolute top-16 py-12 z-[1000] sm:text-lg "
         >
           {searchData.map((d) => (
             <Link
