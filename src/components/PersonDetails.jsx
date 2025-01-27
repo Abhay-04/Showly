@@ -26,11 +26,11 @@ const PersonDetails = () => {
   return (
     <div className="bg-black h-full text-white ">
       <HeaderBrowse />
-      <div className=" w-full  text-white px-52">
-        <div className="grid grid-cols-12 gap-x-4">
-          <div className=" col-span-3 flex justify-end">
+      <div className=" w-full   text-white px-52">
+        <div className="grid grid-cols-12 gap-x-8">
+          <div className=" col-span-3 flex justify-end items-center">
             <img
-              className="size-80 h-auto  rounded-lg"
+              className="size-96 h-[520px]   rounded-lg"
               src={`https://image.tmdb.org/t/p/original/${data.details.profile_path}`}
             />
           </div>
