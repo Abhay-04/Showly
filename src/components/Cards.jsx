@@ -14,7 +14,7 @@ const Cards = ({ data, title }) => {
           >
             <img
               alt={d.id}
-              className="w-full h-[160px] sm:h-[280px] rounded-xl  object-center object-cover  
+              className="w-full h-[180px] sm:h-[260px] 2xl:h-[320px] rounded-xl  object-center object-cover  
                "
               src={
                 d.backdrop_path || d.profile_path || d.poster_path === null

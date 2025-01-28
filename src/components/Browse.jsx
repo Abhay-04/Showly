@@ -7,6 +7,8 @@ import lang from "../utils/languageConstants";
 import { useSelector } from "react-redux";
 import Logo from "../../src/file.png";
 
+
+
 const Browse = () => {
   const langKey = useSelector((store) => store.config.language);
   const location = useLocation();
@@ -95,8 +97,11 @@ const Browse = () => {
           <Outlet />
         </div>
         <BottomBrowse />
+        
       </div>
+   
     </div>
+
   );
 };
 

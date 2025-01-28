@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 import MovieDetails from "./MovieDetails";
 import TvDetails from "./TvDetails";
 
-const VerticalCards = ({ data, mediaType, notClickable }) => {
+const VerticalCards = ({ data, mediaType, notClickable , qtyAbove1280=5.5 , qtyAbove1024=3.5 , qtyAbove640=3.5,qtyAbove250=1.2 }) => {
   
 
   return (
@@ -17,16 +17,16 @@ const VerticalCards = ({ data, mediaType, notClickable }) => {
         spaceBetween={0}
         breakpoints={{
           250: {
-            slidesPerView: 1.2,
+            slidesPerView: qtyAbove250,
           },
           640: {
-            slidesPerView: 3.5,
+            slidesPerView: qtyAbove640,
           },
           1024: {
-            slidesPerView: 3.5,
+            slidesPerView: qtyAbove1024,
           },
           1280: {
-            slidesPerView: 5.5,
+            slidesPerView: qtyAbove1280,
           },
         }}
       >
@@ -80,7 +80,7 @@ const VerticalCards = ({ data, mediaType, notClickable }) => {
                 className="text-white"
               >
                 <img
-                  className="w-[85%] h-auto sm:h-[260px] 2xl:h-[320px] rounded-xl object-cover object-top"
+                  className="w-[85%] h-[180px] sm:h-[260px] 2xl:h-[320px] rounded-xl object-cover object-top"
                   src={
                     d.backdrop_path !== null
                       ? `https://image.tmdb.org/t/p/original/${

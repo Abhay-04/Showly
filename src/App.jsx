@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addUser, removeUser } from "./store/userSlice";
 import { useNavigate } from "react-router-dom";
 
+
 function App() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -46,6 +47,7 @@ function App() {
     <>
       <Header />
       <SignIn />
+      
     </>
   );
 }
