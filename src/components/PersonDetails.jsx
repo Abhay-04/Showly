@@ -161,14 +161,14 @@ const PersonDetails = () => {
            
             <div className="flex flex-col gap-2 h-[]">
               <h4 className="font-bold text-xl ">Movie Credits</h4>
-              <VerticalCards data={data.movieCredits.cast} />
+              <VerticalCards data={data.movieCredits.cast} mediaType="movie" />
             </div>
 
          
 
             <div className="flex flex-col gap-2 h-[]">
               <h4 className="font-bold text-xl ">TV Credits</h4>
-              <VerticalCards data={data.tvCredits.cast} />
+              <VerticalCards data={data.tvCredits.cast} mediaType="tv" />
             </div>
           </div>
         </div>
