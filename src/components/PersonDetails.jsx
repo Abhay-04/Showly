@@ -95,7 +95,7 @@ const PersonDetails = () => {
                 )}
               </div>
               <div className="personal_info flex flex-col gap-y-3 ">
-                <h3 className="text-lg font-bold">Personal Info</h3>
+                <h3  className="text-lg font-bold">Personal Info</h3>
 
                 <div>
                   {" "}
@@ -138,12 +138,10 @@ const PersonDetails = () => {
                 </div>
                 <div>
                   {" "}
-                  <h3 className="font-bold">Also Known as</h3>
+                  <h3 className="font-bold" >Also Known as</h3>
                   <div className="mt-2">
-                    {data.details.also_known_as.map((data, index) => (
-                      <p key={index} className="mb-2">
-                        {data}
-                      </p>
+                    {data.details.also_known_as.map((data , index) => (
+                      <p  key={index} className="mb-2">{data}</p>
                     ))}
                   </div>
                 </div>
@@ -152,15 +150,21 @@ const PersonDetails = () => {
           </div>
           <div className="  p-6 col-span-9 flex flex-col gap-y-6">
             <h2 className="text-2xl font-bold"> {data.details.name}</h2>
-            <div className="w-[90%] flex gap-2 flex-col">
+           { data.details.biography !== "" || null ?  <div className="w-[90%] flex gap-2 flex-col">
               <h4 className="text-xl font-bold">Biography</h4>
-              <p className="text-sm">{data.details.biography}</p>
-            </div>
-
+              <p className="text-sm">
+                {data.details.biography}
+                
+              </p>
+            </div> : <div>  {`We don't have a biography for ${data.details.name}`}</div>  }
+        
+           
             <div className="flex flex-col gap-2 h-[]">
               <h4 className="font-bold text-xl ">Movie Credits</h4>
               <VerticalCards data={data.movieCredits.cast} />
             </div>
+
+         
 
             <div className="flex flex-col gap-2 h-[]">
               <h4 className="font-bold text-xl ">TV Credits</h4>
