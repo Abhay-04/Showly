@@ -42,8 +42,8 @@ const BottomBrowse = () => {
       <Link to={"/browse/movies"}>
         <div
           className={`text-white text-xs font-bold flex flex-col items-center justify-center rounded-lg ${
-            location.pathname === "/browse/movies" ? "bg-[#E50000]" : ""
-          }`}
+            location.pathname === "/browse/movies"  ? "bg-[#E50000]" : ""
+          } `}
         >
           <i className="ri-movie-2-line"></i>
           {lang[langKey].movies}

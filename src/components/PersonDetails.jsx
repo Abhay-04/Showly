@@ -24,9 +24,9 @@ const PersonDetails = () => {
   if (data == null) return <Loading />;
 
   return (
-    <div className="bg-black  text-white ">
+    <div className="bg-black  text-white  ">
       <HeaderBrowse />
-      <div className=" w-full  text-white px-6 sm:px-52 overflow-hidden">
+      <div className=" w-full  text-white px-6 sm:px-52  pb-40 sm:pb-20 overflow-hidden">
         <div className="grid grid-cols-12 gap-x-8">
           <div className=" col-span-12 sm:col-span-3 flex justify-start pt-6 flex-col gap-y-4">
             <div>

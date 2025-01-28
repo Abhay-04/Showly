@@ -43,7 +43,7 @@ const MovieDetails = () => {
   return (
     <div>
       <HeaderBrowse />
-      <div className="bg-black w-full  text-white px-6 2xl:px-52 ">
+      <div className="bg-black w-full  text-white px-6 2xl:px-52 pb-40 sm:pb-20 ">
         <div
           className="grid grid-cols-12 gap-5 py-8  bg-cover bg-black bg-right"
           // style={{
