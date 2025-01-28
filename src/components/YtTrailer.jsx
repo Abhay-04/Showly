@@ -38,7 +38,7 @@ const YtTrailer = ({ trailerKey }) => {
           onClick={handleCloseTrailer}
           className="absolute top-4 right-4 text-red text-xl"
         >
-          <i className="ri-close-large-line text-4xl font-extrabold text-[#E50000]"></i>
+          <i className="ri-close-large-line text-2xl sm:text-4xl font-extrabold text-[#E50000]"></i>
         </button>
       </div>
     </div>
