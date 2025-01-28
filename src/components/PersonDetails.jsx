@@ -7,6 +7,7 @@ import HeaderBrowse from "./HeaderBrowse";
 import Loading from "./Loading";
 import { removePersonDetailsData } from "../store/personDetailsSlice";
 import VerticalCards from "./VerticalCards";
+import BottomBrowse from "./BottomBrowse";
 
 const PersonDetails = () => {
   const dispatch = useDispatch();
@@ -173,6 +174,7 @@ const PersonDetails = () => {
           </div>
         </div>
       </div>
+      <BottomBrowse />
     </div>
   );
 };
