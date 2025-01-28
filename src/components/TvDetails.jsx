@@ -154,7 +154,7 @@ const MovieDetails = () => {
           </div>
         )}
       </div>
-      <BottomBrowse />
+     { !tvTrailerPlay && <BottomBrowse />}
     </div>
   );
 };
