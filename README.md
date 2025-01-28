@@ -35,11 +35,15 @@ Showly is a modern web application for movie enthusiasts, built with React.js, R
 - **APIs**: TMDB API, OpenAI API
 - **Others**: Axios, Lazy Loading, Memoization
 
+## Demo
+
+Check out the live demo here: [showlyy.vercel.app](https://showlyy.vercel.app)
+
 ## Installation
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/<your-username>/showly.git
+   git clone https://github.com/Abhay-04/Showly.git
    ```
 
 2. Navigate to the project directory:
@@ -76,9 +80,9 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 Contributions are welcome! Feel free to submit issues and pull requests to enhance the app further.
 
-## Screenshots
+<!-- ## Screenshots
 
-Add screenshots here to showcase the app's UI and features.
+Add screenshots here to showcase the app's UI and features. -->
 
 ## Acknowledgements
 
