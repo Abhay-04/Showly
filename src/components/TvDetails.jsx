@@ -43,7 +43,7 @@ const MovieDetails = () => {
   return (
     <div>
       <HeaderBrowse />
-      <div className="bg-black w-full  text-white px-6 2xl:px-52 pb-40 sm:pb-20 ">
+      <div className="bg-black w-full  text-white px-6 sm:px-20 2xl:px-52 pb-40 sm:pb-20 ">
         <div
           className="grid grid-cols-12 gap-5 py-8  bg-cover bg-black bg-right"
           // style={{
@@ -51,9 +51,9 @@ const MovieDetails = () => {
 
           // }}
         >
-          <div className=" col-span-12 sm:col-span-3 sm:w-[85%] flex flex-col items-center justify-center rounded-xl bg-[#032541]">
+          <div className={`col-span-12 sm:col-span-3 sm:w-[85%] flex flex-col items-center justify-center  rounded-xl ${ data?.watchProviders?.flatrate && "bg-[#032541]"}`}>
             <img
-              className="w-full h-[48vh]  rounded-t-xl object-cover object-center"
+              className={`w-full h-[48vh]  ${ data?.watchProviders?.flatrate ? "rounded-t-xl" : "rounded-xl"} object-cover object-center`}
               src={`https://image.tmdb.org/t/p/original/${data.details.poster_path}`}
             />
 

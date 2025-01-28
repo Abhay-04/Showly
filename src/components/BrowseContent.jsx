@@ -147,7 +147,7 @@ const BrowseContent = () => {
         </div>
       </div>
 
-      <div className=" px-6 pb-10 sm:px-12 pt-16 sm:pt-20 bg-black h-[90vh] md:h-[120vh] lg:h-[80vh] 2xl:h-[75vh] flex flex-col sm:justify-center  ">
+      <div className=" px-6 pb-10 sm:px-12 pt-16 sm:pt-20 bg-black h-[90vh] md:h-[120vh] lg:h-[100vh] 2xl:h-[90vh] flex flex-col sm:justify-center  ">
         <div className="flex flex-row justify-between   mb-4  ">
           <div>
             {" "}

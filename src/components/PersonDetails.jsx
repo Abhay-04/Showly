@@ -15,7 +15,6 @@ const PersonDetails = () => {
 
   const data = useSelector((store) => store.personDetails.info);
 
- 
   useEffect(() => {
     dispatch(removePersonDetailsData());
     dispatch(personDetailsAsync(id));
@@ -26,11 +25,14 @@ const PersonDetails = () => {
   return (
     <div className="bg-black  text-white  ">
       <HeaderBrowse />
-      <div className=" w-full  text-white px-6 sm:px-52  pb-40 sm:pb-20 overflow-hidden">
+      <div className=" w-full  text-white px-6 sm:px-20 2xl:px-52  pb-40 sm:pb-20 overflow-hidden">
         <div className="grid grid-cols-12 gap-x-8">
-          <div className=" col-span-12 sm:col-span-3 flex justify-start pt-6 flex-col gap-y-4">
+          <div className=" col-span-12 sm:col-span-4 2xl:col-span-3 flex justify-start pt-6 flex-col gap-y-4">
             <div>
-            <h2 className="text-2xl font-bold sm:hidden"> {data.details.name}</h2>
+              <h2 className="text-2xl font-bold sm:hidden">
+                {" "}
+                {data.details.name}
+              </h2>
               <img
                 className=" size-80  sm:size-96  sm:h-[520px]   rounded-xl"
                 src={`https://image.tmdb.org/t/p/original/${data.details.profile_path}`}
@@ -96,7 +98,7 @@ const PersonDetails = () => {
                 )}
               </div>
               <div className="personal_info flex flex-col gap-y-3 flex-wrap ">
-                <h3  className="text-lg font-bold">Personal Info</h3>
+                <h3 className="text-lg font-bold">Personal Info</h3>
 
                 <div>
                   {" "}
@@ -139,37 +141,51 @@ const PersonDetails = () => {
                 </div>
                 <div>
                   {" "}
-                  <h3 className="font-bold" >Also Known as</h3>
+                  <h3 className="font-bold">Also Known as</h3>
                   <div className="mt-2 text-wrap">
-                    {data.details.also_known_as.map((data , index) => (
-                      <p  key={index} className="mb-2">{data}</p>
+                    {data.details.also_known_as.map((data, index) => (
+                      <p key={index} className="mb-2">
+                        {data}
+                      </p>
                     ))}
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <div className=" pt-8 sm:p-6  col-span-12 sm:col-span-9 flex flex-col gap-y-6">
-            <h2 className="text-2xl font-bold hidden sm:block"> {data.details.name}</h2>
-           { data.details.biography !== "" || null ?  <div className="w-[90%] flex gap-2 flex-col">
-              <h4 className="text-xl font-bold">Biography</h4>
-              <p className="text-sm text-wrap ">
-                {data.details.biography}
-                
-              </p>
-            </div> : <div>  {`We don't have a biography for ${data.details.name}`}</div>  }
-        
-           
+          <div className=" pt-8 sm:p-6  col-span-12 sm:col-span-8 2xl:col-span-9 flex flex-col gap-y-6">
+            <h2 className="text-4xl font-bold hidden sm:block">
+              {" "}
+              {data.details.name}
+            </h2>
+            {data.details.biography !== "" || null ? (
+              <div className="w-[90%] flex gap-2 flex-col">
+                <h4 className="text-xl font-bold">Biography</h4>
+                <p className="text-sm text-wrap ">
+                  {data.details.biography.split(" ").slice(0, 150).join(" ") +  " ..."}
+                  
+                </p>
+              </div>
+            ) : (
+              <div> {`We don't have a biography for ${data.details.name}`}</div>
+            )}
+
             <div className="flex flex-col gap-2 overflow-hidden">
               <h4 className="font-bold text-xl ">Movie Credits</h4>
-              <VerticalCards data={data.movieCredits.cast} mediaType="movie" qtyAbove1280="4.2" />
+              <VerticalCards
+                data={data.movieCredits.cast}
+                mediaType="movie"
+                qtyAbove1280="4.2"
+              />
             </div>
-
-         
 
             <div className="flex flex-col gap-2 overflow-hidden">
               <h4 className="font-bold text-xl ">TV Credits</h4>
-              <VerticalCards data={data.tvCredits.cast} mediaType="tv" qtyAbove1280="4.2" />
+              <VerticalCards
+                data={data.tvCredits.cast}
+                mediaType="tv"
+                qtyAbove1280="4.2"
+              />
             </div>
           </div>
         </div>
