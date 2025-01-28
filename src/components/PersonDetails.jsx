@@ -14,8 +14,7 @@ const PersonDetails = () => {
 
   const data = useSelector((store) => store.personDetails.info);
 
-  console.log(data);
-
+ 
   useEffect(() => {
     dispatch(removePersonDetailsData());
     dispatch(personDetailsAsync(id));

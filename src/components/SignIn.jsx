@@ -75,7 +75,7 @@ const SignIn = () => {
             .catch((error) => {
               setErrorMessage(error.message);
             });
-          console.log(user);
+      
           // ...
         })
         .catch((error) => {
@@ -96,7 +96,7 @@ const SignIn = () => {
           // Signed in
           const user = userCredential.user;
 
-          console.log(user);
+          
           // ...
         })
         .catch((error) => {
@@ -111,7 +111,7 @@ const SignIn = () => {
     signInAnonymously(auth)
       .then((result) => {
         // Successfully signed in anonymously
-        console.log("Signed in anonymously as:", result.user);
+       
         updateProfile(result.user, {
           displayName: "Guest",
           photoURL: USER_AVATAR,
@@ -135,7 +135,7 @@ const SignIn = () => {
     signInWithPopup(auth, provider)
       .then((result) => {
         // Successfully logged in
-        console.log(result.user);
+        
       })
       .catch((error) => {
         console.error("Error during login", error);

@@ -5,7 +5,7 @@ import { toggleMovieTrailerPlay } from "../store/movieDetailsSlice";
 import { toggleTvTrailerPlay } from "../store/tvDetailsSlice";
 
 const YtTrailer = ({ trailerKey }) => {
-  console.log(trailerKey);
+ 
 
   const dispatch = useDispatch();
 
