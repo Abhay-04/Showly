@@ -13,6 +13,7 @@ import lang from "../utils/languageConstants";
 
 import VerticalCards from "./VerticalCards";
 import YtTrailer from "./YtTrailer";
+import BottomBrowse from "./BottomBrowse";
 
 const MovieDetails = () => {
   const dispatch = useDispatch();
@@ -41,7 +42,7 @@ const MovieDetails = () => {
   return (
     <div>
       <HeaderBrowse />
-      <div className="bg-black w-full  text-white px-52  ">
+      <div className="bg-black w-full  text-white px-6 2xl:px-52  ">
         <div
           className="grid grid-cols-12 gap-5 py-8  bg-cover bg-black bg-right"
           // style={{
@@ -49,9 +50,9 @@ const MovieDetails = () => {
 
           // }}
         >
-          <div className=" col-span-3 w-[85%] flex flex-col items-center justify-center rounded-xl bg-[#032541]">
+          <div className=" col-span-12 sm:col-span-3 sm:w-[85%] flex flex-col items-center justify-center rounded-xl bg-[#032541]">
             <img
-              className="w-full h-[48vh]  rounded-t-xl object-cover object-center"
+              className="w-full  h-[48vh]  rounded-t-xl object-cover object-center"
               src={`https://image.tmdb.org/t/p/original/${data.details.poster_path}`}
             />
 
@@ -71,7 +72,7 @@ const MovieDetails = () => {
             )}
           </div>
 
-          <div className=" col-span-9 pt-12 flex flex-col gap-y-4 ">
+          <div className=" col-span-12 sm:col-span-9 pt-12 flex flex-col gap-y-4 ">
             <div>
               {" "}
               <h2 className="text-2xl font-bold">
@@ -84,7 +85,7 @@ const MovieDetails = () => {
                 </span>
               </h2>
             </div>
-            <div className="flex gap-x-4 items-center">
+            <div className="flex gap-4 items-center flex-wrap">
               <div>
                 {data.details.adult ? (
                   <div className="border py-1 px-2">R</div>
@@ -105,7 +106,7 @@ const MovieDetails = () => {
                  <span className="pl-2">(IN)</span>
               </div>
 
-              <div className="flex gap-x-2">
+              <div className="flex gap-x-2 flex-wrap">
                 <i className="ri-movie-line"></i>
                 {data.details.genres.map((g, index) => (
                   <span key={g.id}>
@@ -126,7 +127,7 @@ const MovieDetails = () => {
               {Math.round(data.details.vote_average * 10)}% {lang[langKey].userScore}
             </div>
 
-            <div className="w-[85%] flex flex-col gap-y-1">
+            <div className="sm:w-[85%] flex flex-col gap-y-1">
               <div className="text-gray-400">{data.details.tagline}</div>
               <div className="text-xl font-semibold">{lang[langKey].overView}</div>
               <div className="text-sm leading-6 py-3">
@@ -148,26 +149,27 @@ const MovieDetails = () => {
           </div>
         </div>
         {data.cast.length > 0 && (
-          <div className="py-20">
+          <div className=" py-10 sm:py-20">
             <h2 className="text-3xl font-semibold py-5"> {lang[langKey].topCast}</h2>
             <VerticalCards data={data.cast} mediaType={"person"} />
           </div>
         )}
 
         {data.similar.length > 0 && (
-          <div className="pb-20">
+          <div className=" pb-10 sm:pb-20">
             <h2 className="text-3xl font-semibold py-5">{lang[langKey].similar}</h2>
             <VerticalCards data={data.similar} mediaType={"movie"} />
           </div>
         )}
 
         {data.recommendations.length > 0 && (
-          <div className="pb-20">
+          <div className="pb-10 sm:pb-20">
             <h2 className="text-3xl font-semibold py-5">{lang[langKey].recommendations}</h2>
             <VerticalCards data={data.recommendations} mediaType={"movie"} />
           </div>
         )}
       </div>
+      <BottomBrowse />
     </div>
   );
 };
