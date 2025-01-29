@@ -1,8 +1,8 @@
 import { useEffect, useRef } from "react";
 import HeaderBrowse from "./HeaderBrowse";
 import { useDispatch, useSelector } from "react-redux";
-import Cards from "./Cards";
-import client from "../utils/openAi";
+
+import openAI from "../utils/openai";
 import {
   addGPTResultData,
   addPromptData,
@@ -10,7 +10,7 @@ import {
 } from "../store/gptSlice";
 import gptToTmdbDataAsync from "../store/actions/gptToTmdb";
 import VerticalCards from "./VerticalCards";
-import Loading from "./Loading";
+
 
 const GptPage = () => {
   const prompt = useRef(null);
@@ -29,7 +29,7 @@ const GptPage = () => {
     const query = `Act as a movie or TV show Recommendation System and suggest some movies or TV shows for the query: ${queryText}. Only give me names of 10 movies or TV shows, comma-separated like the example result given ahead. Example Result: Breaking Bad, The Social Network, Better Call Saul, Karwaan, Don`;
 
     // Call OpenAI API and store results
-    const gptResults = await client.chat.completions.create({
+    const gptResults = await openAI.chat.completions.create({
       messages: [{ role: "user", content: query }],
       model: "gpt-4o-mini",
     });
