@@ -56,17 +56,17 @@ const GptPage = () => {
     <div className="bg-black text-white min-h-[100vh]">
       <HeaderBrowse />
       <div className="w-full  text-white px-6 sm:px-20 2xl:px-52 pb-40 sm:pb-20 overflow-hidden">
-        <div className="flex justify-center gap-4 mt-4">
+        <div className="flex  text-sm sm:text-base sm:justify-center gap-4 mt-4">
           <input
             ref={prompt}
             type="text"
             placeholder="What do you want to watch?"
-            className="bg-black w-[40vw] px-4 py-2 border border-red-100 rounded-lg"
+            className="bg-black w-[60vw]  sm:w-[40vw] px-4 py-2 border border-red-100 rounded-lg"
             onKeyDown={handleKeyDown} // Listen for Enter key
           />
           <button
             onClick={handleSubmit}
-            className="bg-[#E50000] px-6 py-2 rounded-lg"
+            className="bg-[#E50000] sm:px-6 px-4 py-2 rounded-lg"
           >
             Search
           </button>

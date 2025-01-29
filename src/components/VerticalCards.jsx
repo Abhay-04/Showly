@@ -13,7 +13,7 @@ const VerticalCards = ({title , data, mediaType, notClickable , qtyAbove1280=5.5
 
   return (
     <div className="">
-      <div className = "text-2xl font-bold mb-4">{title}</div>
+      <div className = " text-xl sm:text-2xl font-bold mb-4">{title}</div>
       <Swiper
         spaceBetween={0}
         breakpoints={{
