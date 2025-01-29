@@ -129,7 +129,7 @@ const HeaderBrowse = () => {
           ))}
         </select>
 
-        <Link to={"/browse/gpt"}>
+        <Link to={"/gpt"}>
           <button className="mx-2 px-2 py-1 hidden lg:block bg-[#E50000] cursor-pointer text-white rounded-md">
             {lang[langKey].gptBtn}
           </button>

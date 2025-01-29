@@ -99,14 +99,7 @@ const router = createBrowserRouter([
           </Suspense>
         ),
       },
-      {
-        path: "/browse/gpt",
-        element: (
-          <Suspense fallback={<Loading />}>
-            <GptPage />
-          </Suspense>
-        ),
-      },
+     
     ],
     errorElement: (
       <Suspense fallback={<Loading />}>
@@ -135,6 +128,14 @@ const router = createBrowserRouter([
     element: (
       <Suspense fallback={<div>Loading...</div>}>
         <PersonDetails />
+      </Suspense>
+    ),
+  },
+  {
+    path: "/gpt",
+    element: (
+      <Suspense fallback={<Loading />}>
+        <GptPage />
       </Suspense>
     ),
   },

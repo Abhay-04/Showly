@@ -8,11 +8,12 @@ import { Link } from "react-router-dom";
 import MovieDetails from "./MovieDetails";
 import TvDetails from "./TvDetails";
 
-const VerticalCards = ({ data, mediaType, notClickable , qtyAbove1280=5.5 , qtyAbove1024=3.5 , qtyAbove640=3.5,qtyAbove250=1.2 }) => {
+const VerticalCards = ({title , data, mediaType, notClickable , qtyAbove1280=5.5 , qtyAbove1024=3.5 , qtyAbove640=3.5,qtyAbove250=1.2 }) => {
   
 
   return (
     <div className="">
+      <div className = "text-2xl font-bold mb-4">{title}</div>
       <Swiper
         spaceBetween={0}
         breakpoints={{

@@ -13,7 +13,7 @@ import {
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyAJ3si3InvMRZwhvIAKSudhiblQC38ASFA",
+  apiKey: import.meta.env.VITE_FIREBASE_KEY,
   authDomain: "showly-8cfa1.firebaseapp.com",
   projectId: "showly-8cfa1",
   storageBucket: "showly-8cfa1.appspot.com",

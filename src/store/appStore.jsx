@@ -10,11 +10,13 @@ import moviesDetailsReducer from "./movieDetailsSlice";
 import tvDetailsReducer from "./tvDetailsSlice";
 import personDetailsReducer from "./personDetailsSlice";
 import searchDataReducer from "./searchSlice";
+import gptReducer from "./gptSlice";
 
 import configReducer from "./configSlice";
 const appStore = configureStore({
   reducer: {
     user: userReducer,
+    gpt : gptReducer,
     config: configReducer,
     searchData: searchDataReducer,
     browse: browseReducer,
