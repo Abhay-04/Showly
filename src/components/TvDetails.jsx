@@ -16,6 +16,7 @@ import tvDetailsAsync from "../store/actions/tvDetailsAsync";
 import VerticalCards from "./VerticalCards";
 import YtTrailer from "./YtTrailer";
 import BottomBrowse from "./BottomBrowse";
+import { NO_IMAGE_URL } from "../utils/constants";
 
 const MovieDetails = () => {
   const dispatch = useDispatch();
@@ -51,11 +52,26 @@ const MovieDetails = () => {
 
           // }}
         >
-          <div className={`col-span-12 sm:col-span-3 sm:w-[85%] flex flex-col items-center justify-center  rounded-xl ${ data?.watchProviders?.flatrate && "bg-[#032541]"}`}>
-            <img
-              className={`w-full h-[48vh]  ${ data?.watchProviders?.flatrate ? "rounded-t-xl" : "rounded-xl"} object-cover object-center`}
-              src={`https://image.tmdb.org/t/p/original/${data.details.poster_path}`}
-            />
+          <div
+            className={`col-span-12 sm:col-span-3 sm:w-[85%] flex flex-col items-center justify-center  rounded-xl ${
+              data?.watchProviders?.flatrate && "bg-[#032541]"
+            }`}
+          >
+            {data.details.poster_path ? (
+              <img
+                className={`w-full h-[48vh] sm:h-full  ${
+                  data?.watchProviders?.flatrate ? "rounded-t-xl" : "rounded-xl"
+                } object-cover object-center`}
+                src={`https://image.tmdb.org/t/p/original/${data.details.poster_path}`}
+              />
+            ) : (
+              <img
+                className={`w-full h-[48vh] sm:h-full  ${
+                  data?.watchProviders?.flatrate ? "rounded-t-xl" : "rounded-xl"
+                } object-cover object-center`}
+                src={NO_IMAGE_URL}
+              />
+            )}
 
             {data?.watchProviders?.flatrate ? (
               <div className="py-4 flex items-center gap-2">
@@ -97,24 +113,27 @@ const MovieDetails = () => {
 
               <div className="flex gap-x-2 flex-wrap">
                 <i className="ri-movie-line"></i>
-                <span>{data.details.genres.map((g) => g.name).join(" , ")}</span>
+                <span>
+                  {data.details.genres.map((g) => g.name).join(" , ")}
+                </span>
               </div>
             </div>
 
             <div className="text-xl font-bold">
-              {Math.round(data.details.vote_average * 10)}% {lang[langKey].userScore}
+              {Math.round(data.details.vote_average * 10)}%{" "}
+              {lang[langKey].userScore}
             </div>
 
             <div className="sm:w-[85%] flex flex-col gap-y-1">
               <div className="text-gray-400">{data.details.tagline}</div>
-              <div className="text-xl font-semibold">{lang[langKey].overView}</div>
+              <div className="text-xl font-semibold">
+                {lang[langKey].overView}
+              </div>
               <div className="text-sm leading-6 py-3">
                 {" "}
                 {data.details.overview}
               </div>
             </div>
-
-           
 
             <button
               onClick={handlePlayTrailer}
@@ -129,32 +148,40 @@ const MovieDetails = () => {
         </div>
         {data.cast.length > 0 && (
           <div className="py-10 sm:py-20">
-            <h2 className="text-3xl font-semibold py-5">{lang[langKey].topCast}</h2>
+            <h2 className="text-3xl font-semibold py-5">
+              {lang[langKey].topCast}
+            </h2>
             <VerticalCards data={data.cast} mediaType={"person"} />
           </div>
         )}
         {data.details.seasons.length > 0 && (
           <div className="pb-10 sm:pb-20">
-            <h2 className="text-3xl font-semibold py-5">{lang[langKey].seasons}</h2>
+            <h2 className="text-3xl font-semibold py-5">
+              {lang[langKey].seasons}
+            </h2>
             <VerticalCards data={data.details.seasons} notClickable={true} />
           </div>
         )}
 
         {data.similar.length > 0 && (
           <div className="pb-10 sm:pb-20">
-            <h2 className="text-3xl font-semibold py-5">{lang[langKey].similar}</h2>
+            <h2 className="text-3xl font-semibold py-5">
+              {lang[langKey].similar}
+            </h2>
             <VerticalCards data={data.similar} mediaType={"tv"} />
           </div>
         )}
 
         {data.recommendations.length > 0 && (
           <div className="pb-10 sm:pb-20">
-            <h2 className="text-3xl font-semibold py-5">{lang[langKey].recommendations}</h2>
+            <h2 className="text-3xl font-semibold py-5">
+              {lang[langKey].recommendations}
+            </h2>
             <VerticalCards data={data.recommendations} mediaType={"tv"} />
           </div>
         )}
       </div>
-     { !tvTrailerPlay && <BottomBrowse />}
+      {!tvTrailerPlay && <BottomBrowse />}
     </div>
   );
 };

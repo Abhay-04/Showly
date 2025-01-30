@@ -93,17 +93,22 @@ const GptPage = () => {
               <Loading />
             ) : (
               <div className="my-20 flex flex-col gap-y-10">
-                {tmdbResults.map((c, index) => (
-                  <VerticalCards
-                    key={c.id}
-                    data={c}
-                    title={gptResults[index]}
-                  />
-                ))}
+                {tmdbResults.map(
+                  (c, index) =>
+                    c.length>0  && (
+                      <VerticalCards
+                        key={c.id}
+                        data={c}
+                        title={gptResults[index]}
+                      />
+                    )
+                )}
               </div>
             )}{" "}
           </div>
-        ) : <h1 className="text-center mt-11"></h1>}
+        ) : (
+          <h1 className="text-center mt-11"></h1>
+        )}
       </div>
     </div>
   );

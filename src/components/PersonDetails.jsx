@@ -8,6 +8,7 @@ import Loading from "./Loading";
 import { removePersonDetailsData } from "../store/personDetailsSlice";
 import VerticalCards from "./VerticalCards";
 import BottomBrowse from "./BottomBrowse";
+import { NO_IMAGE_URL } from "../utils/constants";
 
 const PersonDetails = () => {
   const dispatch = useDispatch();
@@ -33,10 +34,17 @@ const PersonDetails = () => {
                 {" "}
                 {data.details.name}
               </h2>
-              <img
-                className=" size-80  sm:size-96  sm:h-[520px]   rounded-xl"
-                src={`https://image.tmdb.org/t/p/original/${data.details.profile_path}`}
-              />
+              {data.details.profile_path ? (
+                <img
+                  className=" size-72  sm:size-96  sm:h-[520px] my-4   rounded-xl"
+                  src={`https://image.tmdb.org/t/p/original/${data.details.profile_path}`}
+                />
+              ) : (
+                <img
+                  className=" size-72  sm:size-96  sm:h-[520px] my-4   rounded-xl"
+                  src={NO_IMAGE_URL}
+                />
+              )}
             </div>
 
             <div>
@@ -162,15 +170,15 @@ const PersonDetails = () => {
               <div className="w-[90%] flex gap-2 flex-col">
                 <h4 className="text-xl font-bold">Biography</h4>
                 <p className="text-sm text-wrap ">
-                  {data.details.biography.split(" ").slice(0, 150).join(" ") +  " ..."}
-                  
+                  {data.details.biography.split(" ").slice(0, 150).join(" ") +
+                    " ..."}
                 </p>
               </div>
             ) : (
               <div> {`We don't have a biography for ${data.details.name}`}</div>
             )}
 
-            <div className="flex flex-col gap-2 overflow-hidden">
+            <div className="flex flex-col gap-2 overflow-hidden mt-6">
               <h4 className="font-bold text-xl ">Movie Credits</h4>
               <VerticalCards
                 data={data.movieCredits.cast}
@@ -179,7 +187,7 @@ const PersonDetails = () => {
               />
             </div>
 
-            <div className="flex flex-col gap-2 overflow-hidden">
+            <div className="flex flex-col gap-2 overflow-hidden mt-6">
               <h4 className="font-bold text-xl ">TV Credits</h4>
               <VerticalCards
                 data={data.tvCredits.cast}

@@ -42,17 +42,24 @@ const VerticalCards = ({
           <SwiperSlide key={d.id}>
             {notClickable ? (
               <div className="text-white">
-                <img
-                  className="w-[85%] h-auto sm:h-[260px] 2xl:h-[320px] rounded-xl object-cover object-top"
-                  src={
-                    d.backdrop_path !== null
-                      ? `https://image.tmdb.org/t/p/original/${
-                          d.backdrop_path || d.profile_path || d.poster_path
-                        }`
-                      : NO_IMAGE_URL
-                  }
-                  alt={d.name || d.original_title || "Image"}
-                />
+                {d.backdrop_path || d.profile_path || d.poster_path ? (
+                  <img
+                    className="w-[85%] h-auto sm:h-[260px] 2xl:h-[320px] rounded-xl object-cover object-top"
+                    src={
+                      d.backdrop_path !== null
+                        ? `https://image.tmdb.org/t/p/original/${
+                            d.backdrop_path || d.profile_path || d.poster_path
+                          }`
+                        : NO_IMAGE_URL
+                    }
+                    alt={d.name || d.original_title || "Image"}
+                  />
+                ) : (
+                  <img
+                    className="w-[85%] h-auto sm:h-[260px] 2xl:h-[320px] rounded-xl object-cover object-top"
+                    src={NO_IMAGE_URL}
+                  />
+                )}
                 <h4 className="text-md pt-2 pb-1 font-semibold w-[90%]">
                   {d.original_title || d.name || d.original_name}
                 </h4>
@@ -85,17 +92,24 @@ const VerticalCards = ({
                 }
                 className="text-white"
               >
-                <img
-                  className="w-[85%] h-[180px] sm:h-[260px] 2xl:h-[320px] rounded-xl object-cover object-top"
-                  src={
-                    d.backdrop_path !== null
-                      ? `https://image.tmdb.org/t/p/original/${
-                          d.backdrop_path || d.profile_path || d.poster_path
-                        }`
-                      : NO_IMAGE_URL
-                  }
-                  alt={d.name || d.original_title || "Image"}
-                />
+                {d.backdrop_path || d.profile_path || d.poster_path ? (
+                  <img
+                    className="w-[85%] h-[260px] sm:h-[260px] 2xl:h-[320px] rounded-xl object-cover object-top"
+                    src={
+                      d.backdrop_path !== null
+                        ? `https://image.tmdb.org/t/p/original/${
+                            d.backdrop_path || d.profile_path || d.poster_path
+                          }`
+                        : NO_IMAGE_URL
+                    }
+                    alt={d.name || d.original_title || "Image"}
+                  />
+                ) : (
+                  <img
+                    className="w-[85%] h-[260px] sm:h-[260px] 2xl:h-[320px] rounded-xl object-cover object-top"
+                    src={NO_IMAGE_URL}
+                  />
+                )}
                 <h4 className="text-md pt-2 pb-1 font-semibold w-[90%]">
                   {d.original_title || d.name || d.original_name}
                 </h4>
