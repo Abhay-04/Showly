@@ -5,7 +5,7 @@ const Loading = () => {
   return (
     <div className='flex justify-center items-center w-full h-[100vh] bg-black'>
    
-      <PulseLoader size={10} color='#E50000'  speedMultiplier={1}/> /
+      <PulseLoader size={10} color='#E50000'  speedMultiplier={1}/> 
       {/* <CircleLoader size={85} color='#E50000'  speedMultiplier={2}/> / */}
      
       

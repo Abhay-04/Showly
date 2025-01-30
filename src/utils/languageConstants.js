@@ -23,7 +23,9 @@ const lang = {
     nowStreaming: "Now Streaming",
     watchNow: "Watch Now",
     userScore: "User Score",
-    overView: "Overview"
+    overView: "Overview",
+    gptSearchPlaceholder: "Discover your next binge-worthy show...",
+    search: "Search",
   },
   hindi: {
     trending: "ट्रेंडिंग",
@@ -49,7 +51,9 @@ const lang = {
     nowStreaming: "अब स्ट्रीमिंग हो रहा है",
     watchNow: "अभी देखें",
     userScore: "उपयोगकर्ता स्कोर",
-    overView: "संक्षिप्त विवरण"
+    overView: "संक्षिप्त विवरण",
+    gptSearchPlaceholder: "अपना अगला दिलचस्प शो खोजें...",
+    search: "खोजें",
   },
   spanish: {
     trending: "Tendencia",
@@ -76,7 +80,9 @@ const lang = {
     nowStreaming: "Ahora en Streaming",
     watchNow: "Ver Ahora",
     userScore: "Puntuación del Usuario",
-    overView: "Resumen"
+    overView: "Resumen",
+    gptSearchPlaceholder: "Descubre tu próximo programa adictivo...",
+    search: "Buscar",
   },
   telugu: {
     trending: "ట్రెండింగ్‌లో ఉంది",
@@ -103,7 +109,9 @@ const lang = {
     nowStreaming: "ఇప్పుడు స్ట్రీమింగ్‌లో ఉంది",
     watchNow: "ఇప్పుడు చూడండి",
     userScore: "వినియోగదారు స్కోరు",
-    overView: "అవలోకనం"
+    overView: "అవలోకనం",
+    gptSearchPlaceholder: "మీ తదుపరి బింజ్-వర్ధీ షోను కనుగొనండి...",
+    search: "వెతకండి",
   },
 };
 

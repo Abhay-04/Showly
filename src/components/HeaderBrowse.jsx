@@ -120,7 +120,7 @@ const HeaderBrowse = () => {
         <select
           value={langKey}
           onChange={handleLanguageChange}
-          className="text-white bg-black focus:outline-none cursor-pointer px-2 items-center "
+          className="text-white bg-black hidden sm:block focus:outline-none cursor-pointer px-2 items-center "
         >
           {SUPPORTED_LANGUAGES.map((lang) => (
             <option key={lang.identifier} value={lang.identifier}>
@@ -130,7 +130,7 @@ const HeaderBrowse = () => {
         </select>
 
         <Link to={"/gpt"}>
-          <button className="mx-2 px-2 py-1 hidden lg:block bg-[#E50000] cursor-pointer text-white rounded-md">
+          <button className="mx-2 px-2 py-1  bg-[#E50000] cursor-pointer text-white rounded-md">
             {lang[langKey].gptBtn}
           </button>
         </Link>

@@ -8,12 +8,19 @@ import { Link } from "react-router-dom";
 import MovieDetails from "./MovieDetails";
 import TvDetails from "./TvDetails";
 
-const VerticalCards = ({title , data, mediaType, notClickable , qtyAbove1280=5.5 , qtyAbove1024=3.5 , qtyAbove640=3.5,qtyAbove250=1.2 }) => {
-  
-
+const VerticalCards = ({
+  title,
+  data,
+  mediaType,
+  notClickable,
+  qtyAbove1280 = 5.5,
+  qtyAbove1024 = 3.5,
+  qtyAbove640 = 3.5,
+  qtyAbove250 = 1.2,
+}) => {
   return (
     <div className="">
-      <div className = " text-xl sm:text-2xl font-bold mb-4">{title}</div>
+      <div className=" text-xl sm:text-2xl font-bold mb-4">{title}</div>
       <Swiper
         spaceBetween={0}
         breakpoints={{
@@ -46,22 +53,17 @@ const VerticalCards = ({title , data, mediaType, notClickable , qtyAbove1280=5.5
                   }
                   alt={d.name || d.original_title || "Image"}
                 />
-                <h4 className="text-md py-2 font-semibold w-[90%]">
+                <h4 className="text-md pt-2 pb-1 font-semibold w-[90%]">
                   {d.original_title || d.name || d.original_name}
                 </h4>
                 <h4 className="text-md font-semibold">
                   {d.character ? d?.character : ""}
                 </h4>
 
-                <h4 className="text-md font-semibold">
-                  {d.episode_count ? d?.episode_count : "0"} Episodes
-                </h4>
-                
-                
                 <h4>
-                  {d?.release_date || d?.first_air_date
+                  {d?.release_date || d?.first_air_date || d?.air_date
                     ? new Date(
-                        d.release_date || d.first_air_date
+                        d.release_date || d.first_air_date || d?.air_date
                       ).toLocaleDateString("en-US", {
                         month: "short",
                         day: "2-digit",
@@ -69,10 +71,13 @@ const VerticalCards = ({title , data, mediaType, notClickable , qtyAbove1280=5.5
                       })
                     : ""}
                 </h4>
+                <h4 className="text-md font-semibold">
+                  {d.episode_count ? d?.episode_count : "0"} Episodes
+                </h4>
               </div>
             ) : (
               <Link
-              onClick={<MovieDetails /> || <TvDetails />}
+                onClick={<MovieDetails /> || <TvDetails />}
                 to={
                   d.media_type
                     ? `/${d.media_type}/${d.id}`
@@ -91,18 +96,17 @@ const VerticalCards = ({title , data, mediaType, notClickable , qtyAbove1280=5.5
                   }
                   alt={d.name || d.original_title || "Image"}
                 />
-                <h4 className="text-md py-2 font-semibold w-[90%]">
+                <h4 className="text-md pt-2 pb-1 font-semibold w-[90%]">
                   {d.original_title || d.name || d.original_name}
                 </h4>
                 <h4 className="text-md font-semibold">
                   {d.character ? d?.character : ""}
                 </h4>
-              
-                
+
                 <h4>
                   {d?.release_date || d?.first_air_date
                     ? new Date(
-                        d.release_date || d.first_air_date
+                        d?.release_date || d?.first_air_date
                       ).toLocaleDateString("en-US", {
                         month: "short",
                         day: "2-digit",

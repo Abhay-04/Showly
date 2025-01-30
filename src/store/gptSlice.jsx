@@ -12,7 +12,7 @@ const gptSlice = createSlice({
       state.prompt = action.payload;
     },
     removePromptData: (state) => {
-      state.prompt = "";
+      state.prompt = null;
     },
 
     addGPTResultData: (state, action) => {
