@@ -61,15 +61,22 @@ const GptPage = () => {
   return (
     <div className="bg-black text-white min-h-[100vh]">
       <HeaderBrowse />
-      <div className="w-full  text-white px-4 sm:px-20 2xl:px-52 pb-40 sm:pb-20 overflow-hidden">
-        <div className="flex  text-sm sm:text-base sm:justify-center gap-4 mt-4">
+      <div className="w-full flex flex-col  justify-center min-h-[65vh]  md:min-h-[75vh] xl:min-h-[55vh] text-white px-4 sm:px-20 2xl:px-52 pb-40 sm:pb-20 overflow-hidden ">
+        <h1 className=" text-2xl sm:text-4xl xl:text-5xl leading-tight font-bold text-center pb-3 sm:pb-6  ">
+          Discover Your Next Favourite <br></br> Show or Movie
+        </h1>
+        <h1 className="text-sm text-gray-400 font-semibold text-center self-center w-[85vw] sm:w-[70vw] xl:w-[32vw] ">
+          Let ChatGPT help you find the perfect genre , title , or
+          recommendation - just type  what you're in the mood for !
+        </h1>
+        <div className="flex text-sm sm:text-base justify-center items-center gap-4 mt-8">
           <div className="relative flex items-center">
             <i className="ri-search-line absolute left-3 text-gray-400"></i>
             <input
               ref={prompt}
               type="text"
               placeholder={lang[langKey].gptSearchPlaceholder}
-              className="bg-black w-[70vw]  sm:w-[70vw] px-8 sm:px-10 py-2 border border-red-100 rounded-lg text-white placeholder:sm:text-lg placeholder:text-[10px]"
+              className="bg-black w-[70vw]  sm:w-[60vw] xl:w-[50vw] px-8 sm:px-10 py-3 border border-red-100 rounded-lg text-white placeholder:sm:text-lg placeholder:text-[12px]"
               onKeyDown={handleKeyDown} // Listen for Enter key
             />
             <i
@@ -80,7 +87,7 @@ const GptPage = () => {
 
           <button
             onClick={handleSubmit}
-            className="bg-[#E50000] sm:px-6 px-4 py-2 rounded-lg w-max"
+            className="bg-[#E50000] sm:px-6 px-4 py-3 rounded-lg w-max "
           >
             {lang[langKey].search}
           </button>
@@ -95,7 +102,7 @@ const GptPage = () => {
               <div className="my-20 flex flex-col gap-y-10">
                 {tmdbResults.map(
                   (c, index) =>
-                    c.length>0  && (
+                    c.length > 0 && (
                       <VerticalCards
                         key={c.id}
                         data={c}
