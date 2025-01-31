@@ -155,13 +155,20 @@ const MovieDetails = () => {
               </div>
             </div>
 
-            <button
-              onClick={handlePlayTrailer}
-              className="bg-[#E50000] px-4 py-2 rounded-lg w-max "
-            >
-              <i className="ri-play-large-line mr-1"></i>
-              {lang[langKey].playTrailer}
-            </button>
+            {data.videos ? (
+              <button
+                onClick={handlePlayTrailer}
+                className="bg-[#E50000] px-4 py-2 rounded-lg w-max "
+              >
+                <i className="ri-play-large-line mr-1"></i>
+                {lang[langKey].playTrailer}
+              </button>
+            ) : (
+              <button className="bg-[#E50000] px-4 py-2 rounded-lg w-max ">
+                <i className="ri-error-warning-line mr-1"></i>
+                {lang[langKey].trailerNA}
+              </button>
+            )}
 
             {movieTrailerPlay && <YtTrailer trailerKey={data?.videos?.key} />}
           </div>
