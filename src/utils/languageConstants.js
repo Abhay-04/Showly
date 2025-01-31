@@ -26,6 +26,9 @@ const lang = {
     overView: "Overview",
     gptSearchPlaceholder: "Discover your next binge-worthy show...",
     search: "Search",
+    gptHeading: "Discover Your Next Favourite Show or Movie",
+    gptSubHeading:
+      "Let ChatGPT help you find the perfect genre , title , or recommendation - just type what you're in the mood for !",
   },
   hindi: {
     trending: "ट्रेंडिंग",
@@ -54,6 +57,9 @@ const lang = {
     overView: "संक्षिप्त विवरण",
     gptSearchPlaceholder: "अपना अगला दिलचस्प शो खोजें...",
     search: "खोजें",
+    gptHeading: "अपना अगला पसंदीदा शो या मूवी खोजें",
+    gptSubHeading:
+      "ChatGPT को आपकी मदद करने दें सही जॉनर, टाइटल या सिफारिश खोजने में - बस टाइप करें कि आप किस मूड में हैं!",
   },
   spanish: {
     trending: "Tendencia",
@@ -83,6 +89,9 @@ const lang = {
     overView: "Resumen",
     gptSearchPlaceholder: "Descubre tu próximo programa adictivo...",
     search: "Buscar",
+    gptHeading: "Descubre tu próximo programa o película favorita",
+    gptSubHeading:
+      "Deja que ChatGPT te ayude a encontrar el género, título o recomendación perfecta: ¡solo escribe lo que te apetece!",
   },
   telugu: {
     trending: "ట్రెండింగ్‌లో ఉంది",
@@ -112,6 +121,9 @@ const lang = {
     overView: "అవలోకనం",
     gptSearchPlaceholder: "మీ తదుపరి బింజ్-వర్ధీ షోను కనుగొనండి...",
     search: "వెతకండి",
+    gptHeading: "మీ తదుపరి ఇష్టమైన షో లేదా సినిమా కనుగొనండి",
+    gptSubHeading:
+      "ChatGPT మీకు సరైన జానర్, టైటిల్ లేదా సిఫారసును కనుగొనడానికి సహాయం చేయనివ్వండి - మీరు ఏ మూడ్‌లో ఉన్నారో టైప్ చేయండి!",
   },
 };
 
