@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import HeaderBrowse from "./HeaderBrowse";
 import { useDispatch, useSelector } from "react-redux";
 import img from "../assets/noSuggestion2.webp";
@@ -16,6 +16,7 @@ import Loading from "./Loading";
 import lang from "../utils/languageConstants";
 
 const GptPage = () => {
+  const [showAll, setShowAll] = useState(false);
   const prompt = useRef(null);
   const dispatch = useDispatch();
   const tmdbResults = useSelector((store) => store.gpt.tmdbResults);
@@ -23,7 +24,7 @@ const GptPage = () => {
   const promptData = useSelector((store) => store.gpt.prompt);
   const langKey = useSelector((store) => store.config.language);
   const handleSubmit = async () => {
-    const queryText = prompt.current.value.trim();
+    let queryText = prompt.current.value.trim();
     if (!queryText) return; // Prevent empty search
 
     dispatch(removeGPTResultData() && removeTMDBResultData()); // Clear previous results
@@ -52,21 +53,38 @@ const GptPage = () => {
   const handlePromptClear = () => {
     prompt.current.value = "";
   };
+  const handleGenreClick = (value) => {
+    prompt.current.value = value;
+    handleSubmit();
+  };
 
   useEffect(() => {
     // Focus on the prompt input when the page loads
     prompt.current.focus();
   }, []);
 
+  const genres = [
+    "Horror",
+    "Comedy",
+    "Drama",
+    "Action",
+    "Sci-fi",
+    "Thriller",
+    "Romantic",
+    "Mystery",
+    "Family",
+    "Crime",
+  ];
+
   return (
     <div className="bg-black text-white min-h-[100vh]">
       <HeaderBrowse />
-      <div className="w-full flex flex-col  justify-center min-h-[65vh]  md:min-h-[75vh]  2xl:min-h-[55vh] text-white px-4 sm:px-20 2xl:px-52 pb-40 sm:pb-20 overflow-hidden ">
+      <div className="w-full flex flex-col  justify-center items-center min-h-[65vh]  md:min-h-[75vh]  2xl:min-h-[80vh] text-white px-4 sm:px-20 2xl:px-52 pb-40 sm:pb-20 overflow-hidden ">
         <h1 className=" text-2xl sm:text-4xl xl:text-5xl leading-tight font-bold  pb-3 sm:pb-6 text-center self-center w-[85vw] sm:w-[45vw] md:w-[50vw] 2xl:w-[35vw] ">
           {lang[langKey].gptHeading}
         </h1>
         <h1 className="text-sm text-gray-400 font-semibold text-center self-center w-[85vw] md:w-[45vw] sm:w-[70vw] 2xl:w-[32vw] ">
-        {lang[langKey].gptSubHeading}
+          {lang[langKey].gptSubHeading}
         </h1>
         <div className="flex text-sm sm:text-base justify-center items-center gap-4 mt-8">
           <div className="relative flex items-center">
@@ -91,12 +109,31 @@ const GptPage = () => {
             {lang[langKey].search}
           </button>
         </div>
+      
 
-        {promptData ? (
+        <div className="flex justify-center items-center  gap-2  sm:gap-x-4 sm:gap-y-2 pt-6 pb-6 sm:pb-12 flex-wrap">
+          {genres.slice(0, showAll ? genres.length : 3).map((genre) => (
+            <button
+              key={genre}
+              onClick={() => handleGenreClick(genre)}
+              className=" text-gray-200 px-6 py-2  rounded-full border-gray-600 border-2"
+            >
+              {genre}
+            </button>
+          ))}
+          <button
+            onClick={() => setShowAll(!showAll)}
+            className="px-6 py-2  text-gray-200 rounded-full border-gray-600 border-2 "
+          >
+            {showAll ? "Show Less" : "More"}
+          </button>
+        </div>
+       <div className="w-full">
+       {promptData ? (
           <div>
             {" "}
             {tmdbResults == null ? (
-              <Loading />
+              <Loading text={"start"} />
             ) : (
               <div className="my-20 flex flex-col gap-y-10">
                 {tmdbResults.map(
@@ -115,6 +152,7 @@ const GptPage = () => {
         ) : (
           <h1 className="text-center mt-11"></h1>
         )}
+       </div>
       </div>
     </div>
   );

@@ -1,12 +1,12 @@
 
-import { CircleLoader, PulseLoader } from 'react-spinners'
+import {  PulseLoader } from 'react-spinners'
 
-const Loading = () => {
+const Loading = ({text = "center"}) => {
   return (
-    <div className='flex justify-center items-center w-full h-[100vh] bg-black'>
+    <div className={`flex justify-center items-${text} w-full h-[100vh] bg-black`}>
    
       <PulseLoader size={10} color='#E50000'  speedMultiplier={1}/> 
-      {/* <CircleLoader size={85} color='#E50000'  speedMultiplier={2}/> / */}
+      
      
       
     </div>
