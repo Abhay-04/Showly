@@ -111,7 +111,7 @@ const PersonDetails = () => {
                 <div>
                   {" "}
                   <h3 className="font-bold">Known For</h3>
-                  <p>{data.details.known_for_department}</p>
+                  {data.details.known_for_department ? <p>{data.details.known_for_department}</p> : "N/A"}
                 </div>
                 <div>
                   {" "}
@@ -121,7 +121,7 @@ const PersonDetails = () => {
                 <div>
                   {" "}
                   <h3 className="font-bold">Birthday</h3>
-                  <p>
+                  {data.details.birthday ?<p>
                     {(() => {
                       const birthday = new Date(data.details.birthday);
                       const options = {
@@ -140,14 +140,14 @@ const PersonDetails = () => {
 
                       return `${formattedDate} (${age} years old)`;
                     })()}
-                  </p>
+                  </p> : "N/A"}
                 </div>
                 <div>
                   {" "}
                   <h3 className="font-bold">Place of Birth</h3>
-                  <p>{data.details.place_of_birth}</p>
+                  {data.details.place_of_birth ? <p>{data.details.place_of_birth}</p> : "N/A"}
                 </div>
-                <div>
+              { data.details.also_known_as.length > 0 &&  <div>
                   {" "}
                   <h3 className="font-bold">Also Known as</h3>
                   <div className="mt-2 text-wrap">
@@ -157,7 +157,7 @@ const PersonDetails = () => {
                       </p>
                     ))}
                   </div>
-                </div>
+                </div>}
               </div>
             </div>
           </div>

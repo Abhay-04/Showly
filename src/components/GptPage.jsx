@@ -14,6 +14,7 @@ import gptToTmdbDataAsync from "../store/actions/gptToTmdb";
 import VerticalCards from "./VerticalCards";
 import Loading from "./Loading";
 import lang from "../utils/languageConstants";
+import { genres } from "../utils/constants";
 
 const GptPage = () => {
   const [showAll, setShowAll] = useState(false);
@@ -63,18 +64,7 @@ const GptPage = () => {
     prompt.current.focus();
   }, []);
 
-  const genres = [
-    "Horror",
-    "Comedy",
-    "Drama",
-    "Action",
-    "Sci-fi",
-    "Thriller",
-    "Romantic",
-    "Mystery",
-    "Family",
-    "Crime",
-  ];
+  
 
   return (
     <div className="bg-black text-white min-h-[100vh]">
@@ -109,7 +99,6 @@ const GptPage = () => {
             {lang[langKey].search}
           </button>
         </div>
-      
 
         <div className="flex justify-center items-center  gap-2  sm:gap-x-4 sm:gap-y-2 pt-6 pb-6 sm:pb-12 flex-wrap">
           {genres.slice(0, showAll ? genres.length : 3).map((genre) => (
@@ -128,31 +117,31 @@ const GptPage = () => {
             {showAll ? "Show Less" : "More"}
           </button>
         </div>
-       <div className="w-full">
-       {promptData ? (
-          <div>
-            {" "}
-            {tmdbResults == null ? (
-              <Loading text={"start"} />
-            ) : (
-              <div className="my-20 flex flex-col gap-y-10">
-                {tmdbResults.map(
-                  (c, index) =>
-                    c.length > 0 && (
-                      <VerticalCards
-                        key={c.id}
-                        data={c}
-                        title={gptResults[index]}
-                      />
-                    )
-                )}
-              </div>
-            )}{" "}
-          </div>
-        ) : (
-          <h1 className="text-center mt-11"></h1>
-        )}
-       </div>
+        <div className="w-full">
+          {promptData ? (
+            <div>
+              {" "}
+              {tmdbResults == null ? (
+                <Loading text={"start"} />
+              ) : (
+                <div className="my-20 flex flex-col gap-y-10">
+                  {tmdbResults.map(
+                    (c, index) =>
+                      c.length > 0 && (
+                        <VerticalCards
+                          key={c.id}
+                          data={c}
+                          title={gptResults[index]}
+                        />
+                      )
+                  )}
+                </div>
+              )}{" "}
+            </div>
+          ) : (
+            <h1 className="text-center mt-11"></h1>
+          )}
+        </div>
       </div>
     </div>
   );

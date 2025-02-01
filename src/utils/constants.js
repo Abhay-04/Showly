@@ -20,3 +20,16 @@ export const SUPPORTED_LANGUAGES = [
 ];
 
 export const OPENAI_KEY = import.meta.env.VITE_OPENAI_KEY;
+
+export const genres = [
+  "Horror",
+  "Comedy",
+  "Drama",
+  "Action",
+  "Sci-fi",
+  "Thriller",
+  "Romantic",
+  "Mystery",
+  "Family",
+  "Crime",
+];
