@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import HeaderBrowse from "./HeaderBrowse";
 import { useDispatch, useSelector } from "react-redux";
-import img from "../assets/noSuggestion2.webp";
 
 import openAI from "../utils/openai";
 import {
@@ -100,7 +99,7 @@ const GptPage = () => {
           </button>
         </div>
 
-        <div className="flex justify-center items-center  gap-2  sm:gap-x-4 sm:gap-y-2 pt-6 pb-6 sm:pb-12 flex-wrap">
+        <div className="flex justify-center items-center  gap-2  sm:gap-x-4 sm:gap-y-2 pt-6 pb-6 sm:pb-12 flex-wrap sm:w-[80%] xl:w-[50%]">
           {genres.slice(0, showAll ? genres.length : 3).map((genre) => (
             <button
               key={genre}

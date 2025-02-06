@@ -1,7 +1,7 @@
 
 import {  PulseLoader } from 'react-spinners'
 
-const Loading = ({text = "center"}) => {
+const Loading = ({text="center"}) => {
   return (
     <div className={`flex justify-center items-${text} w-full h-[100vh] bg-black`}>
    

@@ -1,39 +1,30 @@
 import { Link } from "react-router-dom";
 import { NO_IMAGE_URL } from "../utils/constants";
+
 const Cards = ({ data, title }) => {
-  console.log(data);
   return (
-    <div className="overflow-hidden grid  gap-x-4 gap-y-8 sm:gap-x-6 sm:gap-y-16 grid-cols-12 px-4 sm:px-8 mt-8  ">
+    <div className="overflow-hidden grid gap-x-4 gap-y-8 sm:gap-x-6 sm:gap-y-16 grid-cols-12 px-4 sm:px-8 mt-8">
       {data.map((d) => (
         <div
-          className="col-span-6 sm:col-span-4 xl:col-span-3 2xl:col-span-2 "
+          className="col-span-6 sm:col-span-4 xl:col-span-3 2xl:col-span-2 transform transition duration-600 hover:scale-105 "
           key={d.id}
         >
-          <Link
-            to={`/${d.media_type || title}/${d.id}`}
-            className="text-white  "
-          >
-            {d.backdrop_path || d.profile_path || d.poster_path ? (
+          <Link to={`/${d.media_type || title}/${d.id}`} className="text-white">
+            <div className="relative rounded-xl overflow-hidden">
               <img
                 alt={d.id}
-                className="w-full h-[180px] sm:h-[260px] 2xl:h-[320px] rounded-xl  object-center object-cover  
-               "
+                className="w-full h-[180px] sm:h-[260px] 2xl:h-[320px] object-center object-cover"
                 src={
-                  d.backdrop_path || d.profile_path || d.poster_path === null
+                  d.backdrop_path || d.profile_path || d.poster_path
                     ? `https://image.tmdb.org/t/p/w500/${
                         d.backdrop_path || d.profile_path || d.poster_path
                       } `
                     : NO_IMAGE_URL
                 }
               />
-            ) : (
-              <img
-                className="w-full h-[180px] sm:h-[260px] 2xl:h-[320px] rounded-xl  object-center object-cover  
-            "
-                src={NO_IMAGE_URL}
-              />
-            )}
-            <h4 className=" text-base sm:text-md  font-semibold pt-2">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+            </div>
+            <h4 className="text-base sm:text-md font-semibold pt-2">
               {d.original_title || d.title || d.name || d.original_name}
             </h4>
             {d.release_date || d.first_air_date ? (
@@ -41,9 +32,9 @@ const Cards = ({ data, title }) => {
                 {new Date(
                   d.release_date || d.first_air_date
                 ).toLocaleDateString("en-US", {
-                  month: "short", // Short form for months (e.g., Jan, Feb, Mar)
-                  day: "2-digit", // Two-digit day (e.g., 23)
-                  year: "numeric", // Full year (e.g., 2024)
+                  month: "short",
+                  day: "2-digit",
+                  year: "numeric",
                 })}
               </h4>
             ) : null}

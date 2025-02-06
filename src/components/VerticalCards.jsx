@@ -20,7 +20,7 @@ const VerticalCards = ({
 }) => {
   return (
     <div className="">
-      <div className=" text-xl sm:text-2xl font-bold mb-4">{title}</div>
+      <div className="text-xl sm:text-2xl font-bold mb-4">{title}</div>
       <Swiper
         spaceBetween={0}
         breakpoints={{
@@ -41,8 +41,8 @@ const VerticalCards = ({
         {data.map((d) => (
           <SwiperSlide key={d.id}>
             {notClickable ? (
-              <div className="text-white">
-                {d.backdrop_path || d.profile_path || d.poster_path ? (
+              <div className="text-white bg-white/10 backdrop-blur-lg rounded-xl p-4 shadow-lg transform transition duration-300 hover:scale-105">
+                <div className="relative rounded-xl overflow-hidden">
                   <img
                     className="w-[85%] h-auto sm:h-[260px] 2xl:h-[320px] rounded-xl object-cover object-top"
                     src={
@@ -54,19 +54,14 @@ const VerticalCards = ({
                     }
                     alt={d.name || d.original_title || "Image"}
                   />
-                ) : (
-                  <img
-                    className="w-[85%] h-auto sm:h-[260px] 2xl:h-[320px] rounded-xl object-cover object-top"
-                    src={NO_IMAGE_URL}
-                  />
-                )}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                </div>
                 <h4 className="text-md pt-2 pb-1 font-semibold w-[90%]">
                   {d.original_title || d.name || d.original_name}
                 </h4>
                 <h4 className="text-md font-semibold">
                   {d.character ? d?.character : ""}
                 </h4>
-
                 <h4>
                   {d?.release_date || d?.first_air_date || d?.air_date
                     ? new Date(
@@ -90,9 +85,9 @@ const VerticalCards = ({
                     ? `/${d.media_type}/${d.id}`
                     : `/${mediaType}/${d.id}`
                 }
-                className="text-white"
+                className="text-white bg-white/10 backdrop-blur-lg rounded-xl p-4 "
               >
-                {d.backdrop_path || d.profile_path || d.poster_path ? (
+                <div className="relative rounded-xl overflow-hidden shadow-lg transform transition duration-300 hover:scale-105">
                   <img
                     className="w-[85%] h-[260px] sm:h-[260px] 2xl:h-[320px] rounded-xl object-cover object-top"
                     src={
@@ -104,19 +99,14 @@ const VerticalCards = ({
                     }
                     alt={d.name || d.original_title || "Image"}
                   />
-                ) : (
-                  <img
-                    className="w-[85%] h-[260px] sm:h-[260px] 2xl:h-[320px] rounded-xl object-cover object-top"
-                    src={NO_IMAGE_URL}
-                  />
-                )}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+                </div>
                 <h4 className="text-md pt-2 pb-1 font-semibold w-[90%]">
                   {d.original_title || d.name || d.original_name}
                 </h4>
                 <h4 className="text-md font-semibold">
                   {d.character ? d?.character : ""}
                 </h4>
-
                 <h4>
                   {d?.release_date || d?.first_air_date
                     ? new Date(
