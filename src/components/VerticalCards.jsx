@@ -41,12 +41,12 @@ const VerticalCards = ({
         {data.map((d) => (
           <SwiperSlide key={d.id}>
             {notClickable ? (
-              <div className="text-white bg-white/10 backdrop-blur-lg rounded-xl p-4 shadow-lg transform transition duration-300 hover:scale-105">
+              <div className="text-white  rounded-xl p-4 shadow-lg transform transition duration-300 hover:scale-105">
                 <div className="relative rounded-xl overflow-hidden">
                   <img
                     className="w-[85%] h-auto sm:h-[260px] 2xl:h-[320px] rounded-xl object-cover object-top"
                     src={
-                      d.backdrop_path !== null
+                      d.backdrop_path || d.profile_path || d.poster_path 
                         ? `https://image.tmdb.org/t/p/original/${
                             d.backdrop_path || d.profile_path || d.poster_path
                           }`
@@ -85,13 +85,13 @@ const VerticalCards = ({
                     ? `/${d.media_type}/${d.id}`
                     : `/${mediaType}/${d.id}`
                 }
-                className="text-white bg-white/10 backdrop-blur-lg rounded-xl p-4 "
+                className="text-white  rounded-xl p-4 "
               >
                 <div className="relative rounded-xl overflow-hidden shadow-lg transform transition duration-300 hover:scale-105">
                   <img
                     className="w-[85%] h-[260px] sm:h-[260px] 2xl:h-[320px] rounded-xl object-cover object-top"
                     src={
-                      d.backdrop_path !== null
+                      d.backdrop_path || d.profile_path || d.poster_path 
                         ? `https://image.tmdb.org/t/p/original/${
                             d.backdrop_path || d.profile_path || d.poster_path
                           }`

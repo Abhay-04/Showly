@@ -42,6 +42,8 @@ const BrowseContent = () => {
   return (
     <div className="">
       <div
+
+        
         className={`relative h-[60vh] ${
           !videoMutedStatus ? "2xl:h-[85vh]" : "sm:h-[55vh]"
         } aspect-video w-full  ${

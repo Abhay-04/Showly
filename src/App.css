@@ -4,18 +4,15 @@
   overflow-y: auto; /* Allows vertical scrolling */
   scrollbar-width: none; /* Hides scrollbar in Firefox */
   -ms-overflow-style: none; /* Hides scrollbar in Internet Explorer */
-  
 }
 
 .infinite-scroll-container::-webkit-scrollbar {
   display: none; /* Hides scrollbar in Chrome, Safari, and Edge */
-
 }
 
 /* width */
 ::-webkit-scrollbar {
   width: 2px;
-
 }
 
 /* Track */
@@ -25,15 +22,14 @@
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #E50000;
+  background: #e50000;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #E50000;
+  background: #e50000;
   cursor: pointer;
 }
-
 
 @tailwind base;
 @tailwind components;
