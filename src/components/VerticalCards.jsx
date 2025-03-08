@@ -46,7 +46,7 @@ const VerticalCards = ({
                   <img
                     className="w-[85%] h-auto sm:h-[260px] 2xl:h-[320px] rounded-xl object-cover object-top"
                     src={
-                      d.backdrop_path || d.profile_path || d.poster_path 
+                      d.backdrop_path || d.profile_path || d.poster_path
                         ? `https://image.tmdb.org/t/p/original/${
                             d.backdrop_path || d.profile_path || d.poster_path
                           }`
@@ -91,7 +91,7 @@ const VerticalCards = ({
                   <img
                     className="w-[85%] h-[260px] sm:h-[260px] 2xl:h-[320px] rounded-xl object-cover object-top"
                     src={
-                      d.backdrop_path || d.profile_path || d.poster_path 
+                      d.backdrop_path || d.profile_path || d.poster_path
                         ? `https://image.tmdb.org/t/p/original/${
                             d.backdrop_path || d.profile_path || d.poster_path
                           }`
