@@ -6,7 +6,6 @@ import { Provider } from "react-redux";
 import appStore from "./store/appStore.jsx";
 import Loading from "./components/Loading.jsx";
 
-
 const Browse = lazy(() => import("./components/Browse.jsx"));
 const BrowseContent = lazy(() => import("./components/BrowseContent.jsx"));
 const Error = lazy(() => import("./components/Error.jsx"));
@@ -99,7 +98,6 @@ const router = createBrowserRouter([
           </Suspense>
         ),
       },
-     
     ],
     errorElement: (
       <Suspense fallback={<Loading />}>
@@ -126,7 +124,7 @@ const router = createBrowserRouter([
   {
     path: "/person/:id",
     element: (
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<Loading />}>
         <PersonDetails />
       </Suspense>
     ),
